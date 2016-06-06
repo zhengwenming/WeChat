@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>emotion0</key>
+	<string>section0_emotion0</string>
+	<key>emotion1</key>
+	<string>section0_emotion1</string>
+	<key>emotion2</key>
+	<string>section0_emotion2</string>
+	<key>emotion3</key>
+	<string>section0_emotion3</string>
+	<key>emotion4</key>
+	<string>section0_emotion4</string>
+	<key>emotion5</key>
+	<string>section0_emotion5</string>
+	<key>emotion6</key>
+	<string>section0_emotion6</string>
+	<key>emotion7</key>
+	<string>section0_emotion7</string>
+	<key>emotion8</key>
+	<string>section0_emotion8</string>
+	<key>emotion9</key>
+	<string>section0_emotion9</string>
+	<key>emotion10</key>
+	<string>section0_emotion10</string>
+	<key>emotion11</key>
+	<string>section0_emotion11</string>
+	<key>emotion12</key>
+	<string>section0_emotion12</string>
+	<key>emotion13</key>
+	<string>section0_emotion13</string>
+	<key>emotion14</key>
+	<string>section0_emotion14</string>
+</dict>
+</plist>

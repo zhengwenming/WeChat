@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="82" id="KGk-i7-Jjw" customClass="PersonCenterHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="81.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-Ju-W07">
+                        <rect key="frame" x="8" y="7" width="66" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="aZj-Ju-W07" secondAttribute="height" multiplier="1:1" id="aDP-3n-wIq"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="2x2-Kd-rmz">
+                        <rect key="frame" x="270" y="31" width="17" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2x2-Kd-rmz" secondAttribute="height" multiplier="17:20" id="GtC-aa-Pe2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M4-hK-NBi">
+                        <rect key="frame" x="82" y="8" width="163" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2x2-Kd-rmz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="2tQ-KO-4gs"/>
+                    <constraint firstItem="7M4-hK-NBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="B8L-rY-UVQ"/>
+                    <constraint firstItem="7M4-hK-NBi" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="8" id="Ee1-1A-ldC"/>
+                    <constraint firstAttribute="bottom" secondItem="aZj-Ju-W07" secondAttribute="bottom" constant="8.5" id="NF6-2s-JTJ"/>
+                    <constraint firstAttribute="bottom" secondItem="2x2-Kd-rmz" secondAttribute="bottom" constant="30.5" id="Pot-ci-8fe"/>
+                    <constraint firstItem="aZj-Ju-W07" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="R10-We-Azp"/>
+                    <constraint firstAttribute="trailing" secondItem="7M4-hK-NBi" secondAttribute="trailing" constant="42" id="efb-kk-Rqq"/>
+                    <constraint firstAttribute="trailing" secondItem="2x2-Kd-rmz" secondAttribute="trailing" id="isQ-8H-yNt"/>
+                    <constraint firstAttribute="bottom" secondItem="7M4-hK-NBi" secondAttribute="bottom" constant="52.5" id="koJ-jo-4lO"/>
+                    <constraint firstItem="aZj-Ju-W07" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lHO-T7-cRr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="250" y="337"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avatar.png" width="55" height="55"/>
+        <image name="qrcode" width="17" height="17"/>
+    </resources>
+</document>
