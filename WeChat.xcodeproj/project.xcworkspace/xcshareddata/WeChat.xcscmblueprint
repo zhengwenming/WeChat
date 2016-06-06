@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2EC85B8C592CCB280FFF35553C87D09BA745C035",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "be73ea83-1ef3-4b60-8caa-c8a69a106ff0++9413" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "be73ea83-1ef3-4b60-8caa-c8a69a106ff0++9413" : 0,
+    "2EC85B8C592CCB280FFF35553C87D09BA745C035" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8A8A5A88-5030-4D57-97F3-351AE936F496",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "be73ea83-1ef3-4b60-8caa-c8a69a106ff0++9413" : "WeChat\/WeChat\/ThirdLib\/SDWebImage\/",
+    "2EC85B8C592CCB280FFF35553C87D09BA745C035" : "WeChat\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WeChat",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WeChat.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhengwenming\/WeChat",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2EC85B8C592CCB280FFF35553C87D09BA745C035"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/finalversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "be73ea83-1ef3-4b60-8caa-c8a69a106ff0++9413"
+    }
+  ]
+}

@@ -450,6 +450,7 @@
 		70C81D9B1D04208B00D86903 /* sharemore_video@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81C9E1D04208B00D86903 /* sharemore_video@3x.png */; };
 		70C81D9C1D04208B00D86903 /* sp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81C9F1D04208B00D86903 /* sp@2x.png */; };
 		70C81D9D1D04208B00D86903 /* yy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81CA01D04208B00D86903 /* yy@2x.png */; };
+		70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70F4B0CE1D0515CF0002924F /* WeChat.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1033,6 +1034,7 @@
 		70C81C9E1D04208B00D86903 /* sharemore_video@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sharemore_video@3x.png"; sourceTree = "<group>"; };
 		70C81C9F1D04208B00D86903 /* sp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp@2x.png"; sourceTree = "<group>"; };
 		70C81CA01D04208B00D86903 /* yy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yy@2x.png"; sourceTree = "<group>"; };
+		70F4B0CE1D0515CF0002924F /* WeChat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WeChat.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1190,6 +1192,7 @@
 				70BB726A1D02A8A70003B379 /* main.m */,
 				70BB727A1D02A8A70003B379 /* Info.plist */,
 				70BB73281D02AC550003B379 /* data.json */,
+				70F4B0CE1D0515CF0002924F /* WeChat.gif */,
 				70BB731A1D02A95E0003B379 /* WeChat.pch */,
 			);
 			name = "Supporting Files";
@@ -3030,6 +3033,7 @@
 				70B5BE7B1D0472B7003A7CF2 /* 20.jpg in Resources */,
 				70C81CEC1D04208B00D86903 /* f_static_022@2x.png in Resources */,
 				70C81D1E1D04208B00D86903 /* f_static_047@2x.png in Resources */,
+				70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */,
 				70C81D471D04208B00D86903 /* f_static_067@3x.png in Resources */,
 				70C81D561D04208B00D86903 /* f_static_075@2x.png in Resources */,
 				70C81D441D04208B00D86903 /* f_static_066@2x.png in Resources */,
