@@ -178,6 +178,8 @@
     
     //九宫格
     cell.tapBlock = ^(NSInteger index,NSArray *dataSource){
+        [weakSelf.chatKeyBoard keyboardDownForComment];
+
         //1.创建图片浏览器
         MJPhotoBrowser *brower = [[MJPhotoBrowser alloc] init];
         NSMutableArray *photosArray = [NSMutableArray array];

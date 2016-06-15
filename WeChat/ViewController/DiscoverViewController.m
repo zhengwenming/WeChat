@@ -10,7 +10,6 @@
 
 #import "DiscoverViewController.h"
 #import "PersonCenterCell.h"
-#import "CommentViewController.h"
 
 @interface DiscoverViewController ()<UITableViewDelegate,UITableViewDataSource>{
     UITableView *discoverTable;
@@ -19,7 +18,13 @@
 @end
 
 @implementation DiscoverViewController
-
+///懒加载评论页面（朋友圈页面）
+-(CommentViewController *)commentVC{
+    if (_commentVC==nil) {
+        _commentVC = [[CommentViewController alloc]init];
+    }
+    return _commentVC;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTable];
@@ -103,8 +108,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section==0) {
-        CommentViewController *commentVC = [[CommentViewController alloc]init];
-        [self.navigationController pushViewController:commentVC animated:YES];
+        [self.navigationController pushViewController:self.commentVC animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {

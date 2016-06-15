@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CommentViewController.h"
 
 @interface DiscoverViewController : BaseViewController
-
+@property(nonatomic,strong)CommentViewController *commentVC;
 @end
