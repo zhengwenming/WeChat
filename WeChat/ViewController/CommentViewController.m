@@ -118,12 +118,6 @@
         MessageModel *messageModel = [[MessageModel alloc] initWithDic:eachDic];
         [self.dataSource addObject:messageModel];
     }
-    for (NSDictionary *eachDic in JSONDic[@"data"][@"rows"]) {
-        MessageModel *messageModel = [[MessageModel alloc] initWithDic:eachDic];
-        [self.dataSource addObject:messageModel];
-    }
-   
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
