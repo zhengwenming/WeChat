@@ -51,7 +51,7 @@
     JGGView *jggView1 = [JGGView new];
     [self.view addSubview:jggView1];
     
-    [jggView1 JGGView:jggView1 DataSource:picArray1 completeBlock:^(NSInteger index, NSArray *dataSource) {
+    [jggView1 JGGView:jggView1 DataSource:picArray1 completeBlock:^(NSInteger index, NSArray *dataSource,NSIndexPath *indexpath) {
         NSLog(@"%li",(long)index);
     }];
     jggView1.backgroundColor = [UIColor cyanColor];
@@ -92,7 +92,7 @@
     JGGView *jggView2 = [JGGView new];
     [self.view addSubview:jggView2];
     
-    [jggView2 JGGView:jggView2 DataSource:picArray2 completeBlock:^(NSInteger index, NSArray *dataSource) {
+    [jggView2 JGGView:jggView2 DataSource:picArray2 completeBlock:^(NSInteger index, NSArray *dataSource,NSIndexPath *indexpath) {
         NSLog(@"%li",(long)index);
     }];
     jggView2.backgroundColor = [UIColor cyanColor];
@@ -132,7 +132,7 @@
     JGGView *jggView3 = [JGGView new];
     [self.view addSubview:jggView3];
     
-    [jggView3 JGGView:jggView3 DataSource:picArray3 completeBlock:^(NSInteger index, NSArray *dataSource) {
+    [jggView3 JGGView:jggView3 DataSource:picArray3 completeBlock:^(NSInteger index, NSArray *dataSource,NSIndexPath *indexpath) {
         NSLog(@"%li",(long)index);
     }];
     jggView3.backgroundColor = [UIColor redColor];

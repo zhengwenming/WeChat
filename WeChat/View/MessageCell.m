@@ -43,8 +43,8 @@
         // nameLabel
         self.nameLabel = [UILabel new];
         [self.contentView addSubview:self.nameLabel];
-        self.nameLabel.textColor = [UIColor colorWithRed:(54 / 255.0) green:(71 / 255.0) blue:(121 / 255.0) alpha:0.9];
-        self.nameLabel.preferredMaxLayoutWidth = screenWidth - kGAP-kAvatar_Size - 2*kGAP;
+        self.nameLabel.textColor = [UIColor colorWithRed:(54/255.0) green:(71/255.0) blue:(121/255.0) alpha:0.9];
+        self.nameLabel.preferredMaxLayoutWidth = screenWidth - kGAP-kAvatar_Size - 2*kGAP-kGAP;
         self.nameLabel.numberOfLines = 0;
 //        self.nameLabel.displaysAsynchronously = YES;
         self.nameLabel.font = [UIFont systemFontOfSize:14.0];
@@ -56,10 +56,12 @@
         // desc
         self.descLabel = [UILabel new];
 //        self.descLabel.displaysAsynchronously = YES;
-        self.descLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
         
+        self.descLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        UITapGestureRecognizer *tapText = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapText:)];
+        [self.descLabel addGestureRecognizer:tapText];
         [self.contentView addSubview:self.descLabel];
-        self.descLabel.preferredMaxLayoutWidth =screenWidth - kGAP-kAvatar_Size - 2*kGAP;
+        self.descLabel.preferredMaxLayoutWidth =screenWidth - kGAP-kAvatar_Size ;
         self.descLabel.numberOfLines = 0;
         self.descLabel.font = [UIFont systemFontOfSize:14.0];
         [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,6 +134,12 @@
     
     return self;
 }
+-(void)tapText:(UITapGestureRecognizer *)tap{
+    if (self.TapTextBlock) {
+        UILabel *descLabel = (UILabel *)tap.view;
+        self.TapTextBlock(descLabel);
+    }
+}
 -(void)moreAction:(UIButton *)sender{
 //    sender.selected = !sender.selected;
     if (self.MoreBtnClickBlock) {
@@ -147,8 +155,6 @@
     self.indexPath = indexPath;
     
     self.nameLabel.text = model.userName;
-    self.descLabel.text = model.message;
-    
     
     
     
@@ -203,8 +209,22 @@
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.messageModel = model;
     NSMutableParagraphStyle *muStyle = [[NSMutableParagraphStyle alloc]init];
-    muStyle.lineSpacing = 2;
+    muStyle.lineSpacing = 3;//设置行间距离
+    muStyle.alignment = NSTextAlignmentLeft;//对齐方式
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:model.message];
+     [attrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, attrString.length)];
+    [attrString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, attrString.length)];//下划线
+
+    [attrString addAttribute:NSParagraphStyleAttributeName value:muStyle range:NSMakeRange(0, attrString.length)];
+    self.descLabel.attributedText = attrString;
+    
+    self.descLabel.highlightedTextColor = [UIColor redColor];//设置文本高亮显示颜色，与highlighted一起使用。
+    self.descLabel.highlighted = YES; //高亮状态是否打开
+    self.descLabel.enabled = YES;//设置文字内容是否可变
+    self.descLabel.userInteractionEnabled = YES;//设置标签是否忽略或移除用户交互。默认为NO
+    
     NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14.0],NSParagraphStyleAttributeName:muStyle};
+
     CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
     
     if (h<=60) {
@@ -248,9 +268,11 @@
         jjg_height = 3*([JGGView imageHeight]+kJGG_GAP)-kJGG_GAP;
         jjg_width  = 3*([JGGView imageWidth]+kJGG_GAP)-kJGG_GAP;
     }
+    ///解决图片复用问题
     [self.jggView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self.jggView JGGView:self.jggView DataSource:model.messageBigPics completeBlock:^(NSInteger index, NSArray *dataSource) {
-        self.tapBlock(index,dataSource);
+    ///布局九宫格
+    [self.jggView JGGView:self.jggView DataSource:model.messageBigPics completeBlock:^(NSInteger index, NSArray *dataSource,NSIndexPath *indexpath) {
+        self.tapImageBlock(index,dataSource,self.indexPath);
     }];
     [self.jggView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.moreBtn);
@@ -264,9 +286,9 @@
             CommentCell *cell = (CommentCell *)sourceCell;
             [cell configCellWithModel:commentModel];
         } cache:^NSDictionary *{
-            return @{kHYBCacheUniqueKey : commentModel.uid,
+            return @{kHYBCacheUniqueKey : commentModel.commentId,
                      kHYBCacheStateKey : @"",
-                     kHYBRecalculateForStateKey : @(NO)};
+                     kHYBRecalculateForStateKey : @(YES)};
         }];
         tableViewHeight += cellHeight;
     }
@@ -300,7 +322,7 @@
         CommentCell *cell = (CommentCell *)sourceCell;
         [cell configCellWithModel:model];
     } cache:^NSDictionary *{
-         NSDictionary *cache = @{kHYBCacheUniqueKey : model.uid,
+         NSDictionary *cache = @{kHYBCacheUniqueKey : model.commentId,
                  kHYBCacheStateKey : @"",
                  kHYBRecalculateForStateKey : @(NO)};
 //        model.shouldUpdateCache = NO;
@@ -327,7 +349,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

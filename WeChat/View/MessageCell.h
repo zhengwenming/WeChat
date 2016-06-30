@@ -35,10 +35,14 @@
 
 
 /**
- *  浏览图片等block
+ *  点击图片的block
  */
-@property (nonatomic, copy)TapBlcok tapBlock;
+@property (nonatomic, copy)TapBlcok tapImageBlock;
 
+/**
+ *  点击文字的block
+ */
+@property (nonatomic, copy)void(^TapTextBlock)(UILabel *desLabel);
 
 @property (nonatomic, weak) id<ReloadMessageCellHightDelegate> delegate;
 

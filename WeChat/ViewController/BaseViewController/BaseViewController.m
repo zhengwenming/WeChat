@@ -14,29 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-
-    
-  
-        
-            //using it for size debug
-//            [MMPlaceHolderConfig defaultConfig].lineColor = [UIColor redColor];
-//            [MMPlaceHolderConfig defaultConfig].lineWidth = 1;
-//            [MMPlaceHolderConfig defaultConfig].arrowSize = 5;
-//            [MMPlaceHolderConfig defaultConfig].backColor = [UIColor clearColor];
-//            [MMPlaceHolderConfig defaultConfig].frameWidth = 0.0;
-//            [MMPlaceHolderConfig defaultConfig].visibleKindOfClasses = @[UIImageView.class,UIView.class,UILabel.class,UIButton.class,UITableViewCell.class];
-    
-            //using it for frame debug
-//            [MMPlaceHolderConfig defaultConfig].autoDisplay = YES;
-//            [MMPlaceHolderConfig defaultConfig].autoDisplaySystemView = NO;
-//            [MMPlaceHolderConfig defaultConfig].showArrow = YES;
-//            [MMPlaceHolderConfig defaultConfig].showText = YES;
-    
-            //using it to control global visible
-            //   [MMPlaceHolderConfig defaultConfig].visible = YES;
-            
-    
+    self.view.backgroundColor = [UIColor whiteColor]; 
 }
 
 - (void)didReceiveMemoryWarning {

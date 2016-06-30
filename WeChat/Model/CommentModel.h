@@ -38,7 +38,6 @@
 
 @interface CommentModel : NSObject
 
-@property (nonatomic, copy) NSString *uid;
 @property (nonatomic, assign) BOOL isExpand;
 
 @property(nonatomic,copy)NSString *commentId;

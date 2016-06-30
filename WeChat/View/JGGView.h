@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDPhotoBrowser.h"
+
 ///九宫格图片间隔
 #define kJGG_GAP 5
 /**
@@ -14,9 +16,9 @@
  *  @param index      点击index
  *  @param dataSource 数据源
  */
-typedef void (^TapBlcok)(NSInteger index,NSArray *dataSource);
+typedef void (^TapBlcok)(NSInteger index,NSArray *dataSource,NSIndexPath *indexpath);
 
-@interface JGGView : UIView
+@interface JGGView : UIView<SDPhotoBrowserDelegate>
 /**
  *  九宫格显示的数据源，dataSource中可以放UIImage对象和NSString(http://sjfjfd.cjf.jpg)，还有NSURL也可以
  */
@@ -25,7 +27,10 @@ typedef void (^TapBlcok)(NSInteger index,NSArray *dataSource);
  *  TapBlcok
  */
 @property (nonatomic, copy)TapBlcok  tapBlock;
-
+/**
+ *  TapBlcok
+ */
+@property (nonatomic, copy)NSIndexPath  *indexpath;
 /**
  *  Description 九宫格
  *

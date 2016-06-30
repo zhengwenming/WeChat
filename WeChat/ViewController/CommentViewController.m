@@ -9,8 +9,6 @@
 #import "CommentViewController.h"
 #import "MessageCell.h"
 #import "MessageModel.h"
-#import "MJPhotoBrowser.h"
-#import "MJPhoto.h"
 
 //键盘
 #import "ChatKeyBoard.h"
@@ -94,12 +92,13 @@
 }
 - (void)chatKeyBoardSendText:(NSString *)text{
     MessageModel *messageModel = [self.dataSource objectAtIndex:self.currentIndexPath.row];
+    messageModel.shouldUpdateCache = YES;
     CommentModel *model = [[CommentModel alloc] init];
 //    model.commentUserName = messageModel.userName;
     model.commentUserName = @"文明";
     model.commentByUserName = @"";
+    model.commentId = [NSString stringWithFormat:@"commonModel%lu",  messageModel.commentModelArray.count + 100];
     model.commentText = text;
-    model.uid = [NSString stringWithFormat:@"commonModel%lu",  messageModel.commentModelArray.count + 1];
     [messageModel.commentModelArray addObject:model];
     
     messageModel.shouldUpdateCache = YES;
@@ -171,23 +170,17 @@
     
     
     //九宫格
-    cell.tapBlock = ^(NSInteger index,NSArray *dataSource){
+    cell.tapImageBlock = ^(NSInteger index,NSArray *dataSource,NSIndexPath *indexpath){
         [weakSelf.chatKeyBoard keyboardDownForComment];
 
-        //1.创建图片浏览器
-        MJPhotoBrowser *brower = [[MJPhotoBrowser alloc] init];
-        NSMutableArray *photosArray = [NSMutableArray array];
-        //2.告诉图片浏览器显示所有的图片
-        for (int i = 0 ; i < dataSource.count; i++) {
-            //传递数据给浏览器
-            MJPhoto *photo = [[MJPhoto alloc] init];
-            photo.url = [NSURL URLWithString:dataSource[i]];
-            photo.srcImageView = weakCell.jggView.subviews[i]; //设置来源哪一个UIImageView
-            [photosArray addObject:photo];
-        }
-        brower.photos = photosArray;
-        brower.currentPhotoIndex = index;
-        [brower show];
+        
+//        weakSelf.currentIndexPath = indexpath;
+        
+    };
+    
+    cell.TapTextBlock=^(UILabel *desLabel){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
     };
     return cell;
 }
@@ -232,7 +225,8 @@
 //    self.chatKeyBoard.placeHolder = nil;
     
     
-    
+    model.shouldUpdateCache = YES;
+
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 

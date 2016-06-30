@@ -10,7 +10,6 @@
 #define WeChat_pch
 
 
-#import "Masonry.h"
 
 #define kGAP 10
 #define kThemeColor [UIColor colorWithRed:0 green:(190 / 255.0) blue:(12 / 255.0) alpha:1]
@@ -23,6 +22,7 @@
 
 
 
+#import "Masonry.h"
 
 
 #import "UITableViewCell+HYBMasonryAutoCellHeight.h"
@@ -37,7 +37,6 @@
 
 #import "YYFPSLabel.h"
 
-#import "MMPlaceHolder.h"
 
 
 #import "ChatKeyBoardMacroDefine.h"

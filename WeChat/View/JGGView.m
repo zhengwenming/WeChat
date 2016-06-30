@@ -78,8 +78,29 @@
 }
 -(void)tapImageAction:(UITapGestureRecognizer *)tap{
     UIImageView *tapView = (UIImageView *)tap.view;
+    
+    SDPhotoBrowser *photoBrowser = [SDPhotoBrowser new];
+    photoBrowser.delegate = self;
+    photoBrowser.currentImageIndex = tapView.tag;
+    photoBrowser.imageCount = _dataSource.count;
+    photoBrowser.sourceImagesContainerView = self;
+    [photoBrowser show];
+    
+    
     if (self.tapBlock) {
-        self.tapBlock(tapView.tag,self.dataSource);
+        self.tapBlock(tapView.tag,self.dataSource,self.indexpath);
     }
+}
+#pragma mark - SDPhotoBrowserDelegate
+
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    NSString *urlString = self.dataSource[index];
+    return [NSURL URLWithString:urlString];
+}
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    UIImageView *imageView = self.subviews[index];
+    return imageView.image;
 }
 @end

@@ -19,7 +19,6 @@
 -(instancetype)initWithDic:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        self.uid                = dic[@"id"];
         self.commentId          = dic[@"commentId"];
         self.commentUserId      = dic[@"commentUserId"];
         self.commentUserName    = dic[@"commentUserName"];

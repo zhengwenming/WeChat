@@ -28,8 +28,7 @@
                                          ],
                 "commentMessages":[
                                    {
-                                   "id":701,
-                                   "commentId":647,
+                                   "commentId":"1",
                                    "commentUserId":97,
                                    "commentUserName":"怕瓦落地",
                                    "commentPhoto":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160307/14573358906810.JPEG",
@@ -42,8 +41,7 @@
                                    "checkStatus":"YES"
                                    },
                                    {
-                                   "id":700,
-                                   "commentId":648,
+                                   "commentId":"2",
                                    "commentUserId":97,
                                    "commentUserName":"怕瓦落地",
                                    "commentPhoto":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160307/14573358906810.JPEG",
@@ -60,12 +58,12 @@
                 {
                 "cid":"2",
                 "message_id":652,
-                "message":"小明是人物的代称，因这个名字天生有冷笑话的气质，又在学校时以说冷笑话出名，因此成为很多笑话中的主角名字，常出现于小学初中作文、英语、数学题、物理题、化学题和笑话中。此名拥有极为悠久的历史内涵，在中国的各种“名著”上皆有出现，体现了中国丰富的华夏文明，甚至一度代表中国冲出亚洲，成为了”最有影响力的名字“之一。他不辞辛苦的活跃在各种应用题、作文中，是小学课本甚至是题海中当之无愧的头号男主角。",
+                "message":"http://admin.weixin.ihk.cn/ihkwx_upload/test.mp4",
                 "createDate":1463642352000,
                 "timeTag":"2天前",
                 "createDateStr":"2016-05-19 15:19",
                 "objId":"f1562484",
-                "message_type":"text",
+                "message_type":"video",
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
@@ -78,8 +76,7 @@
                 ],
                 "commentMessages":[
                                    {
-                                   "id":632,
-                                   "commentId":640,
+                                   "commentId":"3",
                                    "commentUserId":97,
                                    "commentUserName":"怕瓦落地",
                                    "commentPhoto":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160307/14573358906810.JPEG",
@@ -92,8 +89,7 @@
                                    "checkStatus":"YES"
                                    },
                                    {
-                                   "id":631,
-                                   "commentId":575,
+                                   "commentId":"4",
                                    "commentUserId":274,
                                    "commentUserName":"文明",
                                    "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -106,8 +102,7 @@
                                    "checkStatus":"YES"
                                    },
                                    {
-                                   "id":630,
-                                   "commentId":575,
+                                   "commentId":"5",
                                    "commentUserId":274,
                                    "commentUserName":"文明",
                                    "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -124,12 +119,12 @@
                 {
                 "cid":"3",
                 "message_id":648,
-                "message":"“主席，什么事让人郁闷？” “上课…”主席吸了口烟缓缓道",
+                "message":"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4",
                 "createDate":1463641730000,
                 "timeTag":"2天前",
                 "createDateStr":"2016-05-19 15:08",
                 "objId":"f1562484",
-                "message_type":"text",
+                "message_type":"video",
                 "checkStatus":"YES",
                 "userId":97,
                 "userName":"怕瓦落地",
@@ -146,8 +141,7 @@
                                          ],
                 "commentMessages":[
                                  {
-                                 "id":851,
-                                 "commentId":648,
+                                 "commentId":"6",
                                  "commentUserId":97,
                                  "commentUserName":"怕瓦落地",
                                  "commentPhoto":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160307/14573358906810.JPEG",
@@ -210,7 +204,7 @@
                 {
                 "cid":"6",
                 "message_id":578,
-                "message":"不要和我比懒，我懒得和你比！",
+                "message":"WMPlayer视频播放器，AVPlayer的封装，继承UIView，想怎么玩就怎么玩。支持播放mp4、m3u8、3gp、mov，网络和本地视频同时支持。全屏和小屏播放同时支持。 cell中播放视频，全屏小屏切换自如。https://github.com/zhengwenming/WMPlayer",
                 "createDate":1463126204000,
                 "timeTag":"8天前",
                 "createDateStr":"2016-05-13 15:56",
@@ -249,7 +243,7 @@
                 {
                 "cid":"7",
                 "message_id":576,
-                "message":"小明考试回家，妈妈问他：“考的咋呀？”小明说：“只有一道题错了！！”妈妈问：“啥题？”小明说：“问3乘7等于几?”妈妈问：“你等于几”小明说：“我当时不管三七二十一等了个20.9！”",
+                "message":"当日21时31分，市公安局指挥中心接到报警称：岳塘区木鱼湖附近有人将一裸体女子关入行李箱中。接警后，河东沿江风光带巡特警、武警联合巡逻组5分钟内赶赴现场，和周围群众、宝塔派出所民警迅速解救并安抚女子。同时，组织警力对跳入木鱼湖中企图逃跑的涉案男子实施围捕，市局，分局值班领导现场指挥，附近警力快速支援。经工作，23时20分许，在湖中成功将涉案男子抓获。经初查，犯罪嫌疑人潘某以恐吓、殴打等手段对受害人实施了性侵。为掩盖犯罪事实，该潘将昏迷的受害人装入旅行箱准备丢弃，途中受害人呼救被人发现并报警。犯罪嫌疑人潘某与受害人合租在同一套出租房中，当日19时20分许，潘某发现受害人一人在家，遂起歹意，通过恐吓、殴打等手段对受害人实施了性侵，导致受害人昏迷，并非网传的迷药。 警方提示，女青年在外租住房屋时，一定要倍加谨慎，提高警惕，加强安全防范，确保人身财产安全。 ",
                 "createDate":1463123737000,
                 "timeTag":"8天前",
                 "createDateStr":"2016-05-13 15:15",
@@ -302,8 +296,7 @@
                                          ],
                 "commentMessages":[
                                  {
-                                 "id":651,
-                                 "commentId":575,
+                                 "commentId":"7",
                                  "commentUserId":274,
                                  "commentUserName":"文明",
                                  "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -316,12 +309,11 @@
                                  "checkStatus":"YES"
                                  },
                                  {
-                                 "id":652,
-                                 "commentId":575,
+                                 "commentId":"8",
                                  "commentUserId":274,
                                  "commentUserName":"文明",
                                  "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
-                                 "commentText":"地方重新",
+                                   "commentText":"当日21时31分，市公安局指挥中心接到报警称：岳塘区木鱼湖附近有人将一裸体女子关入行李箱中。接警后，河东沿江风光带巡特警、武警联合巡逻组5分钟内赶赴现场，和周围群众、宝塔派出所民警迅速解救并安抚女子。同时，组织警力对跳入木鱼湖中企图逃跑的涉案男子实施围捕，市局，分局值班领导现场指挥，附近警力快速支援。经工作，23时20分许，在湖中成功将涉案男子抓获。",
                                  "commentByUserId":274,
                                  "commentByUserName":"文明",
                                  "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -330,19 +322,31 @@
                                  "checkStatus":"YES"
                                  },
                                  {
-                                 "id":653,
-                                 "commentId":575,
+                                 "commentId":"9",
                                  "commentUserId":274,
                                  "commentUserName":"文明",
                                  "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
-                                 "commentText":"搜噶v是非黑白",
+                                   "commentText":"经初查，犯罪嫌疑人潘某以恐吓、殴打等手段对受害人实施了性侵。为掩盖犯罪事实，该潘将昏迷的受害人装入旅行箱准备丢弃，途中受害人呼救被人发现并报警。犯罪嫌疑人潘某与受害人合租在同一套出租房中，当日19时20分许，潘某发现受害人一人在家，遂起歹意，通过恐吓、殴打等手段对受害人实施了性侵，导致受害人昏迷，并非网传的迷药。",
                                  "commentByUserId":0,
                                  "commentByUserName":"",
                                  "commentByPhoto":"",
                                  "createDate":1463127227000,
                                  "createDateStr":"2016-05-13 16:13",
                                  "checkStatus":"YES"
-                                 }
+                                   },
+                                   {
+                                   "commentId":"10",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"警方提示，女青年在外租住房屋时，一定要倍加谨慎，提高警惕，加强安全防范，确保人身财产安全。",
+                                   "commentByUserId":0,
+                                   "commentByUserName":"",
+                                   "commentByPhoto":"",
+                                   "createDate":1463127227000,
+                                   "createDateStr":"2016-05-13 16:13",
+                                   "checkStatus":"YES"
+                                   }
                                  ]
                 },
                 {
@@ -395,8 +399,7 @@
                 ],
                 "commentMessages":[
                                    {
-                                   "id":654,
-                                   "commentId":575,
+                                   "commentId":"11",
                                    "commentUserId":274,
                                    "commentUserName":"文明",
                                    "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -409,8 +412,7 @@
                                    "checkStatus":"YES"
                                    },
                                    {
-                                   "id":657,
-                                   "commentId":575,
+                                   "commentId":"12",
                                    "commentUserId":274,
                                    "commentUserName":"文明",
                                    "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
@@ -423,8 +425,7 @@
                                    "checkStatus":"YES"
                                    },
                                    {
-                                   "id":658,
-                                   "commentId":575,
+                                   "commentId":"13",
                                    "commentUserId":274,
                                    "commentUserName":"文明",
                                    "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
