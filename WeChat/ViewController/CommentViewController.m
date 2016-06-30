@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) ChatKeyBoard *chatKeyBoard;
 @property (nonatomic, assign) CGFloat history_Y_offset;
+@property (nonatomic, assign) BOOL needUpdateOffset;
+
 @property (nonatomic,copy)NSIndexPath *currentIndexPath;
 @end
 
@@ -106,7 +108,16 @@
     [self.chatKeyBoard keyboardDownForComment];
     self.chatKeyBoard.placeHolder = nil;
 }
+- (void)chatKeyBoardFacePicked:(ChatKeyBoard *)chatKeyBoard faceStyle:(NSInteger)faceStyle faceName:(NSString *)faceName delete:(BOOL)isDeleteKey{
+    NSLog(@"%@",faceName);
+}
+- (void)chatKeyBoardAddFaceSubject:(ChatKeyBoard *)chatKeyBoard{
+    NSLog(@"%@",chatKeyBoard);
+}
+- (void)chatKeyBoardSetFaceSubject:(ChatKeyBoard *)chatKeyBoard{
+    NSLog(@"%@",chatKeyBoard);
 
+}
 #pragma mark
 #pragma mark 处理测试数据
 -(void)dealData{
@@ -153,6 +164,7 @@
     //评论
     cell.CommentBtnClickBlock = ^(UIButton *commentBtn,NSIndexPath * indexPath)
     {
+        weakSelf.needUpdateOffset = YES;
         weakSelf.chatKeyBoard.placeHolder = [NSString stringWithFormat:@"评论 %@",model.userName];
         weakSelf.history_Y_offset = [commentBtn convertRect:commentBtn.bounds toView:weakWindow].origin.y;
         weakSelf.currentIndexPath = indexPath;
@@ -253,9 +265,11 @@
     CGPoint offset = self.tableView.contentOffset;
     offset.y += delta;
     if (offset.y < 0) {
-        offset.y = -64;
+        offset.y = 0;
     }
-    [self.tableView setContentOffset:offset animated:YES];
+    if (self.needUpdateOffset) {
+        [self.tableView setContentOffset:offset animated:YES];
+    }
 }
 
 #pragma mark
@@ -267,6 +281,8 @@
     [UIView animateWithDuration:animationDuration animations:^{
 //        [self.chatKeyBoard keyboardDownForComment];
 //        self.chatKeyBoard.placeHolder = nil;
+        self.needUpdateOffset = NO;
+
     }];
 }
 
