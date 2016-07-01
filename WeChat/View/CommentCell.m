@@ -15,7 +15,6 @@
 
 @interface CommentCell ()
 
-@property (nonatomic, strong) UILabel *contentLabel;
 
 @end
 @implementation CommentCell

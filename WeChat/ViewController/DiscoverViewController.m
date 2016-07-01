@@ -90,17 +90,14 @@
     }else if(indexPath.section==2){
         cell.titleIV.image = [UIImage imageNamed:@"ff_IconLocationService"];
         cell.titleLabel.text = @"附近的人";
-        
     }else if(indexPath.section==3){
         if (indexPath.row==0) {
             cell.titleIV.image = [UIImage imageNamed:@"CreditCard_ShoppingBag"];
             cell.titleLabel.text = @"购物";
-            
         }else if (indexPath.row==1){
             cell.titleIV.image = [UIImage imageNamed:@"MoreGame"];
             cell.titleLabel.text = @"游戏";
         }
-        
     }
     return cell;
 

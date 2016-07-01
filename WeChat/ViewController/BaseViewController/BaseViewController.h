@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UIViewController
-
+-(int)getRandomNumber:(int)from to:(int)to;
 @end

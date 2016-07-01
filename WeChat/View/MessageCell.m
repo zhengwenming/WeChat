@@ -8,7 +8,6 @@
 
 #import "MessageCell.h"
 #import "MessageModel.h"
-#import "CommentCell.h"
 
 @interface MessageCell () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UILabel *nameLabel;
@@ -332,35 +331,30 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    // 添加一条数据
-//    CommentModel *model = [[CommentModel alloc] init];
-//    model.commentUserName = @"小明";
-//    model.commentByUserName = @"帕瓦罗蒂";
-//    model.commentText = @"哈哈，我被点击后自动添加了一条数据的，不要在意我哈哈，我被点击后自动添加了一条数据的，不要在意我~哈哈，我被点击后自动添加了一条数据的，不要在意我~哈哈，我被点击后自动添加了一条数据的，不要在意我123456789";
-//    model.uid = [NSString stringWithFormat:@"commonModel%lu",  self.messageModel.commentModelArray.count + 1];
-//    [self.messageModel.commentModelArray addObject:model];
-    
-    if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
-        self.messageModel.shouldUpdateCache = YES;
-        [self.delegate reloadCellHeightForModel:self.messageModel atIndexPath:self.indexPath];
-    }
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.messageModel.commentModelArray removeObjectAtIndex:indexPath.row];
+    CommentModel *commentModel = [self.messageModel.commentModelArray objectAtIndex:indexPath.row];
+    CGFloat cell_height = [CommentCell hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
+        CommentCell *cell = (CommentCell *)sourceCell;
         
-        if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
-            self.messageModel.shouldUpdateCache = YES;
-            [self.delegate reloadCellHeightForModel:self.messageModel atIndexPath:self.indexPath];
-        }
+       
+
+        [cell configCellWithModel:commentModel];
+    } cache:^NSDictionary *{
+        NSDictionary *cache = @{kHYBCacheUniqueKey : commentModel.commentId,
+                                kHYBCacheStateKey : @"",
+                                kHYBRecalculateForStateKey : @(NO)};
+        //        model.shouldUpdateCache = NO;
+        return cache;
+    }];
+   
+    
+    if ([self.delegate respondsToSelector:@selector(passCellHeightWithMessageModel:commentModel:atCommentIndexPath:cellHeight:commentCell:messageCell:)]) {
+        self.messageModel.shouldUpdateCache = YES;
+        CommentCell *commetCell =  (CommentCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [self.delegate passCellHeightWithMessageModel:_messageModel commentModel:commentModel atCommentIndexPath:indexPath cellHeight:cell_height commentCell:commetCell messageCell:self];
     }
+    
 }
 
 @end

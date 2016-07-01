@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "JGGView.h"
-
+#import "CommentCell.h"
+@class MessageCell;
 @class MessageModel;
 
-@protocol ReloadMessageCellHightDelegate <NSObject>
+@protocol MessageCellDelegate <NSObject>
 
 - (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath;
-
+- (void)passCellHeightWithMessageModel:(MessageModel *)messageModel commentModel:(CommentModel *)commentModel atCommentIndexPath:(NSIndexPath *)commentIndexPath cellHeight:(CGFloat )cellHeight commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell;
 @end
 
 
@@ -44,7 +45,7 @@
  */
 @property (nonatomic, copy)void(^TapTextBlock)(UILabel *desLabel);
 
-@property (nonatomic, weak) id<ReloadMessageCellHightDelegate> delegate;
+@property (nonatomic, weak) id<MessageCellDelegate> delegate;
 
 - (void)configCellWithModel:(MessageModel *)model indexPath:(NSIndexPath *)indexPath;
 

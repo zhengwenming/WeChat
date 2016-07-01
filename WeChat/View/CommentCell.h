@@ -12,6 +12,10 @@
 
 
 @interface CommentCell : UITableViewCell
+
+
+@property (nonatomic, strong) UILabel *contentLabel;
+
 - (void)configCellWithModel:(CommentModel *)model;
 
 @end

@@ -9,7 +9,7 @@
 #import "CommentViewController.h"
 #import "MessageCell.h"
 #import "MessageModel.h"
-
+#import "CommentCell.h"
 //键盘
 #import "ChatKeyBoard.h"
 #import "FaceSourceManager.h"
@@ -17,13 +17,18 @@
 #import "ChatToolBarItem.h"
 #import "FaceThemeModel.h"
 
-@interface CommentViewController ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, ReloadMessageCellHightDelegate,UIScrollViewDelegate>{
+@interface CommentViewController ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, MessageCellDelegate,UIScrollViewDelegate>{
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) ChatKeyBoard *chatKeyBoard;
-@property (nonatomic, assign) CGFloat history_Y_offset;
-@property (nonatomic, assign) BOOL needUpdateOffset;
+@property (nonatomic, assign) CGFloat history_Y_offset;//记录table的offset.y
+@property (nonatomic, assign) CGFloat seletedCellHeight;//记录点击cell的高度，高度由代理传过来
+//专门用来回复选中的cell的model
+@property (nonatomic, strong) CommentModel *replayTheSeletedCellModel;
+
+
+@property (nonatomic, assign) BOOL needUpdateOffset;//控制是否刷新table的offset
 
 @property (nonatomic,copy)NSIndexPath *currentIndexPath;
 @end
@@ -95,14 +100,17 @@
 - (void)chatKeyBoardSendText:(NSString *)text{
     MessageModel *messageModel = [self.dataSource objectAtIndex:self.currentIndexPath.row];
     messageModel.shouldUpdateCache = YES;
-    CommentModel *model = [[CommentModel alloc] init];
-//    model.commentUserName = messageModel.userName;
-    model.commentUserName = @"文明";
-    model.commentByUserName = @"";
-    model.commentId = [NSString stringWithFormat:@"commonModel%lu",  messageModel.commentModelArray.count + 100];
-    model.commentText = text;
-    [messageModel.commentModelArray addObject:model];
     
+    //创建一个新的CommentModel,并给相应的属性赋值，然后加到评论数组的最后，reloadData
+    CommentModel *commentModel = [[CommentModel alloc]init];
+    commentModel.commentUserName = @"文明";
+    commentModel.commentUserId = @"274";
+    commentModel.commentPhoto = @"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100";
+    commentModel.commentByUserName = self.replayTheSeletedCellModel?self.replayTheSeletedCellModel.commentUserName:@"";
+    commentModel.commentId = [NSString stringWithFormat:@"%i",[self getRandomNumber:100 to:1000]];
+    commentModel.commentText = text;
+    [messageModel.commentModelArray addObject:commentModel];
+
     messageModel.shouldUpdateCache = YES;
     [self reloadCellHeightForModel:messageModel atIndexPath:self.currentIndexPath];
     [self.chatKeyBoard keyboardDownForComment];
@@ -154,8 +162,6 @@
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     __weak __typeof(self) weakSelf= self;
     __weak __typeof(_tableView) weakTable= _tableView;
-    __weak __typeof(cell) weakCell= cell;
-    
     __weak __typeof(window) weakWindow= window;
 
     __block MessageModel *model = [self.dataSource objectAtIndex:indexPath.row];
@@ -164,6 +170,9 @@
     //评论
     cell.CommentBtnClickBlock = ^(UIButton *commentBtn,NSIndexPath * indexPath)
     {
+        //不是点击cell进行回复，则置空replayTheSeletedCellModel，因为这个时候是点击评论按钮进行评论，不是回复某某某
+        self.replayTheSeletedCellModel = nil;
+        weakSelf.seletedCellHeight = 0.0;
         weakSelf.needUpdateOffset = YES;
         weakSelf.chatKeyBoard.placeHolder = [NSString stringWithFormat:@"评论 %@",model.userName];
         weakSelf.history_Y_offset = [commentBtn convertRect:commentBtn.bounds toView:weakWindow].origin.y;
@@ -180,18 +189,14 @@
         [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     };
     
-    
-    //九宫格
+    //点击九宫格
     cell.tapImageBlock = ^(NSInteger index,NSArray *dataSource,NSIndexPath *indexpath){
         [weakSelf.chatKeyBoard keyboardDownForComment];
-
-        
-//        weakSelf.currentIndexPath = indexpath;
-        
     };
     
+    //点击文字
     cell.TapTextBlock=^(UILabel *desLabel){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     };
     return cell;
@@ -202,46 +207,36 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MessageModel *model = [self.dataSource objectAtIndex:indexPath.row];
-    
+    MessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.row];
     CGFloat h = [MessageCell hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
         MessageCell *cell = (MessageCell *)sourceCell;
-        [cell configCellWithModel:model indexPath:indexPath];
+        [cell configCellWithModel:messageModel indexPath:indexPath];
     } cache:^NSDictionary *{
-        NSDictionary *cache = @{kHYBCacheUniqueKey : model.cid,
+        NSDictionary *cache = @{kHYBCacheUniqueKey : messageModel.cid,
                                 kHYBCacheStateKey  : @"",
-                                kHYBRecalculateForStateKey : @(model.shouldUpdateCache)};
-        model.shouldUpdateCache = NO;
+                                kHYBRecalculateForStateKey : @(messageModel.shouldUpdateCache)};
+        messageModel.shouldUpdateCache = NO;
         return cache;
     }];
     return h;
 }
 
-#pragma mark - ReloadMessageCellHightDelegate
-- (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath {
-//    self.currentIndexPath = indexPath;
-//    [self.chatKeyBoard keyboardUpforComment];
+#pragma mark - passCellHeightWithModel
 
-    
-    
-//    CommentModel *commetModel = [[CommentModel alloc] init];
-//    //    model.commentUserName = messageModel.userName;
-//    commetModel.commentUserName = @"文明";
-//    commetModel.commentByUserName = @"";
-//    commetModel.commentText = text;
-//    commetModel.uid = [NSString stringWithFormat:@"commonModel%lu",  model.commentModelArray.count + 1];
-//    [model.commentModelArray addObject:model];
-//    
-//    [self reloadCellHeightForModel:model atIndexPath:self.currentIndexPath];
-//    [self.chatKeyBoard keyboardDownForComment];
-//    self.chatKeyBoard.placeHolder = nil;
-    
-    
+- (void)passCellHeightWithMessageModel:(MessageModel *)messageModel commentModel:(CommentModel *)commentModel atCommentIndexPath:(NSIndexPath *)commentIndexPath cellHeight:(CGFloat )cellHeight commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell{
+    self.needUpdateOffset = YES;
+    self.replayTheSeletedCellModel = commentModel;
+    self.currentIndexPath = [self.tableView indexPathForCell:messageCell];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    self.chatKeyBoard.placeHolder = [NSString stringWithFormat:@"回复 %@",commentModel.commentUserName];
+    self.history_Y_offset = [commentCell.contentLabel convertRect:commentCell.contentLabel.bounds toView:window].origin.y;
+    self.seletedCellHeight = cellHeight;
+    [self.chatKeyBoard keyboardUpforComment];
+}
+- (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath{
     model.shouldUpdateCache = YES;
-
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
-
 #pragma mark
 #pragma mark keyboardWillShow
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -258,10 +253,12 @@
     NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSTimeInterval animationDuration;
     [animationDurationValue getValue:&animationDuration];
-    
-    CGFloat delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-85);
-    
-    
+    CGFloat delta = 0.0;
+    if (self.seletedCellHeight){//点击某行，进行回复某人
+        delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-self.seletedCellHeight-kChatToolBarHeight);
+    }else{//点击评论按钮
+        delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-kChatToolBarHeight-24-10);//24为评论按钮高度，10为评论按钮上部的5加评论按钮下部的5
+    }
     CGPoint offset = self.tableView.contentOffset;
     offset.y += delta;
     if (offset.y < 0) {
@@ -275,21 +272,25 @@
 #pragma mark
 #pragma mark keyboardWillHide
 - (void)keyboardWillHide:(NSNotification *)notification {
-    NSValue *animationDurationValue = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    [UIView animateWithDuration:animationDuration animations:^{
-//        [self.chatKeyBoard keyboardDownForComment];
-//        self.chatKeyBoard.placeHolder = nil;
-        self.needUpdateOffset = NO;
-
-    }];
+//    NSValue *animationDurationValue = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSTimeInterval animationDuration;
+//    [animationDurationValue getValue:&animationDuration];
+//    [UIView animateWithDuration:animationDuration animations:^{
+//    }];
+    self.needUpdateOffset = NO;
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.chatKeyBoard keyboardDownForComment];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     NSLog(@"CommentViewController didReceiveMemoryWarning");
     
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [self.chatKeyBoard keyboardDownForComment];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
