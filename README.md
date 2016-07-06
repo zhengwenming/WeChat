@@ -16,6 +16,8 @@
 主要看json数据。在项目中的supportFile里面。理清楚json的结构，重写UI即可。
 
 5、持续更新中......
+
+
 ![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/WeChat.gif)   
 
 
