@@ -42,6 +42,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillShow:)
                                                      name:UIKeyboardWillShowNotification object:nil];
+        
+        
         //注册键盘隐藏NSNotification
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillHide:)
@@ -170,6 +172,7 @@
     //评论
     cell.CommentBtnClickBlock = ^(UIButton *commentBtn,NSIndexPath * indexPath)
     {
+       
         //不是点击cell进行回复，则置空replayTheSeletedCellModel，因为这个时候是点击评论按钮进行评论，不是回复某某某
         self.replayTheSeletedCellModel = nil;
         weakSelf.seletedCellHeight = 0.0;
@@ -186,7 +189,7 @@
         weakSelf.chatKeyBoard.placeHolder = nil;
         model.isExpand = !model.isExpand;
         model.shouldUpdateCache = YES;
-        [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
     
     //点击九宫格
@@ -244,6 +247,11 @@
     NSDictionary *userInfo = [notification userInfo];
     NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     __block  CGFloat keyboardHeight = [aValue CGRectValue].size.height;
+    if (keyboardHeight==0) {//解决搜狗输入法三次调用此方法的bug、
+//        IOS8.0之后可以安装第三方键盘，如搜狗输入法之类的。
+//        获得的高度都为0.这是因为键盘弹出的方法:- (void)keyBoardWillShow:(NSNotification *)notification需要执行三次,你如果打印一下,你会发现键盘高度为:第一次:0;第二次:216:第三次:282.并不是获取不到高度,而是第三次才获取真正的高度.
+        return;
+    }
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
     CGFloat keyboardTop = keyboardRect.origin.y;

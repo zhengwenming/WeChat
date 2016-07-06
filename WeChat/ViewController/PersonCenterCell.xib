@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,19 +13,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="36.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XPz-DL-DpT">
                         <rect key="frame" x="8" y="6" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="hCG-Wz-oCn"/>
+                            <constraint firstAttribute="width" secondItem="XPz-DL-DpT" secondAttribute="height" multiplier="1:1" id="umk-Pg-jwF"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="摇一摇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-7R-8IR">
                         <rect key="frame" x="60" y="7" width="100" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="WtD-Tt-Bnv"/>
+                            <constraint firstAttribute="width" constant="100" id="f4K-hW-Yav"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,13 +33,27 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XPz-DL-DpT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="613-7o-R6j"/>
-                    <constraint firstItem="XqL-7R-8IR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="d61-iT-oRr"/>
-                    <constraint firstItem="XPz-DL-DpT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="irp-ji-KlW"/>
-                    <constraint firstAttribute="bottom" secondItem="XPz-DL-DpT" secondAttribute="bottom" constant="5.5" id="kLu-10-DMx"/>
-                    <constraint firstAttribute="bottom" secondItem="XqL-7R-8IR" secondAttribute="bottom" constant="8.5" id="p5w-vx-JJt"/>
-                    <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="XPz-DL-DpT" secondAttribute="trailing" constant="27" id="xUr-RY-67S"/>
+                    <constraint firstAttribute="trailing" secondItem="XqL-7R-8IR" secondAttribute="trailing" constant="127" id="5aH-1n-Mx8"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8c7-LT-sym"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="XPz-DL-DpT" secondAttribute="trailing" constant="27" id="OOP-Fb-mvv"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="XPz-DL-DpT" secondAttribute="trailing" constant="27" id="WOq-Xn-ONY"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xub-ZC-V5W"/>
+                    <constraint firstItem="XPz-DL-DpT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Y9w-L8-4Wm"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="hk6-HD-ge8"/>
+                    <constraint firstItem="XPz-DL-DpT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="moI-I1-uiF"/>
+                    <constraint firstItem="XPz-DL-DpT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="n4R-Ps-MvA"/>
+                    <constraint firstItem="XPz-DL-DpT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oxV-Pu-TJk"/>
+                    <constraint firstItem="XqL-7R-8IR" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ubZ-2l-Sl5"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="n4R-Ps-MvA"/>
+                        <exclude reference="oxV-Pu-TJk"/>
+                        <exclude reference="5aH-1n-Mx8"/>
+                        <exclude reference="OOP-Fb-mvv"/>
+                        <exclude reference="Xub-ZC-V5W"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="titleIV" destination="XPz-DL-DpT" id="sGL-pE-XAq"/>
