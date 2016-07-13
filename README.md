@@ -17,6 +17,8 @@
 
 5、持续更新中......
 
+第三方键盘的Github地址：https://github.com/bbbcode/KeyboardforChat
+感谢作者bbbcode的开源。
 
 ![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/WeChat.gif)   
 
