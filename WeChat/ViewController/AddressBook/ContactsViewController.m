@@ -224,11 +224,11 @@
                 
                 FriendModel *friends = dataSource[i];
                 
-                NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
+                NSString *outputPinyin=[[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""] lowercaseString];
                 NSLog(@"%@",[[outputPinyin substringToIndex:1] uppercaseString]);
                 
                 
-                if ([[outputPinyin lowercaseString]rangeOfString:searchText].location!=NSNotFound) {
+                if ([[outputPinyin lowercaseString]rangeOfString:[searchText lowercaseString]].location!=NSNotFound) {
                     [updateArray addObject:friends];
                 }
                 
