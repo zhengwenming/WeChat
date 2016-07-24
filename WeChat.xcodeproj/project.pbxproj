@@ -70,7 +70,6 @@
 		70B5BEA01D0472B7003A7CF2 /* tx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 70B5BE6D1D0472B7003A7CF2 /* tx.jpeg */; };
 		70B5BEA81D047459003A7CF2 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BEA71D047459003A7CF2 /* DiscoverViewController.m */; };
 		70B5BEAB1D04747B003A7CF2 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BEAA1D04747B003A7CF2 /* MeViewController.m */; };
-		70B5BEAE1D04749F003A7CF2 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BEAD1D04749F003A7CF2 /* ContactsViewController.m */; };
 		70B5BEB11D0474B9003A7CF2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BEB01D0474B9003A7CF2 /* HomeViewController.m */; };
 		70B5BEB51D047735003A7CF2 /* PersonCenterHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BEB31D047735003A7CF2 /* PersonCenterHeaderCell.m */; };
 		70B5BEB61D047735003A7CF2 /* PersonCenterHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B5BEB41D047735003A7CF2 /* PersonCenterHeaderCell.xib */; };
@@ -447,6 +446,18 @@
 		70C81D9C1D04208B00D86903 /* sp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81C9F1D04208B00D86903 /* sp@2x.png */; };
 		70C81D9D1D04208B00D86903 /* yy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81CA01D04208B00D86903 /* yy@2x.png */; };
 		70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70F4B0CE1D0515CF0002924F /* WeChat.gif */; };
+		70FFC1C51D44F19900FCE22F /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C41D44F19900FCE22F /* FriendModel.m */; };
+		70FFC1C91D44F1C800FCE22F /* AddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */; };
+		70FFC1CA1D44F1C800FCE22F /* AddressBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */; };
+		70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */; };
+		70FFC1DE1D44F2D000FCE22F /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D31D44F2D000FCE22F /* HanyuPinyinOutputFormat.m */; };
+		70FFC1DF1D44F2D000FCE22F /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D51D44F2D000FCE22F /* NSString+PinYin4Cocoa.m */; };
+		70FFC1E01D44F2D000FCE22F /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D81D44F2D000FCE22F /* PinyinFormatter.m */; };
+		70FFC1E11D44F2D000FCE22F /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1DA1D44F2D000FCE22F /* PinyinHelper.m */; };
+		70FFC1E21D44F2D000FCE22F /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70FFC1DC1D44F2D000FCE22F /* unicode_to_hanyu_pinyin.txt */; };
+		70FFC1E41D44FB0200FCE22F /* AddressBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 70FFC1E31D44FB0200FCE22F /* AddressBook.json */; };
+		70FFC1EA1D4508BE00FCE22F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1E71D4508BE00FCE22F /* ContactsViewController.m */; };
+		70FFC1EB1D4508BE00FCE22F /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1E91D4508BE00FCE22F /* SearchResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -525,8 +536,6 @@
 		70B5BEA71D047459003A7CF2 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		70B5BEA91D04747B003A7CF2 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		70B5BEAA1D04747B003A7CF2 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		70B5BEAC1D04749F003A7CF2 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
-		70B5BEAD1D04749F003A7CF2 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		70B5BEAF1D0474B9003A7CF2 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		70B5BEB01D0474B9003A7CF2 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		70B5BEB21D047735003A7CF2 /* PersonCenterHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterHeaderCell.h; sourceTree = "<group>"; };
@@ -1024,6 +1033,28 @@
 		70C81C9F1D04208B00D86903 /* sp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp@2x.png"; sourceTree = "<group>"; };
 		70C81CA01D04208B00D86903 /* yy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yy@2x.png"; sourceTree = "<group>"; };
 		70F4B0CE1D0515CF0002924F /* WeChat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WeChat.gif; sourceTree = "<group>"; };
+		70FFC1C31D44F19900FCE22F /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
+		70FFC1C41D44F19900FCE22F /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
+		70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookCell.h; sourceTree = "<group>"; };
+		70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookCell.m; sourceTree = "<group>"; };
+		70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressBookCell.xib; sourceTree = "<group>"; };
+		70FFC1D01D44F2D000FCE22F /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
+		70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
+		70FFC1D21D44F2D000FCE22F /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
+		70FFC1D31D44F2D000FCE22F /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
+		70FFC1D41D44F2D000FCE22F /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
+		70FFC1D51D44F2D000FCE22F /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
+		70FFC1D61D44F2D000FCE22F /* PinYin4Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYin4Objc.h; sourceTree = "<group>"; };
+		70FFC1D71D44F2D000FCE22F /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
+		70FFC1D81D44F2D000FCE22F /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
+		70FFC1D91D44F2D000FCE22F /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		70FFC1DA1D44F2D000FCE22F /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
+		70FFC1DC1D44F2D000FCE22F /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		70FFC1E31D44FB0200FCE22F /* AddressBook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AddressBook.json; sourceTree = "<group>"; };
+		70FFC1E61D4508BE00FCE22F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		70FFC1E71D4508BE00FCE22F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		70FFC1E81D4508BE00FCE22F /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		70FFC1E91D4508BE00FCE22F /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1204,6 +1235,7 @@
 				70B5BE371D0472B7003A7CF2 /* Images */,
 				70BB726A1D02A8A70003B379 /* main.m */,
 				70BB727A1D02A8A70003B379 /* Info.plist */,
+				70FFC1E31D44FB0200FCE22F /* AddressBook.json */,
 				70BB73281D02AC550003B379 /* data.json */,
 				70F4B0CE1D0515CF0002924F /* WeChat.gif */,
 				70BB731A1D02A95E0003B379 /* WeChat.pch */,
@@ -1214,6 +1246,7 @@
 		70BB72801D02A8FE0003B379 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				70FFC1CE1D44F2D000FCE22F /* PinYin4Objc */,
 				70C816BA1D040FB900D86903 /* KeyBoard */,
 				70BB731B1D02AA920003B379 /* HYBMasonryAutoCellHeight */,
 				377CE01F1D2280160075DCA3 /* WMPlayer */,
@@ -1234,6 +1267,8 @@
 				70BB732D1D02ACE40003B379 /* MessageModel.m */,
 				70BB732A1D02ACE40003B379 /* CommentModel.h */,
 				70BB732B1D02ACE40003B379 /* CommentModel.m */,
+				70FFC1C31D44F19900FCE22F /* FriendModel.h */,
+				70FFC1C41D44F19900FCE22F /* FriendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1247,6 +1282,9 @@
 				70BB73311D02B1E50003B379 /* CommentCell.m */,
 				70BB73A11D02F38F0003B379 /* UIView+JGG.h */,
 				70BB73A21D02F38F0003B379 /* UIView+JGG.m */,
+				70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */,
+				70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */,
+				70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */,
 				70BB73331D02B2F80003B379 /* JGGView.h */,
 				70BB73341D02B2F80003B379 /* JGGView.m */,
 			);
@@ -1262,10 +1300,9 @@
 				70B5BE291D0470E4003A7CF2 /* CommentViewController.m */,
 				70B5BEAF1D0474B9003A7CF2 /* HomeViewController.h */,
 				70B5BEB01D0474B9003A7CF2 /* HomeViewController.m */,
-				70B5BEAC1D04749F003A7CF2 /* ContactsViewController.h */,
-				70B5BEAD1D04749F003A7CF2 /* ContactsViewController.m */,
 				70B5BEA61D047459003A7CF2 /* DiscoverViewController.h */,
 				70B5BEA71D047459003A7CF2 /* DiscoverViewController.m */,
+				70FFC1E51D4508BE00FCE22F /* AddressBook */,
 				70B5BEA91D04747B003A7CF2 /* MeViewController.h */,
 				70B5BEAA1D04747B003A7CF2 /* MeViewController.m */,
 				70B5BEB21D047735003A7CF2 /* PersonCenterHeaderCell.h */,
@@ -2833,6 +2870,52 @@
 			path = more;
 			sourceTree = "<group>";
 		};
+		70FFC1CE1D44F2D000FCE22F /* PinYin4Objc */ = {
+			isa = PBXGroup;
+			children = (
+				70FFC1CF1D44F2D000FCE22F /* Classes */,
+				70FFC1DB1D44F2D000FCE22F /* Resources */,
+			);
+			path = PinYin4Objc;
+			sourceTree = "<group>";
+		};
+		70FFC1CF1D44F2D000FCE22F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				70FFC1D01D44F2D000FCE22F /* ChineseToPinyinResource.h */,
+				70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */,
+				70FFC1D21D44F2D000FCE22F /* HanyuPinyinOutputFormat.h */,
+				70FFC1D31D44F2D000FCE22F /* HanyuPinyinOutputFormat.m */,
+				70FFC1D41D44F2D000FCE22F /* NSString+PinYin4Cocoa.h */,
+				70FFC1D51D44F2D000FCE22F /* NSString+PinYin4Cocoa.m */,
+				70FFC1D61D44F2D000FCE22F /* PinYin4Objc.h */,
+				70FFC1D71D44F2D000FCE22F /* PinyinFormatter.h */,
+				70FFC1D81D44F2D000FCE22F /* PinyinFormatter.m */,
+				70FFC1D91D44F2D000FCE22F /* PinyinHelper.h */,
+				70FFC1DA1D44F2D000FCE22F /* PinyinHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		70FFC1DB1D44F2D000FCE22F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				70FFC1DC1D44F2D000FCE22F /* unicode_to_hanyu_pinyin.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		70FFC1E51D4508BE00FCE22F /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				70FFC1E61D4508BE00FCE22F /* ContactsViewController.h */,
+				70FFC1E71D4508BE00FCE22F /* ContactsViewController.m */,
+				70FFC1E81D4508BE00FCE22F /* SearchResultViewController.h */,
+				70FFC1E91D4508BE00FCE22F /* SearchResultViewController.m */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2864,7 +2947,7 @@
 				TargetAttributes = {
 					70BB72651D02A8A70003B379 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RY8MB33FX9;
+						DevelopmentTeam = FT79ZHXPA8;
 					};
 				};
 			};
@@ -3040,6 +3123,7 @@
 				70C81CF81D04208B00D86903 /* f_static_028@2x.png in Resources */,
 				70C81D841D04208B00D86903 /* f_static_098@2x.png in Resources */,
 				70C81D041D04208B00D86903 /* f_static_034@2x.png in Resources */,
+				70FFC1CA1D44F1C800FCE22F /* AddressBookCell.xib in Resources */,
 				70B5BE811D0472B7003A7CF2 /* 5.jpg in Resources */,
 				70C81CBE1D04208B00D86903 /* section0_emotion9@2x.png in Resources */,
 				70C81D961D04208B00D86903 /* sharemore_location@2x.png in Resources */,
@@ -3124,6 +3208,7 @@
 				70C81D621D04208B00D86903 /* f_static_081@2x.png in Resources */,
 				70C81D9D1D04208B00D86903 /* yy@2x.png in Resources */,
 				70C81D381D04208B00D86903 /* f_static_060@2x.png in Resources */,
+				70FFC1E21D44F2D000FCE22F /* unicode_to_hanyu_pinyin.txt in Resources */,
 				70C81D901D04208B00D86903 /* f_static_104@2x.png in Resources */,
 				70C81CE91D04208B00D86903 /* f_static_020@3x.png in Resources */,
 				70C81D351D04208B00D86903 /* f_static_058@3x.png in Resources */,
@@ -3150,6 +3235,7 @@
 				70C81D201D04208B00D86903 /* f_static_048@2x.png in Resources */,
 				70C81D221D04208B00D86903 /* f_static_049@2x.png in Resources */,
 				70C81CEF1D04208B00D86903 /* f_static_023@3x.png in Resources */,
+				70FFC1E41D44FB0200FCE22F /* AddressBook.json in Resources */,
 				70C81D661D04208B00D86903 /* f_static_083@2x.png in Resources */,
 				70B5BE8F1D0472B7003A7CF2 /* Me.xcassets in Resources */,
 				70C81CA41D04208B00D86903 /* face_HL@2x.png in Resources */,
@@ -3222,6 +3308,7 @@
 			files = (
 				70BB739A1D02C8060003B379 /* YYFPSLabel.m in Sources */,
 				70BB738C1D02C8060003B379 /* YYTextAttribute.m in Sources */,
+				70FFC1EB1D4508BE00FCE22F /* SearchResultViewController.m in Sources */,
 				70BB73B91D031B950003B379 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				70BB73951D02C8060003B379 /* UIView+YYText.m in Sources */,
 				70BB73981D02C8060003B379 /* YYTextUtilities.m in Sources */,
@@ -3230,6 +3317,7 @@
 				70BB73051D02A93D0003B379 /* MJRefreshNormalHeader.m in Sources */,
 				70BB73131D02A93D0003B379 /* SDWebImagePrefetcher.m in Sources */,
 				70BB73901D02C8060003B379 /* NSAttributedString+YYText.m in Sources */,
+				70FFC1DF1D44F2D000FCE22F /* NSString+PinYin4Cocoa.m in Sources */,
 				70BB72FB1D02A93D0003B379 /* MJRefreshComponent.m in Sources */,
 				70BB739D1D02C8060003B379 /* YYWeakProxy.m in Sources */,
 				70C817881D040FB900D86903 /* ChatToolBar.m in Sources */,
@@ -3243,6 +3331,7 @@
 				70BB73171D02A93D0003B379 /* UIImageView+HighlightedWebCache.m in Sources */,
 				70BB72F61D02A93D0003B379 /* MBProgressHUD+Show.m in Sources */,
 				70BB73B31D031B570003B379 /* UIImage+YYWebImage.m in Sources */,
+				70FFC1C51D44F19900FCE22F /* FriendModel.m in Sources */,
 				70BB73BC1D031BA50003B379 /* UIControl+YYAdd.m in Sources */,
 				70BB73161D02A93D0003B379 /* UIImage+MultiFormat.m in Sources */,
 				70BB73921D02C8060003B379 /* NSString+YYAdd.m in Sources */,
@@ -3253,7 +3342,7 @@
 				70BB73AD1D031B060003B379 /* CALayer+YYAdd.m in Sources */,
 				70BB72ED1D02A93D0003B379 /* MASCompositeConstraint.m in Sources */,
 				70BB73A31D02F38F0003B379 /* UIView+JGG.m in Sources */,
-				70B5BEAE1D04749F003A7CF2 /* ContactsViewController.m in Sources */,
+				70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */,
 				70BB730B1D02A93D0003B379 /* UIView+MJExtension.m in Sources */,
 				374D5DBA1D24CDCD009D04DA /* SDWaitingView.m in Sources */,
 				70BB72FF1D02A93D0003B379 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -3266,10 +3355,13 @@
 				70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */,
 				374D5DB91D24CDCD009D04DA /* SDPhotoBrowser.m in Sources */,
+				70FFC1DE1D44F2D000FCE22F /* HanyuPinyinOutputFormat.m in Sources */,
+				70FFC1EA1D4508BE00FCE22F /* ContactsViewController.m in Sources */,
 				70B5BEBA1D0478D0003A7CF2 /* PersonCenterCell.m in Sources */,
 				70BB739B1D02C8060003B379 /* YYLabel.m in Sources */,
 				70BB738D1D02C8060003B379 /* YYTextParser.m in Sources */,
 				70C817841D040FB900D86903 /* FaceSourceManager.m in Sources */,
+				70FFC1C91D44F1C800FCE22F /* AddressBookCell.m in Sources */,
 				70C817891D040FB900D86903 /* OfficialAccountToolbar.m in Sources */,
 				70BB73961D02C8060003B379 /* YYTextAsyncLayer.m in Sources */,
 				70BB73991D02C8060003B379 /* YYTextWeakProxy.m in Sources */,
@@ -3302,6 +3394,7 @@
 				70BB73861D02C8060003B379 /* YYTextKeyboardManager.m in Sources */,
 				70BB73031D02A93D0003B379 /* MJRefreshBackStateFooter.m in Sources */,
 				70BB73321D02B1E50003B379 /* CommentCell.m in Sources */,
+				70FFC1E01D44F2D000FCE22F /* PinyinFormatter.m in Sources */,
 				70BB73041D02A93D0003B379 /* MJRefreshGifHeader.m in Sources */,
 				70BB726E1D02A8A70003B379 /* AppDelegate.m in Sources */,
 				70BB73111D02A93D0003B379 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -3321,6 +3414,7 @@
 				70BB732F1D02ACE40003B379 /* MessageModel.m in Sources */,
 				70BB73081D02A93D0003B379 /* MJRefreshConst.m in Sources */,
 				70BB73931D02C8060003B379 /* UIPasteboard+YYText.m in Sources */,
+				70FFC1E11D44F2D000FCE22F /* PinyinHelper.m in Sources */,
 				70C8177C1D040FB900D86903 /* MoreItem.m in Sources */,
 				70BB73011D02A93D0003B379 /* MJRefreshBackGifFooter.m in Sources */,
 				374D5DB81D24CDCD009D04DA /* SDBrowserImageView.m in Sources */,
@@ -3454,7 +3548,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3467,7 +3562,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

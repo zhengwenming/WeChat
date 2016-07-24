@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ContactsViewController : BaseViewController
+@interface ContactsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
