@@ -23,7 +23,13 @@
 
 感谢作者bbbcode的开源。
 
+朋友圈界面效果图：
+
 ![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/WeChat.gif)   
+
+
+
+通讯录界面效果图：
 
 ![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/addressBook.gif)   
 
