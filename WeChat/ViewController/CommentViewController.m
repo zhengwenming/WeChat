@@ -160,6 +160,8 @@
     if (!cell) {
         cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageCell"];
         cell.delegate = self;
+    }else{
+        NSLog(@"MessageCell 复用了");
     }
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     __weak __typeof(self) weakSelf= self;

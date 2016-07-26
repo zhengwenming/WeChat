@@ -12,6 +12,7 @@
 		374D5DBA1D24CDCD009D04DA /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374D5DB71D24CDCD009D04DA /* SDWaitingView.m */; };
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
+		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
 		70B5BE311D0470E4003A7CF2 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE291D0470E4003A7CF2 /* CommentViewController.m */; };
@@ -471,6 +472,7 @@
 		377CE0201D2280160075DCA3 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
+		377EF7AA1D471F4700177CC8 /* addressBook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addressBook.gif; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		70B5BE261D0470E4003A7CF2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1238,6 +1240,7 @@
 				70FFC1E31D44FB0200FCE22F /* AddressBook.json */,
 				70BB73281D02AC550003B379 /* data.json */,
 				70F4B0CE1D0515CF0002924F /* WeChat.gif */,
+				377EF7AA1D471F4700177CC8 /* addressBook.gif */,
 				70BB731A1D02A95E0003B379 /* WeChat.pch */,
 			);
 			name = "Supporting Files";
@@ -2994,6 +2997,7 @@
 				70B5BE711D0472B7003A7CF2 /* 11.jpg in Resources */,
 				70C81CF61D04208B00D86903 /* f_static_027@2x.png in Resources */,
 				70B5BE861D0472B7003A7CF2 /* icon0.jpg in Resources */,
+				377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */,
 				70C81D6C1D04208B00D86903 /* f_static_086@2x.png in Resources */,
 				70C81D941D04208B00D86903 /* f_static_106@2x.png in Resources */,
 				70C81CE81D04208B00D86903 /* f_static_020@2x.png in Resources */,

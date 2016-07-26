@@ -225,7 +225,6 @@
                 FriendModel *friends = dataSource[i];
                 
                 NSString *outputPinyin=[[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""] lowercaseString];
-                NSLog(@"%@",[[outputPinyin substringToIndex:1] uppercaseString]);
                 
                 
                 if ([[outputPinyin lowercaseString]rangeOfString:[searchText lowercaseString]].location!=NSNotFound) {
@@ -287,13 +286,10 @@
     self.lettersArray = tempDic.allKeys;
     
     for (NSString *letter in self.lettersArray) {
-        NSLog(@"letter==%@",letter);
         NSMutableArray *tempArry = [[NSMutableArray alloc] init];
         
         for (NSInteger i = 0; i<dataSource.count; i++) {
             FriendModel *friends = dataSource[i];
-            NSLog(@"name = %@",friends.userName);
-            
             HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
             formatter.caseType = CaseTypeUppercase;
             formatter.vCharType = VCharTypeWithV;
@@ -301,7 +297,6 @@
             
             
             NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
-            NSLog(@"%@",[[outputPinyin substringToIndex:1] uppercaseString]);
             if ([letter isEqualToString:[[outputPinyin substringToIndex:1] uppercaseString]]) {
                 [tempArry addObject:friends];
                 
@@ -309,12 +304,9 @@
             
         }
         [self.nameDic setObject:tempArry forKey:letter];
-//        NSLog(@"tempArry==%@",tempArry);
     }
     
     self.lettersArray = tempDic.allKeys;
-//    NSLog(@"%@",self.lettersArray);
-    
     NSComparator cmptr = ^(id obj1, id obj2){
         if ([obj1 characterAtIndex:0] > [obj2 characterAtIndex:0]) {
             return (NSComparisonResult)NSOrderedDescending;
@@ -327,7 +319,6 @@
     };
     
     self.lettersArray = [[NSMutableArray alloc]initWithArray:[self.lettersArray sortedArrayUsingComparator:cmptr]];
-    NSLog(@"%@",self.lettersArray);
 }
 
 - (void)didReceiveMemoryWarning {

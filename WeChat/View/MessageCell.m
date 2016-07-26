@@ -8,6 +8,7 @@
 
 #import "MessageCell.h"
 #import "MessageModel.h"
+#import "WMPlayer.h"
 
 @interface MessageCell () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UILabel *nameLabel;
@@ -16,7 +17,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *moreBtn;
 @property (nonatomic, strong) UIButton *commentBtn;
-
+@property (nonatomic, strong) WMPlayer *wmplayer;
 @property (nonatomic, strong) MessageModel *messageModel;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
