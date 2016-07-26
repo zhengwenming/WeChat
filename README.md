@@ -25,6 +25,8 @@
 
 ![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/WeChat.gif)   
 
+![image](https://github.com/zhengwenming/WeChat/blob/master/WeChat/addressBook.gif)   
+
 
 
 #欢迎加入iOS开发技术支持群，487599875，（2元付费群，手机端可以加，电脑加不了。慎入！）进群必须改名，群名片格式：城市-iOS-名字，例如广州-iOS-文明。
