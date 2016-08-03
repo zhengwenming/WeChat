@@ -385,6 +385,7 @@ CGFloat getDifferenceH(CGRect frame)
         [self.delegate chatKeyBoard:self didSelectMorePanelItemIndex:index];
     }
 }
+
 #pragma mark -- dataSource
 
 - (void)setDataSource:(id<ChatKeyBoardDataSource>)dataSource

@@ -56,6 +56,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor cyanColor];
         [self setDefaultValue];
         [self initSubviews];
     }
