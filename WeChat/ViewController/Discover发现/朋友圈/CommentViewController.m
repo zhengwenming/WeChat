@@ -165,7 +165,7 @@
     }
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     __weak __typeof(self) weakSelf= self;
-    __weak __typeof(_tableView) weakTable= _tableView;
+    __weak __typeof(tableView) weakTable= tableView;
     __weak __typeof(window) weakWindow= window;
 
     __block MessageModel *model = [self.dataSource objectAtIndex:indexPath.row];
@@ -190,7 +190,7 @@
         [weakSelf.chatKeyBoard keyboardDownForComment];
         weakSelf.chatKeyBoard.placeHolder = nil;
         model.isExpand = !model.isExpand;
-        model.shouldUpdateCache = YES;
+        model.shouldUpdateCache = NO;
         [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
     

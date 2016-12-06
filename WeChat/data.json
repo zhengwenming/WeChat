@@ -438,6 +438,129 @@
                                    "checkStatus":"YES"
                                    }
                                    ]
+                },
+                {
+                "cid":"11",
+                "message_id":577,
+                "message":"1、NSTimer计算的时间并不精确;2、NSTimer需要添加到runLoop运行才会执行，但是这个runLoop的线程必须是已经开启;3、NSTimer会对它的tagert进行retain，我们必须对其重复性的使用intvailte停止。target如果是self（指UIViewController），那么VC的retainCount+1，如果你不释放NSTimer，那么你的VC就不会dealloc了，内存泄漏了。",
+                "createDate":1463123199000,
+                "timeTag":"10天前",
+                "createDateStr":"2016-09-13 15:06",
+                "objId":"f1567484",
+                "message_type":"text",
+                "checkStatus":"YES",
+                "userId":274,
+                "userName":"文明",
+                "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                "messageSmallPics":[
+                
+                ],
+                "messageBigPics":[
+                
+                ],
+                "commentMessages":[
+                                   {
+                                   "commentId":"110",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"哦哦哦，原来如此哦。",
+                                   "commentByUserId":274,
+                                   "commentByUserName":"文明",
+                                   "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "createDate":1463126018000,
+                                   "createDateStr":"2016-05-13 15:53",
+                                   "checkStatus":"YES"
+                                   },
+                                   {
+                                   "commentId":"120",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"自动布局中多行UILabel，需要设置其preferredMaxLayoutWidth属性才能正常显示多行内容。另外如果出现显示不全文本，可以在计算的结果基础上＋0.5。",
+                                   "commentByUserId":274,
+                                   "commentByUserName":"文明",
+                                   "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "createDate":1463127211000,
+                                   "createDateStr":"2016-05-13 16:13",
+                                   "checkStatus":"YES"
+                                   },
+                                   {
+                                   "commentId":"130",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"使用MBProgressHud时，尽量不要加到UIWindow上，加self.view上即可。如果加UIWindow上在iPad上，旋转屏幕的时候MBProgressHud不会旋转。之前有人遇到这个bug，我让他改放到self.view上即可解决此bug。",
+                                   "commentByUserId":0,
+                                   "commentByUserName":"",
+                                   "commentByPhoto":"",
+                                   "createDate":1463127227000,
+                                   "createDateStr":"2016-05-13 16:13",
+                                   "checkStatus":"YES"
+                                   }
+                                   ]
+                }
+                ,
+                {
+                "cid":"12",
+                "message_id":777,
+                "message":"MRC和ARC混编设置方式,在XCode中targets的build phases选项下Compile Sources下选择 不需要arc编译的文件,双击输入 -fno-objc-arc 即可;MRC工程中也可以使用ARC的类，方法如下：在XCode中targets的build phases选项下Compile Sources下选择要使用arc编译的文件,双击输入 -fobjc-arc 即可",
+                "createDate":1463123399000,
+                "timeTag":"1个月前",
+                "createDateStr":"2016-09-13 19:06",
+                "objId":"f1562584",
+                "message_type":"text",
+                "checkStatus":"YES",
+                "userId":274,
+                "userName":"文明",
+                "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                "messageSmallPics":[
+                
+                ],
+                "messageBigPics":[
+                
+                ],
+                "commentMessages":[
+                                   {
+                                   "commentId":"170",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"解决同时按两个按钮进两个view的问题，[button setExclusiveTouch:YES];",
+                                   "commentByUserId":274,
+                                   "commentByUserName":"文明",
+                                   "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "createDate":1463126018000,
+                                   "createDateStr":"2016-05-13 15:53",
+                                   "checkStatus":"YES"
+                                   },
+                                   {
+                                   "commentId":"177",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"round：如果参数是小数，则求本身的四舍五入。ceil：如果参数是小数，则求最小的整数但不小于本身（向上取，ceil的英文意思有天花板的意思）；floor：如果参数是小数，则求最大的整数但不大于本身（向下取，floor的英文意思有地板的意思）。",
+                                   "commentByUserId":274,
+                                   "commentByUserName":"文明",
+                                   "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "createDate":1463127211000,
+                                   "createDateStr":"2016-05-13 16:13",
+                                   "checkStatus":"YES"
+                                   },
+                                   {
+                                   "commentId":"178",
+                                   "commentUserId":274,
+                                   "commentUserName":"文明",
+                                   "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
+                                   "commentText":"UIScrollView偏移64问题，在一个VC里如果第一个控件是UIScrollView，注意是第一个控件，就是首先addsubview在VC.view上。接着加到scrollView上的View就会在Y点上发生64的偏移（也就是navigationBar的高度44+电池条的高度20）。这个在iOS7以后才会出现。",
+                                   "commentByUserId":0,
+                                   "commentByUserName":"",
+                                   "commentByPhoto":"",
+                                   "createDate":1463127227000,
+                                   "createDateStr":"2016-05-13 16:13",
+                                   "checkStatus":"YES"
+                                   }
+                                   ]
                 }
                 ]
     },

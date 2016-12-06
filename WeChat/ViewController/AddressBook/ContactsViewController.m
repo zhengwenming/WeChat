@@ -44,7 +44,9 @@
     [friendTableView registerNib:[UINib nibWithNibName:NSStringFromClass([AddressBookCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressBookCell class])];
     friendTableView.delegate = self;
     friendTableView.dataSource = self;
-    
+    //设置右边索引index的字体颜色和背景颜色
+    friendTableView.sectionIndexColor = [UIColor darkGrayColor];
+    friendTableView.sectionIndexBackgroundColor = [UIColor clearColor];
     [self.view addSubview:friendTableView];
     friendTableView.tableFooterView = [UIView new];
     resultController = [[SearchResultViewController alloc]init];
@@ -54,11 +56,38 @@
     
     searchController.searchResultsUpdater = resultController;
     searchController.searchBar.placeholder = @"搜索";
-//    searchController.searchBar.tintColor = [UIColor greenColor];
+    searchController.searchBar.tintColor = kThemeColor;
     searchController.searchBar.delegate = self;
 //    searchController.searchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
     friendTableView.tableHeaderView = searchController.searchBar;
+    
+    //解决iOS 8.4中searchBar看不到的bug
+    UISearchBar *bar = searchController.searchBar;
+    bar.barStyle = UIBarStyleDefault;
+    bar.translucent = YES;
+    CGRect rect = bar.frame;
+    rect.size.height = 44;
+    bar.frame = rect;
+    
+    
+    
 //    self.definesPresentationContext = NO;
+    //设置searchBar的边框颜色，四周的颜色
+    searchController.searchBar.barTintColor = [UIColor groupTableViewBackgroundColor];
+    UIImageView *view = [[[searchController.searchBar.subviews objectAtIndex:0] subviews] firstObject];
+    view.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    view.layer.borderWidth = 1;
+    
+        //把UISearchBar的右边图标显示出来
+        searchController.searchBar.showsBookmarkButton = YES;
+    //把UISearchBar的右边图标替换为VoiceSearchStartBtn这个图标
+        [searchController.searchBar setImage:[UIImage imageNamed:@"VoiceSearchStartBtn"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
+    // 将searchBar的cancel按钮改成中文的
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"取消"];
+    self.definesPresentationContext = YES;
+
+    
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -69,10 +98,9 @@
     dataSource = [[NSMutableArray alloc]init];
     updateArray = [[NSMutableArray alloc]init];
     self.lettersArray = [[NSArray alloc]init];
-    self.view.backgroundColor = [UIColor whiteColor];
     [self initUI];
     [self loadAddressBookData];
-    
+    [searchController.view bringSubviewToFront:searchController.searchBar];
 }
 -(void)loadAddressBookData{
     NSData *friendsData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"json"]]];
@@ -136,9 +164,6 @@
     return cell;
     
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 54;
-}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     FriendModel *friends;
@@ -161,6 +186,16 @@
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    NSLog(@"count = %ld",friendTableView.subviews.count);
+    for (UIView *aView in friendTableView.subviews) {
+        if ([aView isKindOfClass:NSClassFromString(@"UITableViewIndex")]) {
+//            NSLog(@"aveiw = %@,  class = %@",aView,NSStringFromClass(aView.class));
+
+        } if ([aView isKindOfClass:NSClassFromString(@"UISearchBar")]) {
+            [self.view bringSubviewToFront:aView];
+            NSLog(@"aveiw = %@,  class = %@",aView,NSStringFromClass(aView.class));
+        }
+    }
     return [self.lettersArray objectAtIndex:section];
 }
 
@@ -203,9 +238,8 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if (searchText) {
-        
         [updateArray removeAllObjects];
-        if ([PinyinHelper isIncludeChineseInString:searchText]) {// 中文
+        if ([PinyinHelper isIncludeChineseInString:searchText]) {// 如果是中文
             for(int i=0;i<dataSource.count;i++)
             {
                 FriendModel *friends = dataSource[i];
@@ -214,7 +248,7 @@
                 }
                 
             }
-        }else{//拼音
+        }else{//如果是拼音
             for(int i=0;i<dataSource.count;i++)
             {
                 HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
@@ -244,15 +278,19 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     searchController.searchBar.showsCancelButton = YES;
-    UIButton *canceLBtn = [searchController.searchBar valueForKey:@"cancelButton"];
-    [canceLBtn setTitle:@"取消" forState:UIControlStateNormal];
-    [canceLBtn setTitleColor:[UIColor colorWithRed:14.0/255.0 green:180.0/255.0 blue:0.0/255.0 alpha:1.00] forState:UIControlStateNormal];
-    searchBar.showsCancelButton = YES;
+    
+
+//    UIButton *canceLBtn = [searchController.searchBar valueForKey:@"cancelButton"];
+//    [canceLBtn setTitle:@"取消" forState:UIControlStateNormal];
+//    [canceLBtn setTitleColor:[UIColor colorWithRed:14.0/255.0 green:180.0/255.0 blue:0.0/255.0 alpha:1.00] forState:UIControlStateNormal];
+//    searchBar.showsCancelButton = YES;
     return YES;
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
+    
+
     return YES;
 }
 
@@ -266,7 +304,7 @@
     
     [searchBar resignFirstResponder];
 }
-
+//处理letterArray，包括按英文字母顺序排序
 - (void)handleLettersArray
 {
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc]init];
@@ -295,7 +333,7 @@
             formatter.vCharType = VCharTypeWithV;
             formatter.toneType = ToneTypeWithoutTone;
             
-            
+            //把friend的userName汉子转为汉语拼音，比如：张磊---->zhanglei
             NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
             if ([letter isEqualToString:[[outputPinyin substringToIndex:1] uppercaseString]]) {
                 [tempArry addObject:friends];
@@ -307,6 +345,7 @@
     }
     
     self.lettersArray = tempDic.allKeys;
+    //排序，排序的根据是字母
     NSComparator cmptr = ^(id obj1, id obj2){
         if ([obj1 characterAtIndex:0] > [obj2 characterAtIndex:0]) {
             return (NSComparisonResult)NSOrderedDescending;

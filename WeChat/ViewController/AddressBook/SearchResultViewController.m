@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataSource = [[NSMutableArray alloc]init];
-    table = [[UITableView alloc]initWithFrame:CGRectMake(0, -30, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
     [table registerNib:[UINib nibWithNibName:NSStringFromClass([AddressBookCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressBookCell class])];
     
     table.showsVerticalScrollIndicator = NO;
@@ -109,7 +109,6 @@
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSLog(@"Entering:%@ ",searchController.searchBar.text);
-    
 }
 
 - (void)didReceiveMemoryWarning {
