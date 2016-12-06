@@ -17,7 +17,7 @@
                 <frame key="frameInset" width="287" height="37"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XPz-DL-DpT">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileLockOn" translatesAutoresizingMaskIntoConstraints="NO" id="XPz-DL-DpT">
                         <constraints>
                             <constraint firstAttribute="width" secondItem="XPz-DL-DpT" secondAttribute="height" multiplier="1:1" id="umk-Pg-jwF"/>
                         </constraints>
@@ -61,4 +61,7 @@
             <point key="canvasLocation" x="250" y="314.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ProfileLockOn" width="17" height="17"/>
+    </resources>
 </document>

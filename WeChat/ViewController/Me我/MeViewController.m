@@ -24,7 +24,8 @@
 @implementation MeViewController
 -(NSMutableArray *)dataArray{
     if (_dataArray==nil) {
-        _dataArray = [NSMutableArray arrayWithObjects:@[@{@"title":@"文明",@"icon":@"MoreExpressionShops"}],
+        _dataArray = [NSMutableArray arrayWithObjects:
+  @[@{@"title":@"文明",@"icon":@"MoreExpressionShops"}],
   @[@{@"title":@"相册",@"icon":@"ff_IconShowAlbum"},@{@"title":@"收藏",@"icon":@"MoreMyFavorites"},@{@"title":@"钱包",@"icon":@"MoreMyBankCard"},@{@"title":@"卡券",@"icon":@"MyCardPackageIcon"}],
   @[@{@"title":@"表情",@"icon":@"MoreExpressionShops"}],
   @[@{@"title":@"设置",@"icon":@"MoreSetting"}], nil];
@@ -58,21 +59,11 @@
     return self.dataArray.count+1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-        case 2:
-        case 3:{
-            NSArray *rowArray = self.dataArray[section-1];
-            return rowArray.count;
-            break;
-        }
-        default:
-            break;
+    if (section) {
+        NSArray *rowArray = self.dataArray[section-1];
+        return rowArray.count;
     }
-    return 0;
+    return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section) {
@@ -127,51 +118,41 @@
 //        headerCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return headerCell;
     }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (!cell) {
-            cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+
+        PersonCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if (indexPath.section==2) {//我的好友
+            
+            switch (indexPath.row) {
+                case 0:
+                    cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
+                    cell.titleLabel.text = @"相册";
+                    break;
+                case 1:
+                    cell.titleIV.image = [UIImage imageNamed:@"MoreMyFavorites"];
+                    cell.titleLabel.text = @"收藏";
+                    break;
+                case 2:
+                    cell.titleIV.image = [UIImage imageNamed:@"MoreMyBankCard"];
+                    cell.titleLabel.text = @"钱包";
+                    break;
+                case 3:
+                    cell.titleIV.image = [UIImage imageNamed:@"MyCardPackageIcon"];
+                    cell.titleLabel.text = @"卡券";
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }else if (indexPath.section==3){//设置
+                cell.titleIV.image = [UIImage imageNamed:@"MoreExpressionShops"];
+                cell.titleLabel.text = @"表情";
+                
+        }else if(indexPath.section==4){
+            cell.titleIV.image = [UIImage imageNamed:@"MoreSetting"];
+            cell.titleLabel.text = @"设置";
         }
-        NSArray *rowArray = self.dataArray[indexPath.section];
-        NSInteger index = indexPath.row;
-        NSDictionary *dic = rowArray[index];
-        cell.textLabel.text =dic [@"title"];
-        cell.imageView.image = [UIImage imageNamed:@"icon"];
-        
-//        PersonCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterCell"];
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        if (indexPath.section==1) {//我的好友
-//            
-//            switch (indexPath.row) {
-//                case 0:
-//                    cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
-//                    cell.titleLabel.text = @"相册";
-//                    break;
-//                case 1:
-//                    cell.titleIV.image = [UIImage imageNamed:@"MoreMyFavorites"];
-//                    cell.titleLabel.text = @"收藏";
-//                    break;
-//                case 2:
-//                    cell.titleIV.image = [UIImage imageNamed:@"MoreMyBankCard"];
-//                    cell.titleLabel.text = @"钱包";
-//                    break;
-//                case 3:
-//                    cell.titleIV.image = [UIImage imageNamed:@"MyCardPackageIcon"];
-//                    cell.titleLabel.text = @"卡券";
-//                    break;
-//                    
-//                default:
-//                    break;
-//            }
-//            
-//        }else if (indexPath.section==2){//设置
-//                cell.titleIV.image = [UIImage imageNamed:@"MoreExpressionShops"];
-//                cell.titleLabel.text = @"表情";
-//                
-//        }else if(indexPath.section==3){
-//            cell.titleIV.image = [UIImage imageNamed:@"MoreSetting"];
-//            cell.titleLabel.text = @"设置";
-//            
-//        }
         return cell;
     }
 }
