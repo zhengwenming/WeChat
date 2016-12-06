@@ -81,7 +81,7 @@
     return kAlmostZero;
 }
 -(void)tapForOriginal:(UITapGestureRecognizer *)tap{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         fullScreenIV.frame = oldFrame;
         fullScreenIV.alpha = 0.03;
     } completion:^(BOOL finished) {
@@ -102,7 +102,7 @@
     fullScreenIV.contentMode = UIViewContentModeScaleAspectFit;
     [[UIApplication sharedApplication].keyWindow addSubview:fullScreenIV];
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         fullScreenIV.frame = CGRectMake(0,0,kScreenWidth, kScreenHeight);
     }];
     UITapGestureRecognizer *originalTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapForOriginal:)];
@@ -112,10 +112,11 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         PersonCenterHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterHeaderCell"];
-//        headerCell.avatarIV.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *fullScreenTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapForFullScreen:)];
-//        [headerCell.avatarIV addGestureRecognizer:fullScreenTap];
-//        headerCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        headerCell.selectionStyle  = UITableViewCellSelectionStyleNone;
+        headerCell.avatarIV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *fullScreenTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapForFullScreen:)];
+        [headerCell.avatarIV addGestureRecognizer:fullScreenTap];
+        headerCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return headerCell;
     }else{
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonCenterHeaderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *avatarIV;
 
 @end
