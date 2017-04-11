@@ -306,7 +306,7 @@
     if (!cell) {
         cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }else{
-        NSLog(@"Cell 被复用了");
+
     }
     
     CommentModel *model = [self.messageModel.commentModelArray objectAtIndex:indexPath.row];

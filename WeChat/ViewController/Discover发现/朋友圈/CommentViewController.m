@@ -19,8 +19,6 @@
 
 @interface CommentViewController ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, MessageCellDelegate,UIScrollViewDelegate>{
 }
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) ChatKeyBoard *chatKeyBoard;
 @property (nonatomic, assign) CGFloat history_Y_offset;//记录table的offset.y
 @property (nonatomic, assign) CGFloat seletedCellHeight;//记录点击cell的高度，高度由代理传过来
@@ -131,7 +129,6 @@
 #pragma mark
 #pragma mark 处理测试数据
 -(void)dealData{
-    self.dataSource = [[NSMutableArray alloc]init];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"]]];
     NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     for (NSDictionary *eachDic in JSONDic[@"data"][@"rows"]) {
@@ -145,24 +142,15 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[YYFPSLabel alloc]initWithFrame:CGRectMake(0, 5, 60, 30)]];
 
     [self dealData];
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self registerCellWithClass:@"MessageCell" tableView:self.tableView];
     [self.view addSubview:self.tableView];
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
-    if (!cell) {
-        cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageCell"];
-        cell.delegate = self;
-    }else{
-        NSLog(@"MessageCell 复用了");
-    }
+     MessageCell *cell = (MessageCell *)[tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     __weak __typeof(self) weakSelf= self;
     __weak __typeof(tableView) weakTable= tableView;
@@ -190,7 +178,7 @@
         [weakSelf.chatKeyBoard keyboardDownForComment];
         weakSelf.chatKeyBoard.placeHolder = nil;
         model.isExpand = !model.isExpand;
-        model.shouldUpdateCache = NO;
+        model.shouldUpdateCache = YES;
         [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
     

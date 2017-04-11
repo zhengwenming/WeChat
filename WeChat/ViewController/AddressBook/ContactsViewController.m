@@ -175,7 +175,6 @@
     }
 }
 -(void)selectPersonWithUserId:(NSString *)userId userName:(NSString *)userName photo:(NSString *)photo phoneNO:(NSString *)phoneNO{
-    NSLog(@"%@",userName);
     searchController.searchBar.text = @"";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -186,14 +185,13 @@
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"count = %ld",friendTableView.subviews.count);
     for (UIView *aView in friendTableView.subviews) {
         if ([aView isKindOfClass:NSClassFromString(@"UITableViewIndex")]) {
 //            NSLog(@"aveiw = %@,  class = %@",aView,NSStringFromClass(aView.class));
 
         } if ([aView isKindOfClass:NSClassFromString(@"UISearchBar")]) {
             [self.view bringSubviewToFront:aView];
-            NSLog(@"aveiw = %@,  class = %@",aView,NSStringFromClass(aView.class));
+
         }
     }
     return [self.lettersArray objectAtIndex:section];
@@ -271,7 +269,6 @@
         
         
     }
-    NSLog(@"%@",updateArray);
     [resultController updateAddressBookData:updateArray];
 }
 
