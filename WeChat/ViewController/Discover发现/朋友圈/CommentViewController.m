@@ -22,6 +22,8 @@
 @property (nonatomic, strong) ChatKeyBoard *chatKeyBoard;
 @property (nonatomic, assign) CGFloat history_Y_offset;//记录table的offset.y
 @property (nonatomic, assign) CGFloat seletedCellHeight;//记录点击cell的高度，高度由代理传过来
+@property (nonatomic, assign) BOOL isShowKeyBoard;//记录点击cell的高度，高度由代理传过来
+
 //专门用来回复选中的cell的model
 @property (nonatomic, strong) CommentModel *replayTheSeletedCellModel;
 
@@ -129,6 +131,7 @@
 #pragma mark
 #pragma mark 处理测试数据
 -(void)dealData{
+    self.dataSource = [[NSMutableArray alloc]init];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"]]];
     NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     for (NSDictionary *eachDic in JSONDic[@"data"][@"rows"]) {
@@ -150,7 +153,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     MessageCell *cell = (MessageCell *)[tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+    cell.delegate = self;
+
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     __weak __typeof(self) weakSelf= self;
     __weak __typeof(tableView) weakTable= tableView;
@@ -163,6 +168,11 @@
     cell.CommentBtnClickBlock = ^(UIButton *commentBtn,NSIndexPath * indexPath)
     {
        
+        if (self.isShowKeyBoard) {
+            [self.view endEditing:YES];
+            return ;
+        }
+        
         //不是点击cell进行回复，则置空replayTheSeletedCellModel，因为这个时候是点击评论按钮进行评论，不是回复某某某
         self.replayTheSeletedCellModel = nil;
         weakSelf.seletedCellHeight = 0.0;
@@ -175,20 +185,32 @@
     //更多
     cell.MoreBtnClickBlock = ^(UIButton *moreBtn,NSIndexPath * indexPath)
     {
+        if (self.isShowKeyBoard) {
+            [self.view endEditing:YES];
+            return ;
+        }
         [weakSelf.chatKeyBoard keyboardDownForComment];
         weakSelf.chatKeyBoard.placeHolder = nil;
         model.isExpand = !model.isExpand;
         model.shouldUpdateCache = YES;
-        [weakTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [weakTable reloadData];
     };
     
     //点击九宫格
     cell.tapImageBlock = ^(NSInteger index,NSArray *dataSource,NSIndexPath *indexpath){
+        if (self.isShowKeyBoard) {
+            [self.view endEditing:YES];
+            return ;
+        }
         [weakSelf.chatKeyBoard keyboardDownForComment];
     };
     
     //点击文字
     cell.TapTextBlock=^(UILabel *desLabel){
+        if (self.isShowKeyBoard) {
+            [self.view endEditing:YES];
+            return ;
+        }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     };
@@ -213,10 +235,17 @@
     }];
     return h;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.isShowKeyBoard) {
+        [self.view endEditing:YES];
+    }
+}
 #pragma mark - passCellHeightWithModel
-
-- (void)passCellHeightWithMessageModel:(MessageModel *)messageModel commentModel:(CommentModel *)commentModel atCommentIndexPath:(NSIndexPath *)commentIndexPath cellHeight:(CGFloat )cellHeight commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell{
+-(void)passCellHeight:(CGFloat)cellHeight commentModel:(CommentModel *)commentModel commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell{
+    if (self.isShowKeyBoard) {
+        [self.view endEditing:YES];
+        return ;
+    }
     self.needUpdateOffset = YES;
     self.replayTheSeletedCellModel = commentModel;
     self.currentIndexPath = [self.tableView indexPathForCell:messageCell];
@@ -234,10 +263,12 @@
 #pragma mark keyboardWillShow
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    self.isShowKeyBoard = YES;
     NSDictionary *userInfo = [notification userInfo];
     NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     __block  CGFloat keyboardHeight = [aValue CGRectValue].size.height;
-    if (keyboardHeight==0) {//解决搜狗输入法三次调用此方法的bug、
+    if (keyboardHeight==0) {
+        //解决搜狗输入法三次调用此方法的bug、
 //        IOS8.0之后可以安装第三方键盘，如搜狗输入法之类的。
 //        获得的高度都为0.这是因为键盘弹出的方法:- (void)keyBoardWillShow:(NSNotification *)notification需要执行三次,你如果打印一下,你会发现键盘高度为:第一次:0;第二次:216:第三次:282.并不是获取不到高度,而是第三次才获取真正的高度.
         return;
@@ -266,29 +297,11 @@
         [self.tableView setContentOffset:offset animated:YES];
     }
 }
-
 #pragma mark
 #pragma mark keyboardWillHide
 - (void)keyboardWillHide:(NSNotification *)notification {
-//    NSValue *animationDurationValue = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-//    NSTimeInterval animationDuration;
-//    [animationDurationValue getValue:&animationDuration];
-//    [UIView animateWithDuration:animationDuration animations:^{
-//    }];
+    self.isShowKeyBoard = NO;
     self.needUpdateOffset = NO;
-}
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.chatKeyBoard keyboardDownForComment];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    NSLog(@"CommentViewController didReceiveMemoryWarning");
-    
-}
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    [self.chatKeyBoard keyboardDownForComment];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

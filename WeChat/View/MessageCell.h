@@ -15,7 +15,9 @@
 @protocol MessageCellDelegate <NSObject>
 
 - (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath;
-- (void)passCellHeightWithMessageModel:(MessageModel *)messageModel commentModel:(CommentModel *)commentModel atCommentIndexPath:(NSIndexPath *)commentIndexPath cellHeight:(CGFloat )cellHeight commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell;
+
+- (void)passCellHeight:(CGFloat )cellHeight commentModel:(CommentModel *)commentModel   commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell;
+
 @end
 
 

@@ -20,7 +20,7 @@
 @property (nonatomic, strong) WMPlayer *wmplayer;
 @property (nonatomic, strong) MessageModel *messageModel;
 
-@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, copy) NSIndexPath *indexPath;
 @end
 
 @implementation MessageCell
@@ -302,9 +302,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     if (!cell) {
-        cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"];
     }else{
 
     }
@@ -352,10 +352,11 @@
     }];
    
     
-    if ([self.delegate respondsToSelector:@selector(passCellHeightWithMessageModel:commentModel:atCommentIndexPath:cellHeight:commentCell:messageCell:)]) {
-        self.messageModel.shouldUpdateCache = YES;
+    if ([self.delegate respondsToSelector:@selector(passCellHeight:commentModel:commentCell:messageCell:)]) {
         CommentCell *commetCell =  (CommentCell *)[tableView cellForRowAtIndexPath:indexPath];
-        [self.delegate passCellHeightWithMessageModel:_messageModel commentModel:commentModel atCommentIndexPath:indexPath cellHeight:cell_height commentCell:commetCell messageCell:self];
+        
+        [self.delegate passCellHeight:cell_height commentModel:commentModel commentCell:commetCell messageCell:self];
+        
     }
     
 }

@@ -21,6 +21,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         // contentLabel
         self.contentLabel = [[UILabel alloc] init];
         [self.contentView addSubview:self.contentLabel];
