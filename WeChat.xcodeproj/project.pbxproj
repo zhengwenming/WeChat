@@ -13,6 +13,7 @@
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
+		701B066F1EACA56A00733E78 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 701B066E1EACA56A00733E78 /* background.jpeg */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
 		70B5BE321D0470E4003A7CF2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE2C1D0470E4003A7CF2 /* TestViewController.m */; };
@@ -472,6 +473,7 @@
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		377EF7AA1D471F4700177CC8 /* addressBook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addressBook.gif; sourceTree = "<group>"; };
+		701B066E1EACA56A00733E78 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		70B5BE261D0470E4003A7CF2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1115,6 +1117,7 @@
 		70B5BE371D0472B7003A7CF2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				701B066E1EACA56A00733E78 /* background.jpeg */,
 				70B5BEBC1D047B32003A7CF2 /* avatar@2x.png */,
 				70B5BEBD1D047B32003A7CF2 /* avatar@3x.png */,
 				70B5BE381D0472B7003A7CF2 /* cell_icons */,
@@ -3232,6 +3235,7 @@
 				70B5BE951D0472B7003A7CF2 /* pbg.jpg in Resources */,
 				70C81CE71D04208B00D86903 /* f_static_019@3x.png in Resources */,
 				70C81D951D04208B00D86903 /* f_static_106@3x.png in Resources */,
+				701B066F1EACA56A00733E78 /* background.jpeg in Resources */,
 				70B5BE8B1D0472B7003A7CF2 /* Contacts.xcassets in Resources */,
 				70C81CDD1D04208B00D86903 /* f_static_014@3x.png in Resources */,
 				70C81CEE1D04208B00D86903 /* f_static_023@2x.png in Resources */,

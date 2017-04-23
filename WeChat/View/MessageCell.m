@@ -121,7 +121,19 @@
         
         self.tableView = [[UITableView alloc] init];
         self.tableView.scrollEnabled = NO;
+        self.tableView.backgroundColor = [UIColor clearColor];
+       // UIImageView * backgroundImageView= [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 260)];
+       // backgroundImageView.image = [UIImage imageNamed:@"LikeCmtBg"];
+        //self.tableView.backgroundView = backgroundImageView;
+        
+        UIImage *image = [UIImage imageNamed:@"LikeCmtBg"];
+        image = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
+
+        
+        self.tableView.backgroundView = [[UIImageView alloc]initWithImage:image];
+
         [self.contentView addSubview:self.tableView];
+        
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.jggView);
             make.top.mas_equalTo(self.commentBtn.mas_bottom).offset(kGAP);
@@ -129,7 +141,7 @@
         }];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.hyb_lastViewInCell = self.tableView;
-        self.hyb_bottomOffsetToCell = 0.0;
+        self.hyb_bottomOffsetToCell = kGAP;
     }
     
     return self;

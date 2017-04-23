@@ -16,8 +16,6 @@
     UITableView *friendTableView;
     NSMutableArray *dataSource;
     NSMutableArray *updateArray;
-    
-    
 }
 
 @property(nonatomic,strong) NSArray *lettersArray;
@@ -51,9 +49,10 @@
     friendTableView.tableFooterView = [UIView new];
     resultController = [[SearchResultViewController alloc]init];
     resultController.delegate = self;
+    
+    
+    //searchController
     searchController = [[UISearchController alloc] initWithSearchResultsController:resultController];
-    
-    
     searchController.searchResultsUpdater = resultController;
     searchController.searchBar.placeholder = @"搜索";
     searchController.searchBar.tintColor = kThemeColor;
@@ -169,7 +168,6 @@
     FriendModel *friends;
     if (tableView==friendTableView) {
         friends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        
     }else{
         friends = dataSource[indexPath.row];
     }
@@ -253,7 +251,7 @@
                 formatter.caseType = CaseTypeUppercase;
                 formatter.vCharType = VCharTypeWithV;
                 formatter.toneType = ToneTypeWithoutTone;
-                
+                //zhengshuang  e
                 FriendModel *friends = dataSource[i];
                 
                 NSString *outputPinyin=[[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""] lowercaseString];

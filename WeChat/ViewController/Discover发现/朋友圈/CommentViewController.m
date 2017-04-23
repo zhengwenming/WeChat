@@ -145,10 +145,16 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[YYFPSLabel alloc]initWithFrame:CGRectMake(0, 5, 60, 30)]];
 
     [self dealData];
+    
+    UIImageView * backgroundImageView= [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 260)];
+    backgroundImageView.image = [UIImage imageNamed:@"background.jpeg"];
+    self.tableView.tableHeaderView = backgroundImageView;
+    
     [self registerCellWithClass:@"MessageCell" tableView:self.tableView];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.view).with.offset(-kNavbarHeight);
     }];
 }
 
@@ -204,6 +210,8 @@
         }
         [weakSelf.chatKeyBoard keyboardDownForComment];
     };
+    
+    
     
     //点击文字
     cell.TapTextBlock=^(UILabel *desLabel){

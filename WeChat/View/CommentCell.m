@@ -36,7 +36,8 @@
             make.top.mas_equalTo(self.contentView).offset(3.0);//cell上部距离为3.0个间隙
         }];
         
-        
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
         self.hyb_lastViewInCell = self.contentLabel;
         self.hyb_bottomOffsetToCell = 3.0;//cell底部距离为3.0个间隙
     }
