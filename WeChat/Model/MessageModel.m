@@ -31,6 +31,12 @@
     }
     return _messageBigPics;
 }
+-(NSMutableArray *)likeUsers{
+    if (_likeUsers==nil) {
+        _likeUsers = [NSMutableArray array];
+    }
+    return _likeUsers;
+}
 
 -(instancetype)initWithDic:(NSDictionary *)dic{
     self = [super init];
@@ -43,10 +49,10 @@
         self.message_type       = dic[@"message_type"];
         self.userId             = dic[@"userId"];
         self.userName           = dic[@"userName"];
+        self.likeUsers          = dic[@"likeUsers"];
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
         self.messageBigPics     = dic[@"messageBigPics"];
-        
         for (NSDictionary *eachDic in dic[@"commentMessages"] ) {
             CommentModel *commentModel = [[CommentModel alloc] initWithDic:eachDic];
             [self.commentModelArray addObject:commentModel];

@@ -259,7 +259,7 @@
     self.currentIndexPath = [self.tableView indexPathForCell:messageCell];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.chatKeyBoard.placeHolder = [NSString stringWithFormat:@"回复 %@",commentModel.commentUserName];
-    self.history_Y_offset = [commentCell.contentLabel convertRect:commentCell.contentLabel.bounds toView:window].origin.y;
+    self.history_Y_offset = [commentCell convertRect:commentCell.bounds toView:window].origin.y;
     self.seletedCellHeight = cellHeight;
     [self.chatKeyBoard keyboardUpforComment];
 }

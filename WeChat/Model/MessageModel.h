@@ -9,32 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CommentModel.h"
 
-/*
- {
- "message_id":656,
- "message":"咋啊啊啊啊啊杀杀杀杀杀",
- "createDate":1463646327000,
- "timeTag":"2天前",
- "createDateStr":"2016-05-19 16:25",
- "objId":"f1562484",
- "message_type":"text",
- "checkStatus":"YES",
- "userId":82,
- "userName":"俊",
- "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/15914867203-1461920972642.jpg",
- "messageSmallPics":[
- "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636463273330.JPEG",
- "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636463273461.JPEG"
- ],
- "messageBigPics":[
- "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636463273330.JPEG",
- "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636463273461.JPEG"
- ],
- "commentMessages":[
- 
- ]
- }
- */
+
 @interface MessageModel : NSObject
 @property (nonatomic, copy) NSString *cid;
 
@@ -58,6 +33,9 @@
 
 ///发布说说者名字
 @property(nonatomic,copy)NSString *userName;
+
+///点赞的人列表
+@property(nonatomic,copy)NSMutableArray *likeUsers;
 
 ///发布说说者头像
 @property(nonatomic,copy)NSString *photo;

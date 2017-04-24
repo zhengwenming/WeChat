@@ -19,20 +19,6 @@
 
 #import <Foundation/Foundation.h>
 
-/*{
- "id":654,
- "commentId":575,
- "commentUserId":274,
- "commentUserName":"文明",
- "commentPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
- "commentText":"真的假的？",
- "commentByUserId":274,
- "commentByUserName":"文明",
- "commentByPhoto":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
- "createDate":1463126018000,
- "createDateStr":"2016-05-13 15:53",
- "checkStatus":"YES"
- }*/
 
 
 

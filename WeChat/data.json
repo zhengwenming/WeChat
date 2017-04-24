@@ -15,6 +15,7 @@
                 "checkStatus":"YES",
                 "userId":82,
                 "userName":"杀马特",
+                "likeUsers":["文明","刘德华","谭咏麟","梅艳芳","Eason","Beyond"],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/15914867203-1461920972642.jpg",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
@@ -67,6 +68,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["郭富城","枪炮玫瑰","王杰","梁静茹","光良"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -128,6 +130,7 @@
                 "checkStatus":"YES",
                 "userId":97,
                 "userName":"怕瓦落地",
+                "likeUsers":["河图"],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/18565061404-1448440129479.jpg",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417251890thumbnail.jpg",
@@ -167,6 +170,7 @@
                 "checkStatus":"YES",
                 "userId":278,
                 "userName":"13719162910",
+                "likeUsers":["周杰伦","李湘"],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/13719162910-1463115526444.jpg",
                 "messageSmallPics":[
                 
@@ -190,6 +194,7 @@
                 "checkStatus":"YES",
                 "userId":82,
                 "userName":"杀马特",
+                "likeUsers":[],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/15914867203-1461920972642.jpg",
                 "messageSmallPics":[
                 
@@ -213,6 +218,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["王宝强","羽泉"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160513/14631262033360thumbnail.JPEG",
@@ -252,6 +258,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["谢霆锋","陈冠希"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
 
                 "messageSmallPics":[
@@ -276,6 +283,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["王菲","李亚鹏","汪峰","章子怡"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
 
                 "messageSmallPics":[
@@ -361,6 +369,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["谢安琪","阿桑","弦子","朴树"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160513/14631233468840.JPEG",
@@ -390,6 +399,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["许嵩","张国荣","含笑","罗大佑","张卫","张震岳","邓丽君"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -451,6 +461,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["崔健"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -513,6 +524,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
+                "likeUsers":["费玉清"],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 

@@ -57,13 +57,14 @@
         self.descLabel = [UILabel new];
 //        self.descLabel.displaysAsynchronously = YES;
         
-        self.descLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        self.descLabel.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer *tapText = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapText:)];
         [self.descLabel addGestureRecognizer:tapText];
         [self.contentView addSubview:self.descLabel];
         self.descLabel.preferredMaxLayoutWidth =screenWidth - kGAP-kAvatar_Size ;
+        self.descLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.descLabel.numberOfLines = 0;
-        self.descLabel.font = [UIFont systemFontOfSize:14.0];
+        self.descLabel.font = [UIFont systemFontOfSize:13.0];
         [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(self.nameLabel);
             make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(kGAP);
@@ -122,6 +123,7 @@
         self.tableView = [[UITableView alloc] init];
         self.tableView.scrollEnabled = NO;
         self.tableView.backgroundColor = [UIColor clearColor];
+        [self.tableView registerClass:NSClassFromString(@"CommentCell") forCellReuseIdentifier:@"CommentCell"];
        // UIImageView * backgroundImageView= [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 260)];
        // backgroundImageView.image = [UIImage imageNamed:@"LikeCmtBg"];
         //self.tableView.backgroundView = backgroundImageView;
@@ -224,7 +226,7 @@
     muStyle.lineSpacing = 3;//设置行间距离
     muStyle.alignment = NSTextAlignmentLeft;//对齐方式
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:model.message];
-     [attrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, attrString.length)];
+     [attrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13.0] range:NSMakeRange(0, attrString.length)];
     [attrString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, attrString.length)];//下划线
 
     [attrString addAttribute:NSParagraphStyleAttributeName value:muStyle range:NSMakeRange(0, attrString.length)];
@@ -235,7 +237,7 @@
     self.descLabel.enabled = YES;//设置文字内容是否可变
     self.descLabel.userInteractionEnabled = YES;//设置标签是否忽略或移除用户交互。默认为NO
     
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14.0],NSParagraphStyleAttributeName:muStyle};
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13.0],NSParagraphStyleAttributeName:muStyle};
 
     CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height+0.5;
     
@@ -306,7 +308,7 @@
     }
     
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(tableViewHeight);
+        make.height.mas_equalTo(tableViewHeight+30);
     }];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -314,41 +316,63 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
-    if (!cell) {
-        cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"];
-    }else{
-
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+    if (self.messageModel.likeUsers.count) {
+        if (indexPath.row==0) {
+            [cell configCellWithLikeUsers:self.messageModel.likeUsers];
+            return cell;
+        }
     }
     
-    CommentModel *model = [self.messageModel.commentModelArray objectAtIndex:indexPath.row];
+    NSInteger index = self.messageModel.likeUsers.count?(indexPath.row-1):(indexPath.row);
+    CommentModel *model = [self.messageModel.commentModelArray objectAtIndex:index];
     [cell configCellWithModel:model];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.messageModel.commentModelArray.count;
+    NSInteger count = self.messageModel.commentModelArray.count;
+    if (self.messageModel.likeUsers.count) {
+        return count+1;
+    }
+    return count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CommentModel *model = [self.messageModel.commentModelArray objectAtIndex:indexPath.row];
-   CGFloat cell_height = [CommentCell hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
+    if (self.messageModel.likeUsers.count) {
+        if (indexPath.row==0) {
+            return 30;
+        }
+    }
+    
+    NSInteger index = self.messageModel.likeUsers.count?(indexPath.row-1):(indexPath.row);
+
+    
+    CommentModel *model = [self.messageModel.commentModelArray objectAtIndex:index];
+    CGFloat cell_height = [CommentCell hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
         CommentCell *cell = (CommentCell *)sourceCell;
         [cell configCellWithModel:model];
     } cache:^NSDictionary *{
-         NSDictionary *cache = @{kHYBCacheUniqueKey : model.commentId,
-                 kHYBCacheStateKey : @"",
-                 kHYBRecalculateForStateKey : @(NO)};
-//        model.shouldUpdateCache = NO;
+        NSDictionary *cache = @{kHYBCacheUniqueKey : model.commentId,
+                                kHYBCacheStateKey : @"",
+                                kHYBRecalculateForStateKey : @(NO)};
+        // model.shouldUpdateCache = NO;
         return cache;
-                 }];
+    }];
     return cell_height;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    CommentModel *commentModel = [self.messageModel.commentModelArray objectAtIndex:indexPath.row];
+    if (self.messageModel.likeUsers.count) {
+        if (indexPath.row==0) {
+            return;
+        }
+    }
+    NSInteger index = self.messageModel.likeUsers.count?(indexPath.row-1):(indexPath.row);
+    CommentModel *commentModel = [self.messageModel.commentModelArray objectAtIndex:index];
     CGFloat cell_height = [CommentCell hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
         CommentCell *cell = (CommentCell *)sourceCell;
         

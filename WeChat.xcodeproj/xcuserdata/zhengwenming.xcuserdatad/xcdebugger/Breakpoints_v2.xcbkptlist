@@ -26,7 +26,7 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "-commentModelArray"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,22 +122,6 @@
             startingLineNumber = "201"
             endingLineNumber = "201"
             landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChat/ViewController/Discover&#x53d1;&#x73b0;/&#x670b;&#x53cb;&#x5708;/CommentViewController.m"
-            timestampString = "514631249.057296"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "-reloadCellHeightForModel:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
