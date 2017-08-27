@@ -1,6 +1,12 @@
 # WeChat
 实现类似微信朋友圈或者QQ空间，评论回复，贴吧盖楼，九宫格布局。处理键盘弹出后定位到当前点击的被评论人处。
+---
+微信扫码关注文明的iOS开发公众号
+或者微信搜索“iOS开发by文明”
 
+![image](https://github.com/zhengwenming/WMPlayer/blob/master/PlayerDemo/gzh.jpg)
+
+---
 1、缓存Cell高度（感谢黄仪标的开源库－－>HYBMasonryAutoCellHeight），使页面滑动不卡，丝丝入滑。
 
 开源库地址：https://github.com/CoderJackyHuang/HYBMasonryAutoCellHeight
