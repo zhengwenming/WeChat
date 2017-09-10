@@ -13,6 +13,8 @@
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
+		7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7011566B1F65285C004D1B67 /* LikeUsersCell.m */; };
+		7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7011566C1F65285C004D1B67 /* LikeUsersCell.xib */; };
 		701B066F1EACA56A00733E78 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 701B066E1EACA56A00733E78 /* background.jpeg */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
@@ -473,6 +475,9 @@
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		377EF7AA1D471F4700177CC8 /* addressBook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addressBook.gif; sourceTree = "<group>"; };
+		7011566A1F65285C004D1B67 /* LikeUsersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell.h; sourceTree = "<group>"; };
+		7011566B1F65285C004D1B67 /* LikeUsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell.m; sourceTree = "<group>"; };
+		7011566C1F65285C004D1B67 /* LikeUsersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell.xib; sourceTree = "<group>"; };
 		701B066E1EACA56A00733E78 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
@@ -1283,6 +1288,9 @@
 				70BB733A1D02B64F0003B379 /* MessageCell.m */,
 				70BB73301D02B1E50003B379 /* CommentCell.h */,
 				70BB73311D02B1E50003B379 /* CommentCell.m */,
+				7011566A1F65285C004D1B67 /* LikeUsersCell.h */,
+				7011566B1F65285C004D1B67 /* LikeUsersCell.m */,
+				7011566C1F65285C004D1B67 /* LikeUsersCell.xib */,
 				70BB73A11D02F38F0003B379 /* UIView+JGG.h */,
 				70BB73A21D02F38F0003B379 /* UIView+JGG.m */,
 				70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */,
@@ -3312,6 +3320,7 @@
 				70B5BE871D0472B7003A7CF2 /* icon1.jpg in Resources */,
 				70B5BE761D0472B7003A7CF2 /* 16.jpg in Resources */,
 				70C81CB61D04208B00D86903 /* section0_emotion1@2x.png in Resources */,
+				7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */,
 				70C81CB51D04208B00D86903 /* section0_emotion15@2x.png in Resources */,
 				70C81D651D04208B00D86903 /* f_static_082@3x.png in Resources */,
 				70B5BE9C1D0472B7003A7CF2 /* pic6.jpg in Resources */,
@@ -3361,6 +3370,7 @@
 				BF84DE461DB9E20500669716 /* HomeViewController.m in Sources */,
 				70C817881D040FB900D86903 /* ChatToolBar.m in Sources */,
 				70BB73351D02B2F80003B379 /* JGGView.m in Sources */,
+				7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */,
 				70BB72F41D02A93D0003B379 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				70BB730A1D02A93D0003B379 /* UIScrollView+MJRefresh.m in Sources */,
 				70C8177B1D040FB900D86903 /* FaceThemeModel.m in Sources */,

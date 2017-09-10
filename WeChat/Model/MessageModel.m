@@ -53,6 +53,9 @@
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
         self.messageBigPics     = dic[@"messageBigPics"];
+        if (self.likeUsers.count) {
+            [self.commentModelArray addObject:self.likeUsers];
+        }
         for (NSDictionary *eachDic in dic[@"commentMessages"] ) {
             CommentModel *commentModel = [[CommentModel alloc] initWithDic:eachDic];
             [self.commentModelArray addObject:commentModel];

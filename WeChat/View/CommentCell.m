@@ -42,13 +42,6 @@
     
     return self;
 }
-- (void)configCellWithLikeUsers:(NSArray *)likeUsers {
-    NSString *allString = @"";
-    for (NSString *name in likeUsers) {
-        allString = [NSString stringWithFormat:@"%@,%@",allString,name];
-    }
-    self.contentLabel.text = [allString substringFromIndex:1];
-}
 - (void)configCellWithModel:(CommentModel *)model {
     NSString *str  = nil;
     if (![model.commentByUserName isEqualToString:@""]) {
