@@ -8,7 +8,7 @@
 
 #import "MessageCell.h"
 #import "MessageModel.h"
-#import "LikeUsersCell.h"
+#import "FriendModel.h"
 
 #import "WMPlayer.h"
 
@@ -133,6 +133,8 @@
         self.tableView.backgroundView = [[UIImageView alloc]initWithImage:image];
         [self.contentView addSubview:self.tableView];
         
+        self.tableView.backgroundView.userInteractionEnabled = YES;
+        self.tableView.userInteractionEnabled = YES;
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.jggView);
             make.top.mas_equalTo(self.commentBtn.mas_bottom).offset(kGAP);
@@ -164,59 +166,7 @@
 }
 - (void)configCellWithModel:(MessageModel *)model indexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
-    
     self.nameLabel.text = model.userName;
-    
-    
-    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        
-//        // Create attributed string.
-//        NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:model.message];
-//        NSMutableAttributedString *userNameText = [[NSMutableAttributedString alloc] initWithString:model.userName];
-//        
-//        messageText.yy_font = [UIFont systemFontOfSize:14.0];
-//        userNameText.yy_font = [UIFont systemFontOfSize:17.0];
-//
-//        messageText.yy_color = [UIColor blackColor];
-//        //        [text yy_setColor:[UIColor redColor] range:NSMakeRange(0, 4)];
-//        messageText.yy_lineSpacing = 2;
-////        userNameText.yy_lineSpacing = 0;
-//
-//        // Create text container
-//        YYTextContainer *messageContainer = [YYTextContainer new];
-//        YYTextContainer *userNameContainer = [YYTextContainer new];
-//
-//        messageContainer.size = CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX);
-//        userNameContainer.size = CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX);
-//
-//        messageContainer.maximumNumberOfRows = 0;
-//        userNameContainer.maximumNumberOfRows = 0;
-//
-//        // Generate a text layout.
-//        YYTextLayout *messageLayout = [YYTextLayout layoutWithContainer:messageContainer text:messageText];
-//        
-//        YYTextLayout *userNameLayout = [YYTextLayout layoutWithContainer:messageContainer text:userNameText];
-//
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.descLabel.size = messageLayout.textBoundingSize;
-//            self.descLabel.textLayout = messageLayout;
-//            
-//            self.nameLabel.size = userNameLayout.textBoundingSize;
-//            self.nameLabel.textLayout = userNameLayout;
-//        });
-//    });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.messageModel = model;
     NSMutableParagraphStyle *muStyle = [[NSMutableParagraphStyle alloc]init];
@@ -324,7 +274,14 @@
     if (indexPath.row==0) {
         if (self.messageModel.likeUsers.count) {
             LikeUsersCell *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell" forIndexPath:indexPath];
-            [likeUsersCell configCellWithLikeUsers:self.messageModel.likeUsers];
+            [likeUsersCell configCellLikeUsersWithMessageModel:self.messageModel];
+            __weak __typeof(self) weakSelf= self;
+            
+            likeUsersCell.tapNameBlock = ^(MessageModel *messageModel) {
+                if (weakSelf.tapNameBlock) {
+                    weakSelf.tapNameBlock(messageModel);
+                }
+            };
             return likeUsersCell;
             }
         }
@@ -345,11 +302,37 @@
     if (self.messageModel.likeUsers.count) {
         if (indexPath.row==0) {
             NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13.0]};
-            NSString *allString = @"";
-            for (NSString *name in self.messageModel.likeUsers) {
-                allString = [NSString stringWithFormat:@"%@,%@",allString,name];
+            NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
+            for (int i = 0; i < self.messageModel.likeUsers.count; i++) {
+                FriendModel *friendModel = self.messageModel.likeUsers[i];
+
+                [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:friendModel.userName]];
+                if (i != self.messageModel.likeUsers.count - 1) {
+                    [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
+                    
+                }
             }
-            CGFloat h = [allString boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
+            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+            //定义图片内容及位置和大小
+            attch.image = [UIImage imageNamed:@"Like"];
+            attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
+            
+            [mutablAttrStr addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.f]} range:NSMakeRange(0, mutablAttrStr.length)];
+            
+            
+            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+            
+            //    style.lineSpacing = 0;
+            
+            [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
+            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+
+            
+            
+            
+            
+            CGFloat h = [mutablAttrStr.string boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height+4;
+            
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(self.tableView.contentSize.height+1+4);//4为tableView最后一个cell底部下面的空隙
             }];

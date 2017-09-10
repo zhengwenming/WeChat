@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "JGGView.h"
 #import "CommentCell.h"
+#import "LikeUsersCell.h"
+
 @class MessageCell;
 @class MessageModel;
 
@@ -46,6 +48,7 @@
  *  点击文字的block
  */
 @property (nonatomic, copy)void(^TapTextBlock)(UILabel *desLabel);
+@property(nonatomic ,copy)TapNameBlock tapNameBlock;
 
 @property (nonatomic, weak) id<MessageCellDelegate> delegate;
 

@@ -15,6 +15,7 @@
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
 		7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7011566B1F65285C004D1B67 /* LikeUsersCell.m */; };
 		7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7011566C1F65285C004D1B67 /* LikeUsersCell.xib */; };
+		701156751F655729004D1B67 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 701156741F655729004D1B67 /* UILabel+YBAttributeTextTapAction.m */; };
 		701B066F1EACA56A00733E78 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 701B066E1EACA56A00733E78 /* background.jpeg */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
@@ -478,6 +479,8 @@
 		7011566A1F65285C004D1B67 /* LikeUsersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell.h; sourceTree = "<group>"; };
 		7011566B1F65285C004D1B67 /* LikeUsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell.m; sourceTree = "<group>"; };
 		7011566C1F65285C004D1B67 /* LikeUsersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell.xib; sourceTree = "<group>"; };
+		701156731F655729004D1B67 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		701156741F655729004D1B67 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		701B066E1EACA56A00733E78 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
@@ -1099,6 +1102,15 @@
 			path = WMPlayer;
 			sourceTree = "<group>";
 		};
+		7011566F1F65462E004D1B67 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				701156731F655729004D1B67 /* UILabel+YBAttributeTextTapAction.h */,
+				701156741F655729004D1B67 /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		70B5BE231D0470E4003A7CF2 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,6 +1242,7 @@
 				70BB72831D02A92A0003B379 /* ViewController */,
 				70BB72811D02A92A0003B379 /* Model */,
 				70BB72821D02A92A0003B379 /* View */,
+				7011566F1F65462E004D1B67 /* Category */,
 				70BB72801D02A8FE0003B379 /* ThirdLib */,
 				70BB72691D02A8A70003B379 /* Supporting Files */,
 			);
@@ -2991,7 +3004,7 @@
 				TargetAttributes = {
 					70BB72651D02A8A70003B379 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = FT79ZHXPA8;
+						DevelopmentTeam = WR5828Y35T;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3395,6 +3408,7 @@
 				70BB730B1D02A93D0003B379 /* UIView+MJExtension.m in Sources */,
 				374D5DBA1D24CDCD009D04DA /* SDWaitingView.m in Sources */,
 				70BB72FF1D02A93D0003B379 /* MJRefreshAutoNormalFooter.m in Sources */,
+				701156751F655729004D1B67 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				70BB72FC1D02A93D0003B379 /* MJRefreshFooter.m in Sources */,
 				70BB730C1D02A93D0003B379 /* NSData+ImageContentType.m in Sources */,
 				70BB733B1D02B64F0003B379 /* MessageCell.m in Sources */,
@@ -3591,7 +3605,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FT79ZHXPA8;
+				DEVELOPMENT_TEAM = WR5828Y35T;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3607,7 +3621,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FT79ZHXPA8;
+				DEVELOPMENT_TEAM = WR5828Y35T;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

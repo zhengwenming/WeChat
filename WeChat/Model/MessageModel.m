@@ -7,6 +7,7 @@
 //
 
 #import "MessageModel.h"
+#import "FriendModel.h"
 
 @implementation MessageModel
 
@@ -49,7 +50,9 @@
         self.message_type       = dic[@"message_type"];
         self.userId             = dic[@"userId"];
         self.userName           = dic[@"userName"];
-        self.likeUsers          = dic[@"likeUsers"];
+        for (NSDictionary *friendInfoDic in dic[@"likeUsers"]) {
+            [self.likeUsers addObject:[[FriendModel alloc]initWithDic:friendInfoDic]];
+        }
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
         self.messageBigPics     = dic[@"messageBigPics"];

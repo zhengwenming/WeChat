@@ -52,6 +52,9 @@
 
 @property (nonatomic, assign) BOOL shouldUpdateCache;
 
+@property(nonatomic,copy)NSMutableAttributedString *mutablAttrStr;
+
+
 
 -(instancetype)initWithDic:(NSDictionary *)dic;
 

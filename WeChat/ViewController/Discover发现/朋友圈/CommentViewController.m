@@ -219,7 +219,18 @@
             [self.view endEditing:YES];
             return ;
         }
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:desLabel.text delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//        [alert show];
+    };
+    
+    
+    
+    cell.tapNameBlock = ^(MessageModel *messageModel) {
+        if (self.isShowKeyBoard) {
+            [self.view endEditing:YES];
+            return ;
+        }
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:messageModel.userName delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     };
     return cell;

@@ -15,7 +15,8 @@
                 "checkStatus":"YES",
                 "userId":82,
                 "userName":"杀马特",
-                "likeUsers":["文明","刘德华","谭咏麟","梅艳芳","Eason","Beyond","解放军","马云","飞机","理发店","欧迪芬","卡卡","胖大海"],
+                "likeUsers":[{"userId":"274","userName":"文明"},{"userId":"4","userName":"刘德华"},
+                             {"userId":"5","userName":"谭咏麟"},{"userId":"6","userName":"梅艳芳"},{"userId":"7","userName":"Eason"},{"userId":"8","userName":"Beyond"},{"userId":"9","userName":"解放军"},{"userId":"10","userName":"马云"},{"userId":"11","userName":"飞机"},{"userId":"12","userName":"理发店"},{"userId":"13","userName":"欧迪芬"},{"userId":"14","userName":"卡卡"},{"userId":"15","userName":"胖大海"}],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/15914867203-1461920972642.jpg",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
@@ -68,7 +69,8 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["郭富城","枪炮玫瑰","王杰","梁静茹","光良"],
+                "likeUsers":[{"userId":"16","userName":"郭富城"},{"userId":"17","userName":"枪炮玫瑰"},
+                             {"userId":"18","userName":"王杰"},{"userId":"19","userName":"梁静茹"},{"userId":"20","userName":"光良"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -130,7 +132,7 @@
                 "checkStatus":"YES",
                 "userId":97,
                 "userName":"怕瓦落地",
-                "likeUsers":["河图"],
+                "likeUsers":[{"userId":"21","userName":"河图"}],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/18565061404-1448440129479.jpg",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417251890thumbnail.jpg",
@@ -138,9 +140,9 @@
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417292432thumbnail.jpg"
                                   ],
                 "messageBigPics":[
-                                         "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417251850.jpg",
-                                         "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417276611.jpg",
-                                         "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417292422.jpg"
+                                  "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417251850.jpg",
+                                  "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417276611.jpg",
+                                  "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160519/14636417292422.jpg"
                                          ],
                 "commentMessages":[
                                  {
@@ -170,7 +172,7 @@
                 "checkStatus":"YES",
                 "userId":278,
                 "userName":"13719162910",
-                "likeUsers":["周杰伦","李湘"],
+                "likeUsers":[{"userId":"22","userName":"周杰伦"},{"userId":"23","userName":"李湘"}],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/13719162910-1463115526444.jpg",
                 "messageSmallPics":[
                 
@@ -218,7 +220,9 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["王宝强","羽泉"],
+                "likeUsers":[
+                             {"userId":"23","userName":"王宝强"},{"userId":"24","userName":"羽泉"},
+                                {"userId":"25","userName":"老王"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160513/14631262033360thumbnail.JPEG",
@@ -258,7 +262,8 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["谢霆锋","陈冠希"],
+                "likeUsers":[
+                             {"userId":"26","userName":"谢霆锋"},{"userId":"27","userName":"陈冠希"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
 
                 "messageSmallPics":[
@@ -283,7 +288,8 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["王菲","李亚鹏","汪峰","章子怡"],
+                "likeUsers":[{"userId":"28","userName":"王菲"},{"userId":"29","userName":"李亚鹏"},
+                             {"userId":"30","userName":"汪峰"},{"userId":"30","userName":"章子怡"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
 
                 "messageSmallPics":[
@@ -369,7 +375,8 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["谢安琪","阿桑","弦子","朴树"],
+                "likeUsers":[{"userId":"0","userName":"谢安琪"},{"userId":"1","userName":"阿桑"},
+                             {"userId":"2","userName":"弦子"},{"userId":"3","userName":"朴树"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                                   "http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160513/14631233468840.JPEG",
@@ -399,7 +406,8 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["许嵩","张国荣","含笑","罗大佑","张卫","张震岳","邓丽君"],
+                "likeUsers":[{"userId":"31","userName":"许嵩"},{"userId":"32","userName":"张国荣"},
+                             {"userId":"33","userName":"含笑"},{"userId":"34","userName":"罗大佑"},{"userId":"35","userName":"张卫"},{"userId":"36","userName":"张震岳"},{"userId":"37","userName":"邓丽君"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -461,7 +469,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["崔健"],
+                 "likeUsers":[{"userId":"38","userName":"崔健"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 
@@ -524,7 +532,7 @@
                 "checkStatus":"YES",
                 "userId":274,
                 "userName":"文明",
-                "likeUsers":["费玉清"],
+                "likeUsers":[{"userId":"39","userName":"费玉清"}],
                 "photo":"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100",
                 "messageSmallPics":[
                 

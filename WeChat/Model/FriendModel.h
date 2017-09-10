@@ -22,5 +22,7 @@
 @property(nonatomic,copy)NSString *userId;
 
 @property(nonatomic,copy)NSString *phoneNO;
+@property(nonatomic,assign)NSRange range;
+
 -(instancetype)initWithDic:(NSDictionary *)dic;
 @end
