@@ -28,8 +28,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
-    self.likeUsersLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    self.likeUsersLabel.userInteractionEnabled = YES;
+    self.likeUsersLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -38,6 +37,14 @@
     _likeUsersArray = messageModel.likeUsers.mutableCopy;
     NSMutableArray *rangesArray = [NSMutableArray array];
     NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
+    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+    //定义图片内容及位置和大小
+    attch.image = [UIImage imageNamed:@"Like"];
+    attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
+    //创建带有图片的富文本
+    [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+    
+    
     for (int i = 0; i < messageModel.likeUsers.count; i++) {
         FriendModel *friendModel = messageModel.likeUsers[i];
         //name0,name1,name2,name1
@@ -58,30 +65,20 @@
     
     
     
-    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
-    //定义图片内容及位置和大小
-    attch.image = [UIImage imageNamed:@"Like"];
-    attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
+    
     
     [mutablAttrStr addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.f]} range:NSMakeRange(0, mutablAttrStr.length)];
     
     
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    
-    //    style.lineSpacing = 0;
-    
+    style.lineSpacing = 0;
     [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
-    
-    
-    
     // 给指定文字添加颜色
-    
     for (NSValue *aRangeValue in rangesArray) {
         [mutablAttrStr addAttributes:@{NSForegroundColorAttributeName : [UIColor orangeColor]} range:aRangeValue.rangeValue];
     }
     
-    //创建带有图片的富文本
-//    [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+    
     
     self.likeUsersLabel.attributedText = mutablAttrStr;
     
