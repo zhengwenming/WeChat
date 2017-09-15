@@ -16,6 +16,7 @@
 #import "MoreItem.h"
 #import "ChatToolBarItem.h"
 #import "FaceThemeModel.h"
+#import "FriendModel.h"
 
 @interface CommentViewController ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, MessageCellDelegate,UIScrollViewDelegate>{
 }
@@ -225,12 +226,12 @@
     
     
     
-    cell.tapNameBlock = ^(MessageModel *messageModel) {
+    cell.tapNameBlock = ^(FriendModel *friendModel) {
         if (self.isShowKeyBoard) {
             [self.view endEditing:YES];
             return ;
         }
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:messageModel.userName delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:friendModel.userName message:[NSString stringWithFormat:@"id = %@",friendModel.userId] delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
     };
     return cell;

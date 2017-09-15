@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CommentModel.h"
-
+@class FriendModel;
 
 @interface MessageModel : NSObject
 @property (nonatomic, copy) NSString *cid;
@@ -35,7 +35,7 @@
 @property(nonatomic,copy)NSString *userName;
 
 ///点赞的人列表
-@property(nonatomic,copy)NSMutableArray *likeUsers;
+@property(nonatomic,copy)NSMutableArray <FriendModel *>*likeUsers;
 
 ///发布说说者头像
 @property(nonatomic,copy)NSString *photo;

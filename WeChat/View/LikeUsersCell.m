@@ -8,11 +8,11 @@
 
 #import "LikeUsersCell.h"
 #import "FriendModel.h"
-#import "UILabel+YBAttributeTextTapAction.h"
+#import "UILabel+TapAction.h"
 #import "MessageModel.h"
 
 
-@interface LikeUsersCell ()<YBAttributeTapActionDelegate>
+@interface LikeUsersCell ()<TapActionDelegate>
 @property(nonatomic,strong)NSMutableArray *likeUsersArray;
 
 @property(nonatomic,strong)NSMutableArray *nameArray;
@@ -28,13 +28,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
-    self.likeUsersLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.likeUsersLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
     self.likeUsersLabel.userInteractionEnabled = YES;
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
 }
-- (void)configCellLikeUsersWithMessageModel:(MessageModel *)messageModel{
+- (void)configLikeUsersWithMessageModel:(MessageModel *)messageModel{
     _likeUsersArray = messageModel.likeUsers.mutableCopy;
     NSMutableArray *rangesArray = [NSMutableArray array];
     NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
@@ -81,29 +81,22 @@
     }
     
     //创建带有图片的富文本
-    [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+//    [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
     
     self.likeUsersLabel.attributedText = mutablAttrStr;
     
     // 给指定文字添加点击事件,并设置代理,代理中监听点击
-    [self.likeUsersLabel yb_addAttributeTapActionWithStrings:self.nameArray delegate:self];
+    [self.likeUsersLabel tapActionWithStrings:self.nameArray delegate:self];
 }
-
-- (void)yb_attributeTapReturnString:(NSString *)string range:(NSRange)range index:(NSInteger)index
-
-{
+- (void)tapReturnString:(NSString *)string
+                  range:(NSRange)range
+                  index:(NSInteger)index{
     FriendModel *aModel = self.likeUsersArray[index];
-    
     if (self.tapNameBlock) {
         self.tapNameBlock(aModel);
     }
-    NSRange r = NSMakeRange(range.location-1, range.length);
-    
-    NSLog(@"userId == %@",aModel.userId);
-    NSLog(@"string == %@",string);
-    
-    
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }

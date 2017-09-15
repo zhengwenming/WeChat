@@ -274,12 +274,12 @@
     if (indexPath.row==0) {
         if (self.messageModel.likeUsers.count) {
             LikeUsersCell *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell" forIndexPath:indexPath];
-            [likeUsersCell configCellLikeUsersWithMessageModel:self.messageModel];
+            [likeUsersCell configLikeUsersWithMessageModel:self.messageModel];
             __weak __typeof(self) weakSelf= self;
             
-            likeUsersCell.tapNameBlock = ^(MessageModel *messageModel) {
+            likeUsersCell.tapNameBlock = ^(FriendModel *friendModel) {
                 if (weakSelf.tapNameBlock) {
-                    weakSelf.tapNameBlock(messageModel);
+                    weakSelf.tapNameBlock(friendModel);
                 }
             };
             return likeUsersCell;
@@ -325,7 +325,7 @@
             //    style.lineSpacing = 0;
             
             [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
-            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+//            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
 
             
             

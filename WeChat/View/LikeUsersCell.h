@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class FriendModel;
 @class MessageModel;
-typedef void(^TapNameBlock)(MessageModel *messageModel);
+
+typedef void(^TapNameBlock)(FriendModel *friendModel);
 @interface LikeUsersCell : UITableViewCell
 
-- (void)configCellLikeUsersWithMessageModel:(MessageModel *)messageModel;
+- (void)configLikeUsersWithMessageModel:(MessageModel *)messageModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *likeUsersLabel;
 @property(nonatomic ,copy)TapNameBlock tapNameBlock;

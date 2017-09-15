@@ -15,7 +15,8 @@
                 "checkStatus":"YES",
                 "userId":82,
                 "userName":"杀马特",
-                "likeUsers":[{"userId":"274","userName":"文明"},{"userId":"4","userName":"刘德华"},
+                "likeUsers":[{"userId":"274","userName":"文明"},
+                             {"userId":"4","userName":"刘德华"},
                              {"userId":"5","userName":"谭咏麟"},{"userId":"6","userName":"梅艳芳"},{"userId":"7","userName":"Eason"},{"userId":"8","userName":"Beyond"},{"userId":"9","userName":"解放军"},{"userId":"10","userName":"马云"},{"userId":"11","userName":"飞机"},{"userId":"12","userName":"理发店"},{"userId":"13","userName":"欧迪芬"},{"userId":"14","userName":"卡卡"},{"userId":"15","userName":"胖大海"}],
                 "photo":"http://weixintest.ihk.cn/ihkwx_upload/userPhoto/15914867203-1461920972642.jpg",
                 "messageSmallPics":[
