@@ -52,7 +52,7 @@
     return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    return [UITableViewCell new];
 }
 
 -(int)getRandomNumber:(int)from to:(int)to

@@ -445,6 +445,10 @@
 		70C81D9C1D04208B00D86903 /* sp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81C9F1D04208B00D86903 /* sp@2x.png */; };
 		70C81D9D1D04208B00D86903 /* yy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81CA01D04208B00D86903 /* yy@2x.png */; };
 		70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70F4B0CE1D0515CF0002924F /* WeChat.gif */; };
+		70F5029F1F70121B0033363E /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */; };
+		70F502A21F7012360033363E /* WMTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A11F7012360033363E /* WMTimeLineViewController.m */; };
+		70F502A51F7012B80033363E /* WCTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A41F7012B80033363E /* WCTimeLineViewController.m */; };
+		70F502A81F7020220033363E /* WMTimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A71F7020220033363E /* WMTimeLineHeaderView.m */; };
 		70FFC1C51D44F19900FCE22F /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C41D44F19900FCE22F /* FriendModel.m */; };
 		70FFC1C91D44F1C800FCE22F /* AddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */; };
 		70FFC1CA1D44F1C800FCE22F /* AddressBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */; };
@@ -461,7 +465,6 @@
 		BF84DE411DB9E1B500669716 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF84DE3D1DB9E1B500669716 /* DiscoverViewController.m */; };
 		BF84DE421DB9E1B500669716 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF84DE401DB9E1B500669716 /* MeViewController.m */; };
 		BF84DE461DB9E20500669716 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF84DE451DB9E20500669716 /* HomeViewController.m */; };
-		BF84DE4A1DB9E77500669716 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF84DE491DB9E77500669716 /* CommentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1034,6 +1037,14 @@
 		70C81C9F1D04208B00D86903 /* sp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp@2x.png"; sourceTree = "<group>"; };
 		70C81CA01D04208B00D86903 /* yy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yy@2x.png"; sourceTree = "<group>"; };
 		70F4B0CE1D0515CF0002924F /* WeChat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WeChat.gif; sourceTree = "<group>"; };
+		70F5029D1F70121B0033363E /* TimeLineBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineBaseViewController.h; sourceTree = "<group>"; };
+		70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineBaseViewController.m; sourceTree = "<group>"; };
+		70F502A01F7012360033363E /* WMTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineViewController.h; sourceTree = "<group>"; };
+		70F502A11F7012360033363E /* WMTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineViewController.m; sourceTree = "<group>"; };
+		70F502A31F7012B80033363E /* WCTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTimeLineViewController.h; sourceTree = "<group>"; };
+		70F502A41F7012B80033363E /* WCTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTimeLineViewController.m; sourceTree = "<group>"; };
+		70F502A61F7020220033363E /* WMTimeLineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineHeaderView.h; sourceTree = "<group>"; };
+		70F502A71F7020220033363E /* WMTimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineHeaderView.m; sourceTree = "<group>"; };
 		70FFC1C31D44F19900FCE22F /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
 		70FFC1C41D44F19900FCE22F /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
 		70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookCell.h; sourceTree = "<group>"; };
@@ -1063,8 +1074,6 @@
 		BF84DE401DB9E1B500669716 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		BF84DE441DB9E20500669716 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		BF84DE451DB9E20500669716 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		BF84DE481DB9E77500669716 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
-		BF84DE491DB9E77500669716 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1311,6 +1320,8 @@
 				70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */,
 				70BB73331D02B2F80003B379 /* JGGView.h */,
 				70BB73341D02B2F80003B379 /* JGGView.m */,
+				70F502A61F7020220033363E /* WMTimeLineHeaderView.h */,
+				70F502A71F7020220033363E /* WMTimeLineHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2967,8 +2978,12 @@
 		BF84DE471DB9E77500669716 /* 朋友圈 */ = {
 			isa = PBXGroup;
 			children = (
-				BF84DE481DB9E77500669716 /* CommentViewController.h */,
-				BF84DE491DB9E77500669716 /* CommentViewController.m */,
+				70F5029D1F70121B0033363E /* TimeLineBaseViewController.h */,
+				70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */,
+				70F502A31F7012B80033363E /* WCTimeLineViewController.h */,
+				70F502A41F7012B80033363E /* WCTimeLineViewController.m */,
+				70F502A01F7012360033363E /* WMTimeLineViewController.h */,
+				70F502A11F7012360033363E /* WMTimeLineViewController.m */,
 			);
 			path = "朋友圈";
 			sourceTree = "<group>";
@@ -3407,6 +3422,7 @@
 				705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */,
 				70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */,
 				70BB730B1D02A93D0003B379 /* UIView+MJExtension.m in Sources */,
+				70F5029F1F70121B0033363E /* TimeLineBaseViewController.m in Sources */,
 				374D5DBA1D24CDCD009D04DA /* SDWaitingView.m in Sources */,
 				70BB72FF1D02A93D0003B379 /* MJRefreshAutoNormalFooter.m in Sources */,
 				70BB72FC1D02A93D0003B379 /* MJRefreshFooter.m in Sources */,
@@ -3462,17 +3478,20 @@
 				70BB72F01D02A93D0003B379 /* MASLayoutConstraint.m in Sources */,
 				70BB726B1D02A8A70003B379 /* main.m in Sources */,
 				70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */,
+				70F502A51F7012B80033363E /* WCTimeLineViewController.m in Sources */,
 				70BB73191D02A93D0003B379 /* UIView+WebCacheOperation.m in Sources */,
 				70BB72F51D02A93D0003B379 /* View+MASAdditions.m in Sources */,
 				70BB738F1D02C8060003B379 /* YYTextRunDelegate.m in Sources */,
 				70C8178A1D040FB900D86903 /* RFRecordButton.m in Sources */,
 				70BB72F91D02A93D0003B379 /* MJRefreshAutoFooter.m in Sources */,
+				70F502A21F7012360033363E /* WMTimeLineViewController.m in Sources */,
 				70BB73941D02C8060003B379 /* UIView+YYAdd.m in Sources */,
 				70BB73841D02C8060003B379 /* YYTextEffectWindow.m in Sources */,
 				70BB73181D02A93D0003B379 /* UIImageView+WebCache.m in Sources */,
 				70BB73911D02C8060003B379 /* NSParagraphStyle+YYText.m in Sources */,
 				70BB73801D02C8060003B379 /* NSObject+YYModel.m in Sources */,
 				70BB732F1D02ACE40003B379 /* MessageModel.m in Sources */,
+				70F502A81F7020220033363E /* WMTimeLineHeaderView.m in Sources */,
 				70BB73081D02A93D0003B379 /* MJRefreshConst.m in Sources */,
 				70BB73931D02C8060003B379 /* UIPasteboard+YYText.m in Sources */,
 				70FFC1E11D44F2D000FCE22F /* PinyinHelper.m in Sources */,
@@ -3488,7 +3507,6 @@
 				70B5BE321D0470E4003A7CF2 /* TestViewController.m in Sources */,
 				70C817851D040FB900D86903 /* FaceThemeView.m in Sources */,
 				70BB730D1D02A93D0003B379 /* SDImageCache.m in Sources */,
-				BF84DE4A1DB9E77500669716 /* CommentViewController.m in Sources */,
 				70C817831D040FB900D86903 /* FacePanel.m in Sources */,
 				70BB72EE1D02A93D0003B379 /* MASConstraint.m in Sources */,
 				70BB73851D02C8060003B379 /* YYTextInput.m in Sources */,

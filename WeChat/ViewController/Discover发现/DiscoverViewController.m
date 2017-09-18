@@ -10,42 +10,46 @@
 
 #import "DiscoverViewController.h"
 #import "PersonCenterCell.h"
+#import "WMTimeLineViewController.h"
 
 @interface DiscoverViewController ()<UITableViewDelegate,UITableViewDataSource>{
-    UITableView *discoverTable;
-}
 
+}
+@property(nonatomic,strong)UITableView *discoverTable;
 @end
 
 @implementation DiscoverViewController
 ///懒加载评论页面（朋友圈页面）
--(CommentViewController *)commentVC{
-    if (_commentVC==nil) {
-        _commentVC = [[CommentViewController alloc]init];
+-(WCTimeLineViewController *)timeLineVC{
+    if (_timeLineVC==nil) {
+        _timeLineVC = [[WCTimeLineViewController alloc]init];
     }
-    return _commentVC;
+    return _timeLineVC;
+}
+-(UITableView *)discoverTable{
+    if (_discoverTable==nil) {
+        _discoverTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _discoverTable.delegate = self;
+        _discoverTable.dataSource = self;
+        [_discoverTable registerNib:[UINib nibWithNibName:@"PersonCenterCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterCell"];
+    }
+    return _discoverTable;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initTable];
-}
--(void)initTable{
-    discoverTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    discoverTable.delegate = self;
-    discoverTable.dataSource = self;
-    [discoverTable registerNib:[UINib nibWithNibName:@"PersonCenterCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterCell"];
-    [self.view addSubview:discoverTable];
-    [discoverTable mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.discoverTable];
+    [self.discoverTable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
 }
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 4;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 1;
+            return 2;
             break;
         case 1:
             return 2;
@@ -75,7 +79,11 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section==0) {//我的好友
         cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
-        cell.titleLabel.text = @"朋友圈";
+        if (indexPath.row==0) {
+            cell.titleLabel.text = @"朋友圈(cell嵌套UITableView)";
+        }else{
+            cell.titleLabel.text = @"朋友圈(一个tableView结构)";
+        }
 
     }else if (indexPath.section==1){//设置
         if (indexPath.row==0) {
@@ -105,7 +113,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section==0) {
-        [self.navigationController pushViewController:self.commentVC animated:YES];
+        if (indexPath.row==0) {
+        [self.navigationController pushViewController:self.timeLineVC animated:YES];
+        }else{
+        [self.navigationController pushViewController:[WMTimeLineViewController new] animated:YES];
+        }
     }
 }
 - (void)didReceiveMemoryWarning {
