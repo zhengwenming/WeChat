@@ -7,11 +7,16 @@
 //
 
 #import "BaseViewController.h"
-#import "MessageModel.h"
+#import "MessageInfoModel1.h"
+#import "MessageInfoModel2.h"
 
 
 @interface TimeLineBaseViewController : BaseViewController
 #pragma mark
-#pragma mark 从本地获取测试数据
--(void)getTimeLineTestData;
+#pragma mark 从本地获取朋友圈1的测试数据
+-(void)getTestData1;
+#pragma mark
+#pragma mark 从本地获取朋友圈2的测试数据
+-(void)getTestData2;
+
 @end

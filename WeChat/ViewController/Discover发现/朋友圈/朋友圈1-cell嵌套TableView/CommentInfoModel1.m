@@ -1,21 +1,14 @@
+//
+//  CommentInfoModel1.m
+//  WeChat
+//
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
+//
 
+#import "CommentInfoModel1.h"
 
-/*!
- @header CommentModel.m
- 
- @abstract  作者Github地址：https://github.com/zhengwenming
-            作者CSDN博客地址:http://blog.csdn.net/wenmingzheng
- 
- @author   Created by zhengwenming on  16/3/27
- 
- @version 1.00 16/3/27 Creation(版本信息)
- 
-   Copyright © 2016年 zhengwenming. All rights reserved.
- */
-
-#import "CommentModel.h"
-
-@implementation CommentModel
+@implementation CommentInfoModel1
 -(instancetype)initWithDic:(NSDictionary *)dic{
     self = [super init];
     if (self) {
@@ -47,4 +40,5 @@
     }
     return _messageBigPicArray;
 }
+
 @end

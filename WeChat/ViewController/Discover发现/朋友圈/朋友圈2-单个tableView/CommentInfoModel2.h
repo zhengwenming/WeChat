@@ -1,29 +1,14 @@
-
-/*!
- @header CommentModel.h
- 
- @abstract  作者Github地址：https://github.com/zhengwenming
-            作者CSDN博客地址:http://blog.csdn.net/wenmingzheng
- 
- @author   Created by zhengwenming on  16/3/27
- 
- @version 1.00 16/3/27 Creation(版本信息)
- 
-   Copyright © 2016年 zhengwenming. All rights reserved.
- */
-
-
-
-
-
+//
+//  CommentInfoModel2.h
+//  WeChat
+//
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
-
-
-
-@interface CommentModel : NSObject
-
+@interface CommentInfoModel2 : NSObject
 @property (nonatomic, assign) BOOL isExpand;
 
 @property(nonatomic,copy)NSString *commentId;
@@ -35,6 +20,8 @@
 @property(nonatomic,copy)NSString *commentPhoto;
 
 @property(nonatomic,copy)NSString *commentText;
+@property(nonatomic,copy)NSAttributedString *attributedText;
+
 @property(nonatomic,copy)NSString *commentByUserId;
 @property(nonatomic,copy)NSString *commentByUserName;
 @property(nonatomic,copy)NSString *commentByPhoto;
@@ -47,9 +34,7 @@
 // 评论数据源
 @property (nonatomic,copy) NSMutableArray *commentModelArray;
 
-//@property (nonatomic, assign) BOOL shouldUpdateCache;
+@property (nonatomic, assign)CGFloat rowHeight;
 
 -(instancetype)initWithDic:(NSDictionary *)dic;
-
-
 @end

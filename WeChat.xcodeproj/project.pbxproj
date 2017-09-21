@@ -15,6 +15,21 @@
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
 		7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7011566B1F65285C004D1B67 /* LikeUsersCell.m */; };
 		7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7011566C1F65285C004D1B67 /* LikeUsersCell.xib */; };
+		701A5B931F73EDF500332B78 /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B901F73EDF500332B78 /* TimeLineBaseViewController.m */; };
+		701A5B961F73EF7400332B78 /* WMTimeLineViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B951F73EF7400332B78 /* WMTimeLineViewController1.m */; };
+		701A5B991F73EF8800332B78 /* WMTimeLineViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B981F73EF8800332B78 /* WMTimeLineViewController2.m */; };
+		701A5B9C1F73F1A700332B78 /* MessageInfoModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B9B1F73F1A700332B78 /* MessageInfoModel1.m */; };
+		701A5B9F1F73F1C600332B78 /* MessageInfoModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B9E1F73F1C600332B78 /* MessageInfoModel2.m */; };
+		701A5BA51F73F20200332B78 /* CommentInfoModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BA41F73F20200332B78 /* CommentInfoModel1.m */; };
+		701A5BA81F73F21300332B78 /* CommentInfoModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BA71F73F21300332B78 /* CommentInfoModel2.m */; };
+		701A5BAB1F73F64800332B78 /* FriendInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BAA1F73F64800332B78 /* FriendInfoModel.m */; };
+		701A5BAE1F73FD8C00332B78 /* MessageCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BAD1F73FD8C00332B78 /* MessageCell1.m */; };
+		701A5BB11F74085100332B78 /* CommentCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BB01F74085100332B78 /* CommentCell1.m */; };
+		701A5BB41F740A2B00332B78 /* CommentCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BB31F740A2B00332B78 /* CommentCell2.m */; };
+		701A5BB71F740FB200332B78 /* CopyAbleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BB61F740FB200332B78 /* CopyAbleLabel.m */; };
+		701A5BBA1F74169B00332B78 /* WMTimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BB91F74169B00332B78 /* WMTimeLineHeaderView.m */; };
+		701A5BBD1F74180500332B78 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BBC1F74180500332B78 /* NSString+Extension.m */; };
+		701A5BC01F7426C300332B78 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BBF1F7426C300332B78 /* Layout.m */; };
 		701B066F1EACA56A00733E78 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 701B066E1EACA56A00733E78 /* background.jpeg */; };
 		705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
@@ -129,11 +144,7 @@
 		70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731D1D02AA920003B379 /* UITableView+HYBCacheHeight.m */; };
 		70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		70BB73291D02AC550003B379 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 70BB73281D02AC550003B379 /* data.json */; };
-		70BB732E1D02ACE40003B379 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB732B1D02ACE40003B379 /* CommentModel.m */; };
-		70BB732F1D02ACE40003B379 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB732D1D02ACE40003B379 /* MessageModel.m */; };
-		70BB73321D02B1E50003B379 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB73311D02B1E50003B379 /* CommentCell.m */; };
 		70BB73351D02B2F80003B379 /* JGGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB73341D02B2F80003B379 /* JGGView.m */; };
-		70BB733B1D02B64F0003B379 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB733A1D02B64F0003B379 /* MessageCell.m */; };
 		70BB73801D02C8060003B379 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB733F1D02C8050003B379 /* NSObject+YYModel.m */; };
 		70BB73811D02C8060003B379 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB73411D02C8050003B379 /* YYClassInfo.m */; };
 		70BB73821D02C8060003B379 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB73461D02C8050003B379 /* YYTextContainerView.m */; };
@@ -445,11 +456,6 @@
 		70C81D9C1D04208B00D86903 /* sp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81C9F1D04208B00D86903 /* sp@2x.png */; };
 		70C81D9D1D04208B00D86903 /* yy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C81CA01D04208B00D86903 /* yy@2x.png */; };
 		70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70F4B0CE1D0515CF0002924F /* WeChat.gif */; };
-		70F5029F1F70121B0033363E /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */; };
-		70F502A21F7012360033363E /* WMTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A11F7012360033363E /* WMTimeLineViewController.m */; };
-		70F502A51F7012B80033363E /* WCTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A41F7012B80033363E /* WCTimeLineViewController.m */; };
-		70F502A81F7020220033363E /* WMTimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F502A71F7020220033363E /* WMTimeLineHeaderView.m */; };
-		70FFC1C51D44F19900FCE22F /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C41D44F19900FCE22F /* FriendModel.m */; };
 		70FFC1C91D44F1C800FCE22F /* AddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */; };
 		70FFC1CA1D44F1C800FCE22F /* AddressBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */; };
 		70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */; };
@@ -482,6 +488,36 @@
 		7011566A1F65285C004D1B67 /* LikeUsersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell.h; sourceTree = "<group>"; };
 		7011566B1F65285C004D1B67 /* LikeUsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell.m; sourceTree = "<group>"; };
 		7011566C1F65285C004D1B67 /* LikeUsersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell.xib; sourceTree = "<group>"; };
+		701A5B8F1F73EDF500332B78 /* TimeLineBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineBaseViewController.h; sourceTree = "<group>"; };
+		701A5B901F73EDF500332B78 /* TimeLineBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineBaseViewController.m; sourceTree = "<group>"; };
+		701A5B941F73EF7400332B78 /* WMTimeLineViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineViewController1.h; sourceTree = "<group>"; };
+		701A5B951F73EF7400332B78 /* WMTimeLineViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineViewController1.m; sourceTree = "<group>"; };
+		701A5B971F73EF8800332B78 /* WMTimeLineViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineViewController2.h; sourceTree = "<group>"; };
+		701A5B981F73EF8800332B78 /* WMTimeLineViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineViewController2.m; sourceTree = "<group>"; };
+		701A5B9A1F73F1A700332B78 /* MessageInfoModel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInfoModel1.h; sourceTree = "<group>"; };
+		701A5B9B1F73F1A700332B78 /* MessageInfoModel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInfoModel1.m; sourceTree = "<group>"; };
+		701A5B9D1F73F1C600332B78 /* MessageInfoModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInfoModel2.h; sourceTree = "<group>"; };
+		701A5B9E1F73F1C600332B78 /* MessageInfoModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInfoModel2.m; sourceTree = "<group>"; };
+		701A5BA31F73F20200332B78 /* CommentInfoModel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoModel1.h; sourceTree = "<group>"; };
+		701A5BA41F73F20200332B78 /* CommentInfoModel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoModel1.m; sourceTree = "<group>"; };
+		701A5BA61F73F21300332B78 /* CommentInfoModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoModel2.h; sourceTree = "<group>"; };
+		701A5BA71F73F21300332B78 /* CommentInfoModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoModel2.m; sourceTree = "<group>"; };
+		701A5BA91F73F64800332B78 /* FriendInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInfoModel.h; sourceTree = "<group>"; };
+		701A5BAA1F73F64800332B78 /* FriendInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfoModel.m; sourceTree = "<group>"; };
+		701A5BAC1F73FD8C00332B78 /* MessageCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell1.h; sourceTree = "<group>"; };
+		701A5BAD1F73FD8C00332B78 /* MessageCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell1.m; sourceTree = "<group>"; };
+		701A5BAF1F74085100332B78 /* CommentCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell1.h; sourceTree = "<group>"; };
+		701A5BB01F74085100332B78 /* CommentCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell1.m; sourceTree = "<group>"; };
+		701A5BB21F740A2B00332B78 /* CommentCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell2.h; sourceTree = "<group>"; };
+		701A5BB31F740A2B00332B78 /* CommentCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell2.m; sourceTree = "<group>"; };
+		701A5BB51F740FB200332B78 /* CopyAbleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyAbleLabel.h; sourceTree = "<group>"; };
+		701A5BB61F740FB200332B78 /* CopyAbleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyAbleLabel.m; sourceTree = "<group>"; };
+		701A5BB81F74169B00332B78 /* WMTimeLineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineHeaderView.h; sourceTree = "<group>"; };
+		701A5BB91F74169B00332B78 /* WMTimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineHeaderView.m; sourceTree = "<group>"; };
+		701A5BBB1F74180500332B78 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		701A5BBC1F74180500332B78 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		701A5BBE1F7426C300332B78 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
+		701A5BBF1F7426C300332B78 /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 		701B066E1EACA56A00733E78 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		705EEE291F6C49AE00566255 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
 		705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TapAction.m"; sourceTree = "<group>"; };
@@ -659,16 +695,8 @@
 		70BB731E1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
 		70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		70BB73281D02AC550003B379 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		70BB732A1D02ACE40003B379 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
-		70BB732B1D02ACE40003B379 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
-		70BB732C1D02ACE40003B379 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
-		70BB732D1D02ACE40003B379 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
-		70BB73301D02B1E50003B379 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
-		70BB73311D02B1E50003B379 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		70BB73331D02B2F80003B379 /* JGGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGGView.h; sourceTree = "<group>"; };
 		70BB73341D02B2F80003B379 /* JGGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGGView.m; sourceTree = "<group>"; };
-		70BB73391D02B64F0003B379 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		70BB733A1D02B64F0003B379 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		70BB733E1D02C8050003B379 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		70BB733F1D02C8050003B379 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
 		70BB73401D02C8050003B379 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
@@ -1037,16 +1065,6 @@
 		70C81C9F1D04208B00D86903 /* sp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp@2x.png"; sourceTree = "<group>"; };
 		70C81CA01D04208B00D86903 /* yy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yy@2x.png"; sourceTree = "<group>"; };
 		70F4B0CE1D0515CF0002924F /* WeChat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WeChat.gif; sourceTree = "<group>"; };
-		70F5029D1F70121B0033363E /* TimeLineBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineBaseViewController.h; sourceTree = "<group>"; };
-		70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineBaseViewController.m; sourceTree = "<group>"; };
-		70F502A01F7012360033363E /* WMTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineViewController.h; sourceTree = "<group>"; };
-		70F502A11F7012360033363E /* WMTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineViewController.m; sourceTree = "<group>"; };
-		70F502A31F7012B80033363E /* WCTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTimeLineViewController.h; sourceTree = "<group>"; };
-		70F502A41F7012B80033363E /* WCTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTimeLineViewController.m; sourceTree = "<group>"; };
-		70F502A61F7020220033363E /* WMTimeLineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineHeaderView.h; sourceTree = "<group>"; };
-		70F502A71F7020220033363E /* WMTimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineHeaderView.m; sourceTree = "<group>"; };
-		70FFC1C31D44F19900FCE22F /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
-		70FFC1C41D44F19900FCE22F /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
 		70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookCell.h; sourceTree = "<group>"; };
 		70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookCell.m; sourceTree = "<group>"; };
 		70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressBookCell.xib; sourceTree = "<group>"; };
@@ -1116,8 +1134,57 @@
 			children = (
 				705EEE291F6C49AE00566255 /* UILabel+TapAction.h */,
 				705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */,
+				701A5BBB1F74180500332B78 /* NSString+Extension.h */,
+				701A5BBC1F74180500332B78 /* NSString+Extension.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		701A5B881F73EDF500332B78 /* 朋友圈1-cell嵌套TableView */ = {
+			isa = PBXGroup;
+			children = (
+				701A5B941F73EF7400332B78 /* WMTimeLineViewController1.h */,
+				701A5B951F73EF7400332B78 /* WMTimeLineViewController1.m */,
+				701A5BAC1F73FD8C00332B78 /* MessageCell1.h */,
+				701A5BAD1F73FD8C00332B78 /* MessageCell1.m */,
+				701A5BAF1F74085100332B78 /* CommentCell1.h */,
+				701A5BB01F74085100332B78 /* CommentCell1.m */,
+				701A5B9A1F73F1A700332B78 /* MessageInfoModel1.h */,
+				701A5B9B1F73F1A700332B78 /* MessageInfoModel1.m */,
+				701A5BA31F73F20200332B78 /* CommentInfoModel1.h */,
+				701A5BA41F73F20200332B78 /* CommentInfoModel1.m */,
+			);
+			path = "朋友圈1-cell嵌套TableView";
+			sourceTree = "<group>";
+		};
+		701A5B8B1F73EDF500332B78 /* 朋友圈2-单个tableView */ = {
+			isa = PBXGroup;
+			children = (
+				701A5B971F73EF8800332B78 /* WMTimeLineViewController2.h */,
+				701A5B981F73EF8800332B78 /* WMTimeLineViewController2.m */,
+				701A5BB81F74169B00332B78 /* WMTimeLineHeaderView.h */,
+				701A5BB91F74169B00332B78 /* WMTimeLineHeaderView.m */,
+				701A5BB21F740A2B00332B78 /* CommentCell2.h */,
+				701A5BB31F740A2B00332B78 /* CommentCell2.m */,
+				701A5B9D1F73F1C600332B78 /* MessageInfoModel2.h */,
+				701A5B9E1F73F1C600332B78 /* MessageInfoModel2.m */,
+				701A5BA61F73F21300332B78 /* CommentInfoModel2.h */,
+				701A5BA71F73F21300332B78 /* CommentInfoModel2.m */,
+			);
+			path = "朋友圈2-单个tableView";
+			sourceTree = "<group>";
+		};
+		701A5B8E1F73EDF500332B78 /* 朋友圈基类 */ = {
+			isa = PBXGroup;
+			children = (
+				701A5B8F1F73EDF500332B78 /* TimeLineBaseViewController.h */,
+				701A5B901F73EDF500332B78 /* TimeLineBaseViewController.m */,
+				701A5BA91F73F64800332B78 /* FriendInfoModel.h */,
+				701A5BAA1F73F64800332B78 /* FriendInfoModel.m */,
+				701A5BBE1F7426C300332B78 /* Layout.h */,
+				701A5BBF1F7426C300332B78 /* Layout.m */,
+			);
+			path = "朋友圈基类";
 			sourceTree = "<group>";
 		};
 		70B5BE231D0470E4003A7CF2 /* BaseViewController */ = {
@@ -1249,7 +1316,6 @@
 				70BB72751D02A8A70003B379 /* Assets.xcassets */,
 				BF11A1C61DD5B22E00024BBE /* LaunchScreen.storyboard */,
 				70BB72831D02A92A0003B379 /* ViewController */,
-				70BB72811D02A92A0003B379 /* Model */,
 				70BB72821D02A92A0003B379 /* View */,
 				7011566F1F65462E004D1B67 /* Category */,
 				70BB72801D02A8FE0003B379 /* ThirdLib */,
@@ -1290,26 +1356,9 @@
 			path = ThirdLib;
 			sourceTree = "<group>";
 		};
-		70BB72811D02A92A0003B379 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				70BB732C1D02ACE40003B379 /* MessageModel.h */,
-				70BB732D1D02ACE40003B379 /* MessageModel.m */,
-				70BB732A1D02ACE40003B379 /* CommentModel.h */,
-				70BB732B1D02ACE40003B379 /* CommentModel.m */,
-				70FFC1C31D44F19900FCE22F /* FriendModel.h */,
-				70FFC1C41D44F19900FCE22F /* FriendModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		70BB72821D02A92A0003B379 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				70BB73391D02B64F0003B379 /* MessageCell.h */,
-				70BB733A1D02B64F0003B379 /* MessageCell.m */,
-				70BB73301D02B1E50003B379 /* CommentCell.h */,
-				70BB73311D02B1E50003B379 /* CommentCell.m */,
 				7011566A1F65285C004D1B67 /* LikeUsersCell.h */,
 				7011566B1F65285C004D1B67 /* LikeUsersCell.m */,
 				7011566C1F65285C004D1B67 /* LikeUsersCell.xib */,
@@ -1320,8 +1369,8 @@
 				70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */,
 				70BB73331D02B2F80003B379 /* JGGView.h */,
 				70BB73341D02B2F80003B379 /* JGGView.m */,
-				70F502A61F7020220033363E /* WMTimeLineHeaderView.h */,
-				70F502A71F7020220033363E /* WMTimeLineHeaderView.m */,
+				701A5BB51F740FB200332B78 /* CopyAbleLabel.h */,
+				701A5BB61F740FB200332B78 /* CopyAbleLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2978,12 +3027,9 @@
 		BF84DE471DB9E77500669716 /* 朋友圈 */ = {
 			isa = PBXGroup;
 			children = (
-				70F5029D1F70121B0033363E /* TimeLineBaseViewController.h */,
-				70F5029E1F70121B0033363E /* TimeLineBaseViewController.m */,
-				70F502A31F7012B80033363E /* WCTimeLineViewController.h */,
-				70F502A41F7012B80033363E /* WCTimeLineViewController.m */,
-				70F502A01F7012360033363E /* WMTimeLineViewController.h */,
-				70F502A11F7012360033363E /* WMTimeLineViewController.m */,
+				701A5B8E1F73EDF500332B78 /* 朋友圈基类 */,
+				701A5B881F73EDF500332B78 /* 朋友圈1-cell嵌套TableView */,
+				701A5B8B1F73EDF500332B78 /* 朋友圈2-单个tableView */,
 			);
 			path = "朋友圈";
 			sourceTree = "<group>";
@@ -3381,6 +3427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701A5BBA1F74169B00332B78 /* WMTimeLineHeaderView.m in Sources */,
 				70BB739A1D02C8060003B379 /* YYFPSLabel.m in Sources */,
 				70BB738C1D02C8060003B379 /* YYTextAttribute.m in Sources */,
 				70FFC1EB1D4508BE00FCE22F /* SearchResultViewController.m in Sources */,
@@ -3398,17 +3445,21 @@
 				BF84DE461DB9E20500669716 /* HomeViewController.m in Sources */,
 				70C817881D040FB900D86903 /* ChatToolBar.m in Sources */,
 				70BB73351D02B2F80003B379 /* JGGView.m in Sources */,
+				701A5B9C1F73F1A700332B78 /* MessageInfoModel1.m in Sources */,
 				7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */,
+				701A5B991F73EF8800332B78 /* WMTimeLineViewController2.m in Sources */,
+				701A5BC01F7426C300332B78 /* Layout.m in Sources */,
 				70BB72F41D02A93D0003B379 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				70BB730A1D02A93D0003B379 /* UIScrollView+MJRefresh.m in Sources */,
 				70C8177B1D040FB900D86903 /* FaceThemeModel.m in Sources */,
 				70BB72F21D02A93D0003B379 /* MASViewConstraint.m in Sources */,
 				70B5BE361D047108003A7CF2 /* RootTabBarController.m in Sources */,
 				70BB738A1D02C8060003B379 /* YYTextSelectionView.m in Sources */,
+				701A5BAE1F73FD8C00332B78 /* MessageCell1.m in Sources */,
 				70BB73171D02A93D0003B379 /* UIImageView+HighlightedWebCache.m in Sources */,
 				70BB72F61D02A93D0003B379 /* MBProgressHUD+Show.m in Sources */,
 				70BB73B31D031B570003B379 /* UIImage+YYWebImage.m in Sources */,
-				70FFC1C51D44F19900FCE22F /* FriendModel.m in Sources */,
+				701A5B931F73EDF500332B78 /* TimeLineBaseViewController.m in Sources */,
 				70BB73BC1D031BA50003B379 /* UIControl+YYAdd.m in Sources */,
 				70BB73161D02A93D0003B379 /* UIImage+MultiFormat.m in Sources */,
 				70BB73921D02C8060003B379 /* NSString+YYAdd.m in Sources */,
@@ -3422,13 +3473,14 @@
 				705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */,
 				70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */,
 				70BB730B1D02A93D0003B379 /* UIView+MJExtension.m in Sources */,
-				70F5029F1F70121B0033363E /* TimeLineBaseViewController.m in Sources */,
 				374D5DBA1D24CDCD009D04DA /* SDWaitingView.m in Sources */,
 				70BB72FF1D02A93D0003B379 /* MJRefreshAutoNormalFooter.m in Sources */,
+				701A5BB41F740A2B00332B78 /* CommentCell2.m in Sources */,
 				70BB72FC1D02A93D0003B379 /* MJRefreshFooter.m in Sources */,
 				70BB730C1D02A93D0003B379 /* NSData+ImageContentType.m in Sources */,
-				70BB733B1D02B64F0003B379 /* MessageCell.m in Sources */,
+				701A5BB71F740FB200332B78 /* CopyAbleLabel.m in Sources */,
 				70BB739C1D02C8060003B379 /* YYTextView.m in Sources */,
+				701A5BB11F74085100332B78 /* CommentCell1.m in Sources */,
 				70BB738E1D02C8060003B379 /* YYTextRubyAnnotation.m in Sources */,
 				70BB73151D02A93D0003B379 /* UIImage+GIF.m in Sources */,
 				70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
@@ -3445,6 +3497,7 @@
 				70C817891D040FB900D86903 /* OfficialAccountToolbar.m in Sources */,
 				70BB73961D02C8060003B379 /* YYTextAsyncLayer.m in Sources */,
 				70BB73991D02C8060003B379 /* YYTextWeakProxy.m in Sources */,
+				701A5BAB1F73F64800332B78 /* FriendInfoModel.m in Sources */,
 				70BB73C21D031BD80003B379 /* YYGestureRecognizer.m in Sources */,
 				70BB72F31D02A93D0003B379 /* NSArray+MASAdditions.m in Sources */,
 				70BB73101D02A93D0003B379 /* SDWebImageDownloader.m in Sources */,
@@ -3456,7 +3509,6 @@
 				70BB73061D02A93D0003B379 /* MJRefreshStateHeader.m in Sources */,
 				70C8178B1D040FB900D86903 /* RFTextView.m in Sources */,
 				70BB72FE1D02A93D0003B379 /* MJRefreshAutoGifFooter.m in Sources */,
-				70BB732E1D02ACE40003B379 /* CommentModel.m in Sources */,
 				70C817791D040FB900D86903 /* ChatKeyBoard.m in Sources */,
 				70BB73B61D031B790003B379 /* NSBundle+YYAdd.m in Sources */,
 				70C817871D040FB900D86903 /* MorePanel.m in Sources */,
@@ -3466,11 +3518,12 @@
 				70BB730F1D02A93D0003B379 /* SDWebImageDecoder.m in Sources */,
 				377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */,
 				70BB73881D02C8060003B379 /* YYTextLine.m in Sources */,
+				701A5B961F73EF7400332B78 /* WMTimeLineViewController1.m in Sources */,
 				70BB73121D02A93D0003B379 /* SDWebImageManager.m in Sources */,
 				70BB72FA1D02A93D0003B379 /* MJRefreshBackFooter.m in Sources */,
 				70BB73861D02C8060003B379 /* YYTextKeyboardManager.m in Sources */,
+				701A5BBD1F74180500332B78 /* NSString+Extension.m in Sources */,
 				70BB73031D02A93D0003B379 /* MJRefreshBackStateFooter.m in Sources */,
-				70BB73321D02B1E50003B379 /* CommentCell.m in Sources */,
 				70FFC1E01D44F2D000FCE22F /* PinyinFormatter.m in Sources */,
 				70BB73041D02A93D0003B379 /* MJRefreshGifHeader.m in Sources */,
 				70BB726E1D02A8A70003B379 /* AppDelegate.m in Sources */,
@@ -3478,22 +3531,19 @@
 				70BB72F01D02A93D0003B379 /* MASLayoutConstraint.m in Sources */,
 				70BB726B1D02A8A70003B379 /* main.m in Sources */,
 				70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */,
-				70F502A51F7012B80033363E /* WCTimeLineViewController.m in Sources */,
 				70BB73191D02A93D0003B379 /* UIView+WebCacheOperation.m in Sources */,
 				70BB72F51D02A93D0003B379 /* View+MASAdditions.m in Sources */,
 				70BB738F1D02C8060003B379 /* YYTextRunDelegate.m in Sources */,
 				70C8178A1D040FB900D86903 /* RFRecordButton.m in Sources */,
 				70BB72F91D02A93D0003B379 /* MJRefreshAutoFooter.m in Sources */,
-				70F502A21F7012360033363E /* WMTimeLineViewController.m in Sources */,
 				70BB73941D02C8060003B379 /* UIView+YYAdd.m in Sources */,
 				70BB73841D02C8060003B379 /* YYTextEffectWindow.m in Sources */,
 				70BB73181D02A93D0003B379 /* UIImageView+WebCache.m in Sources */,
 				70BB73911D02C8060003B379 /* NSParagraphStyle+YYText.m in Sources */,
 				70BB73801D02C8060003B379 /* NSObject+YYModel.m in Sources */,
-				70BB732F1D02ACE40003B379 /* MessageModel.m in Sources */,
-				70F502A81F7020220033363E /* WMTimeLineHeaderView.m in Sources */,
 				70BB73081D02A93D0003B379 /* MJRefreshConst.m in Sources */,
 				70BB73931D02C8060003B379 /* UIPasteboard+YYText.m in Sources */,
+				701A5B9F1F73F1C600332B78 /* MessageInfoModel2.m in Sources */,
 				70FFC1E11D44F2D000FCE22F /* PinyinHelper.m in Sources */,
 				70C8177C1D040FB900D86903 /* MoreItem.m in Sources */,
 				70BB73011D02A93D0003B379 /* MJRefreshBackGifFooter.m in Sources */,
@@ -3502,8 +3552,10 @@
 				70BB73141D02A93D0003B379 /* UIButton+WebCache.m in Sources */,
 				70BB72FD1D02A93D0003B379 /* MJRefreshHeader.m in Sources */,
 				70BB73091D02A93D0003B379 /* UIScrollView+MJExtension.m in Sources */,
+				701A5BA51F73F20200332B78 /* CommentInfoModel1.m in Sources */,
 				70BB73001D02A93D0003B379 /* MJRefreshAutoStateFooter.m in Sources */,
 				70BB73871D02C8060003B379 /* YYTextLayout.m in Sources */,
+				701A5BA81F73F21300332B78 /* CommentInfoModel2.m in Sources */,
 				70B5BE321D0470E4003A7CF2 /* TestViewController.m in Sources */,
 				70C817851D040FB900D86903 /* FaceThemeView.m in Sources */,
 				70BB730D1D02A93D0003B379 /* SDImageCache.m in Sources */,

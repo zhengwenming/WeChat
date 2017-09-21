@@ -22,9 +22,10 @@
 
 -(UITableView *)tableView{
     if (_tableView==nil) {
-        _tableView = [[UITableView alloc]init];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _tableView.tableFooterView = [UIView new];
     }

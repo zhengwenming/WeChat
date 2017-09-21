@@ -9,22 +9,36 @@
 //
 
 #import "DiscoverViewController.h"
+#import "WMTimeLineViewController1.h"
+#import "WMTimeLineViewController2.h"
 #import "PersonCenterCell.h"
-#import "WMTimeLineViewController.h"
+
 
 @interface DiscoverViewController ()<UITableViewDelegate,UITableViewDataSource>{
 
 }
 @property(nonatomic,strong)UITableView *discoverTable;
+///强引用朋友圈VC，做到像微信朋友圈一样，再次进入朋友圈依然显示上次浏览的位置
+@property(nonatomic,strong)WMTimeLineViewController1 *timeLineOne;
+
+@property(nonatomic,strong)WMTimeLineViewController2 *timeLineTwo;
+
 @end
 
 @implementation DiscoverViewController
 ///懒加载评论页面（朋友圈页面）
--(WCTimeLineViewController *)timeLineVC{
-    if (_timeLineVC==nil) {
-        _timeLineVC = [[WCTimeLineViewController alloc]init];
+-(WMTimeLineViewController1 *)timeLineOne{
+    if (_timeLineOne==nil) {
+        _timeLineOne = [[WMTimeLineViewController1 alloc]init];
     }
-    return _timeLineVC;
+    return _timeLineOne;
+}
+///懒加载评论页面（朋友圈页面）
+-(WMTimeLineViewController2 *)timeLineTwo{
+    if (_timeLineTwo==nil) {
+        _timeLineTwo = [[WMTimeLineViewController2 alloc]init];
+    }
+    return _timeLineTwo;
 }
 -(UITableView *)discoverTable{
     if (_discoverTable==nil) {
@@ -114,9 +128,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-        [self.navigationController pushViewController:self.timeLineVC animated:YES];
+        [self.navigationController pushViewController:self.timeLineOne animated:YES];
         }else{
-        [self.navigationController pushViewController:[WMTimeLineViewController new] animated:YES];
+        [self.navigationController pushViewController:self.timeLineTwo animated:YES];
         }
     }
 }

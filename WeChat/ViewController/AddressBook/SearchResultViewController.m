@@ -13,7 +13,8 @@
 
 #import "SearchResultViewController.h"
 #import "AddressBookCell.h"
-#import "FriendModel.h"
+#import "FriendInfoModel.h"
+
 
 @interface SearchResultViewController (){
     UITableView *table;
@@ -54,14 +55,12 @@
 {
     return dataSource.count;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AddressBookCell *cell=(AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AddressBookCell class])];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     if(dataSource.count>0)
     {
-        FriendModel *friends = [dataSource objectAtIndex:indexPath.row];
+        FriendInfoModel *friends = [dataSource objectAtIndex:indexPath.row];
         cell.nameLabel.text = [NSString stringWithFormat:@"%@",friends.userName];
         [cell.photoIV sd_setImageWithURL:[NSURL URLWithString:friends.photo] placeholderImage:[UIImage imageNamed:@"default_portrait"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
@@ -97,7 +96,7 @@
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FriendModel *friends = [dataSource objectAtIndex:indexPath.row];
+    FriendInfoModel *friends = [dataSource objectAtIndex:indexPath.row];
     
     [self dismissViewControllerAnimated:YES completion:^{
         

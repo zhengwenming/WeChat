@@ -8,7 +8,8 @@
 
 #import "ContactsViewController.h"
 #import "AddressBookCell.h"
-#import "FriendModel.h"
+#import "FriendInfoModel.h"
+
 #import "SearchResultViewController.h"
 @interface ContactsViewController ()<UISearchBarDelegate,SearchResultSelectedDelegate>{
     UISearchController *searchController;
@@ -105,7 +106,7 @@
     NSData *friendsData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"json"]]];
     NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:friendsData options:NSJSONReadingAllowFragments error:nil];
     for (NSDictionary *eachDic in JSONDic[@"friends"][@"row"]) {
-        [dataSource addObject:[[FriendModel alloc]initWithDic:eachDic]];
+        [dataSource addObject:[[FriendInfoModel alloc]initWithDic:eachDic]];
     }
     [self handleLettersArray];
     [friendTableView reloadData];
@@ -136,7 +137,7 @@
     
     if (tableView==friendTableView) {
         if (dataSource.count) {
-            FriendModel *frends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+            FriendInfoModel *frends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
             cell.nameLabel.text = frends.userName;
             [cell.photoIV sd_setImageWithURL:[NSURL URLWithString:frends.photo] placeholderImage:[UIImage imageNamed:@"default_portrait"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 
@@ -146,14 +147,14 @@
         }
     }else{
         NSString *userName = self.results[indexPath.row];
-        FriendModel *friends = [[FriendModel alloc]init];
+        FriendInfoModel *friends = [[FriendInfoModel alloc]init];
         for (NSInteger i = 0 ;i<dataSource.count; i++) {
             NSMutableArray *tempArray = [[NSMutableArray alloc]init];
             
             if ([userName isEqualToString:friends.userName]) {
                 [tempArray addObject:friends];
             }
-            FriendModel *frends = [tempArray objectAtIndex:0];
+            FriendInfoModel *frends = [tempArray objectAtIndex:0];
             cell.nameLabel.text = [NSString stringWithFormat:@"%@",frends.userName];
             [cell.photoIV sd_setImageWithURL:[NSURL URLWithString:frends.photo] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             }];
@@ -165,7 +166,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FriendModel *friends;
+    FriendInfoModel *friends;
     if (tableView==friendTableView) {
         friends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     }else{
@@ -238,7 +239,7 @@
         if ([PinyinHelper isIncludeChineseInString:searchText]) {// 如果是中文
             for(int i=0;i<dataSource.count;i++)
             {
-                FriendModel *friends = dataSource[i];
+                FriendInfoModel *friends = dataSource[i];
                 if ([friends.userName rangeOfString:searchText].location!=NSNotFound) {
                     [updateArray addObject:friends];
                 }
@@ -252,7 +253,7 @@
                 formatter.vCharType = VCharTypeWithV;
                 formatter.toneType = ToneTypeWithoutTone;
                 //zhengshuang  e
-                FriendModel *friends = dataSource[i];
+                FriendInfoModel *friends = dataSource[i];
                 
                 NSString *outputPinyin=[[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""] lowercaseString];
                 
@@ -304,7 +305,7 @@
 {
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc]init];
     
-    for(FriendModel *friends  in dataSource)
+    for(FriendInfoModel *friends  in dataSource)
     {
         HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
         formatter.caseType = CaseTypeLowercase;
@@ -322,7 +323,7 @@
         NSMutableArray *tempArry = [[NSMutableArray alloc] init];
         
         for (NSInteger i = 0; i<dataSource.count; i++) {
-            FriendModel *friends = dataSource[i];
+            FriendInfoModel *friends = dataSource[i];
             HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
             formatter.caseType = CaseTypeUppercase;
             formatter.vCharType = VCharTypeWithV;

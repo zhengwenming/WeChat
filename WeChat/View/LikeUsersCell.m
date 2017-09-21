@@ -7,9 +7,9 @@
 //
 
 #import "LikeUsersCell.h"
-#import "FriendModel.h"
+#import "FriendInfoModel.h"
 #import "UILabel+TapAction.h"
-#import "MessageModel.h"
+
 
 
 @interface LikeUsersCell ()<TapActionDelegate>
@@ -33,7 +33,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
 }
-- (void)configLikeUsersWithMessageModel:(MessageModel *)messageModel{
+- (void)configLikeUsersWithMessageModel:(MessageInfoModel1 *)messageModel{
     _likeUsersArray = messageModel.likeUsers.mutableCopy;
     NSMutableArray *rangesArray = [NSMutableArray array];
     NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
@@ -46,7 +46,7 @@
     
     
     for (int i = 0; i < messageModel.likeUsers.count; i++) {
-        FriendModel *friendModel = messageModel.likeUsers[i];
+        FriendInfoModel *friendModel = messageModel.likeUsers[i];
         //name0,name1,name2,name1
         [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:friendModel.userName]];
         if ([self.nameArray containsObject:friendModel.userName]) {//如果前面有人和我重复名字了
@@ -88,7 +88,7 @@
 - (void)tapReturnString:(NSString *)string
                   range:(NSRange)range
                   index:(NSInteger)index{
-    FriendModel *aModel = self.likeUsersArray[index];
+    FriendInfoModel *aModel = self.likeUsersArray[index];
     if (self.tapNameBlock) {
         self.tapNameBlock(aModel);
     }

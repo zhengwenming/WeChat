@@ -12,8 +12,6 @@
     CGFloat commentBtnWidth;
     CGFloat commentBtnHeight;
     CGFloat MaxLabelHeight;
-    
-    
 }
 @property(nonatomic,retain)UILabel *sepLine;
 @property(nonatomic,retain)UIImageView *avatarIV;
@@ -28,7 +26,7 @@
 
 @property(nonatomic,retain)JGGView *jggView;
 
-@property(nonatomic,retain)MessageModel *model;
+@property(nonatomic,retain)MessageInfoModel2 *model;
 
 /**
  *  TapBlcok
@@ -117,10 +115,7 @@
         
         [self.moreBtn addTarget:self action:@selector(moreAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.moreBtn];
-        
         self.isExpandNow = NO;
-        
-        
     }
     return self;
 }
@@ -134,7 +129,7 @@
         self.MoreBtnClickBlock(sender,_isExpandNow);
     }
 }
--(void)setModel:(MessageModel *)model{
+-(void)setModel:(MessageInfoModel2 *)model{
 
 }
 @end

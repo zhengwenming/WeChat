@@ -1,23 +1,20 @@
 //
-//  CommentCell.m
+//  CommentCell1.m
 //  WeChat
 //
-//  Created by zhengwenming on 16/6/4.
-//  Copyright © 2016年 zhengwenming. All rights reserved.
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
-#import "CommentCell.h"
+#import "CommentCell1.h"
 #import "JGGView.h"
-#import "CommentModel.h"
-#import "MessageModel.h"
-#import "MessageCell.h"
-
-
-@interface CommentCell ()
+#import "MessageInfoModel1.h"
+#import "MessageCell1.h"
+@interface CommentCell1 ()
 @property (nonatomic, strong) UILabel *contentLabel;
 @end
 
-@implementation CommentCell
+@implementation CommentCell1
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -39,10 +36,9 @@
         self.hyb_lastViewInCell = self.contentLabel;
         self.hyb_bottomOffsetToCell = 0.0;//cell底部距离为3.0个间隙
     }
-    
     return self;
 }
-- (void)configCellWithModel:(CommentModel *)model {
+- (void)configCellWithModel:(CommentInfoModel1 *)model {
     NSString *str  = nil;
     if (![model.commentByUserName isEqualToString:@""]) {
         str= [NSString stringWithFormat:@"%@回复%@：%@",

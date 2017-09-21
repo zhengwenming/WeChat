@@ -1,16 +1,14 @@
 //
-//  MessageModel.m
-//  WeiChatDemo
+//  MessageInfoModel2.m
+//  WeChat
 //
-//  Created by zhengwenming on 16/5/21.
-//  Copyright © 2016年 zhengwenming. All rights reserved.
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
-#import "MessageModel.h"
-#import "FriendModel.h"
+#import "MessageInfoModel2.h"
 
-@implementation MessageModel
-
+@implementation MessageInfoModel2
 
 -(NSMutableArray *)commentModelArray{
     if (_commentModelArray==nil) {
@@ -43,7 +41,6 @@
     self = [super init];
     if (self) {
         self.cid                = dic[@"cid"];
-        self.shouldUpdateCache  = NO;
         self.message_id         = dic[@"message_id"];
         self.message            = dic[@"message"];
         self.timeTag            = dic[@"timeTag"];
@@ -51,7 +48,7 @@
         self.userId             = dic[@"userId"];
         self.userName           = dic[@"userName"];
         for (NSDictionary *friendInfoDic in dic[@"likeUsers"]) {
-            [self.likeUsers addObject:[[FriendModel alloc]initWithDic:friendInfoDic]];
+            [self.likeUsers addObject:[[FriendInfoModel alloc]initWithDic:friendInfoDic]];
         }
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
@@ -60,7 +57,7 @@
             [self.commentModelArray addObject:self.likeUsers];
         }
         for (NSDictionary *eachDic in dic[@"commentMessages"] ) {
-            CommentModel *commentModel = [[CommentModel alloc] initWithDic:eachDic];
+            CommentInfoModel2 *commentModel = [[CommentInfoModel2 alloc] initWithDic:eachDic];
             [self.commentModelArray addObject:commentModel];
         }
     }
@@ -68,3 +65,4 @@
 }
 
 @end
+

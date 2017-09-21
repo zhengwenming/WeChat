@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "JGGView.h"
-#import "MessageModel.h"
+#import "MessageInfoModel2.h"
+
 
 @interface WMTimeLineHeaderView : UITableViewHeaderFooterView
 

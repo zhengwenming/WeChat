@@ -1,16 +1,17 @@
 //
-//  MessageModel.h
-//  WeiChatDemo
+//  MessageInfoModel1.h
+//  WeChat
 //
-//  Created by zhengwenming on 16/5/21.
-//  Copyright © 2016年 zhengwenming. All rights reserved.
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CommentModel.h"
-@class FriendModel;
+#import "CommentInfoModel1.h"
+#import "FriendInfoModel.h"
 
-@interface MessageModel : NSObject
+
+@interface MessageInfoModel1 : NSObject
 @property (nonatomic, copy) NSString *cid;
 
 ///发布说说的id
@@ -35,7 +36,7 @@
 @property(nonatomic,copy)NSString *userName;
 
 ///点赞的人列表
-@property(nonatomic,copy)NSMutableArray <FriendModel *>*likeUsers;
+@property(nonatomic,copy)NSMutableArray <FriendInfoModel *>*likeUsers;
 
 ///发布说说者头像
 @property(nonatomic,copy)NSString *photo;
@@ -60,3 +61,4 @@
 
 
 @end
+

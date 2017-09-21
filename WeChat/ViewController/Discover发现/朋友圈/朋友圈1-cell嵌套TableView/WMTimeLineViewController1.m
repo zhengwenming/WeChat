@@ -1,39 +1,42 @@
 //
-//  WCTimeLineViewController.m
+//  WMTimeLineViewController1.m
 //  WeChat
 //
-//  Created by zhengwenming on 2017/9/18.
+//  Created by zhengwenming on 2017/9/21.
 //  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
-#import "WCTimeLineViewController.h"
-#import "MessageCell.h"
-#import "CommentCell.h"
+#import "WMTimeLineViewController1.h"
+#import "MessageCell1.h"
+#import "CommentCell1.h"
 //键盘
 #import "ChatKeyBoard.h"
 #import "FaceSourceManager.h"
 #import "MoreItem.h"
 #import "ChatToolBarItem.h"
 #import "FaceThemeModel.h"
-#import "FriendModel.h"
+#import "FriendInfoModel.h"
 
-@interface WCTimeLineViewController ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, MessageCellDelegate>
+
+@interface WMTimeLineViewController1 ()<ChatKeyBoardDelegate, ChatKeyBoardDataSource,UITableViewDelegate, UITableViewDataSource, MessageCellDelegate>
 @property (nonatomic, strong) ChatKeyBoard *chatKeyBoard;
 @property (nonatomic, assign) CGFloat history_Y_offset;//记录table的offset.y
 @property (nonatomic, assign) CGFloat seletedCellHeight;//记录点击cell的高度，高度由代理传过来
 @property (nonatomic, assign) BOOL isShowKeyBoard;//记录点击cell的高度，高度由代理传过来
 
 //专门用来回复选中的cell的model
-@property (nonatomic, strong) CommentModel *replayTheSeletedCellModel;
+@property (nonatomic, strong) CommentInfoModel1 *replayTheSeletedCellModel;
 
 
 @property (nonatomic, assign) BOOL needUpdateOffset;//控制是否刷新table的offset
 
 @property (nonatomic,copy)NSIndexPath *currentIndexPath;
 
+
+
 @end
 
-@implementation WCTimeLineViewController
+@implementation WMTimeLineViewController1
 
 - (NSArray<ChatToolBarItem *> *)chatKeyBoardToolbarItems
 {
@@ -61,11 +64,11 @@
     return _chatKeyBoard;
 }
 - (void)chatKeyBoardSendText:(NSString *)text{
-    MessageModel *messageModel = self.dataSource[self.currentIndexPath.row];
+    MessageInfoModel1 *messageModel = self.dataSource[self.currentIndexPath.row];
     messageModel.shouldUpdateCache = YES;
     
     //创建一个新的CommentModel,并给相应的属性赋值，然后加到评论数组的最后，reloadData
-    CommentModel *commentModel = [[CommentModel alloc]init];
+    CommentInfoModel1 *commentModel = [[CommentInfoModel1 alloc]init];
     commentModel.commentUserName = @"文明";
     commentModel.commentUserId = @"274";
     commentModel.commentPhoto = @"http://q.qlogo.cn/qqapp/1104706859/189AA89FAADD207E76D066059F924AE0/100";
@@ -101,15 +104,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-    [self registerCellWithClass:@"MessageCell" tableView:self.tableView];
+    [self getTestData1];
+    [self registerCellWithClass:@"MessageCell1" tableView:self.tableView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+    MessageCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell1" forIndexPath:indexPath];
     cell.delegate = self;
     __weak __typeof(self) weakSelf= self;
     
-     MessageModel *model = self.dataSource[indexPath.row];
+    MessageInfoModel1 *model = self.dataSource[indexPath.row];
     [cell configCellWithModel:model indexPath:indexPath];
     //评论
     cell.CommentBtnClickBlock = ^(UIButton *commentBtn,NSIndexPath * indexPath)
@@ -162,7 +166,7 @@
     };
     
     //点击点赞的人名字
-    cell.tapNameBlock = ^(FriendModel *friendModel) {
+    cell.tapNameBlock = ^(FriendInfoModel *friendModel) {
         if (weakSelf.isShowKeyBoard) {
             [weakSelf.view endEditing:YES];
             return ;
@@ -174,9 +178,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MessageModel *messageModel = self.dataSource[indexPath.row];
-    CGFloat h = [MessageCell hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
-        MessageCell *cell = (MessageCell *)sourceCell;
+    MessageInfoModel1 *messageModel = self.dataSource[indexPath.row];
+    CGFloat h = [MessageCell1 hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
+        MessageCell1 *cell = (MessageCell1 *)sourceCell;
         [cell configCellWithModel:messageModel indexPath:indexPath];
     } cache:^NSDictionary *{
         NSDictionary *cache = @{kHYBCacheUniqueKey : messageModel.cid,
@@ -192,8 +196,14 @@
         [self.view endEditing:YES];
     }
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
 #pragma mark - passCellHeightWithModel
--(void)passCellHeight:(CGFloat)cellHeight commentModel:(CommentModel *)commentModel commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell{
+-(void)passCellHeight:(CGFloat)cellHeight commentModel:(CommentInfoModel1 *)commentModel commentCell:(CommentCell1 *)commentCell messageCell:(MessageCell1 *)messageCell{
     if (self.isShowKeyBoard) {
         [self.view endEditing:YES];
         return ;
@@ -207,7 +217,7 @@
     self.seletedCellHeight = cellHeight;
     [self.chatKeyBoard keyboardUpforComment];
 }
-- (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath{
+- (void)reloadCellHeightForModel:(MessageInfoModel1 *)model atIndexPath:(NSIndexPath *)indexPath{
     model.shouldUpdateCache = YES;
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

@@ -1,30 +1,30 @@
 //
-//  MessageCell.h
+//  MessageCell1.h
 //  WeChat
 //
-//  Created by zhengwenming on 16/6/4.
-//  Copyright © 2016年 zhengwenming. All rights reserved.
+//  Created by zhengwenming on 2017/9/21.
+//  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "JGGView.h"
-#import "CommentCell.h"
+#import "CommentCell1.h"
 #import "LikeUsersCell.h"
+#import "MessageInfoModel1.h"
+#import "CommentInfoModel1.h"
 
-@class MessageCell;
-@class MessageModel;
+
+@class MessageCell1;
 
 @protocol MessageCellDelegate <NSObject>
 
-- (void)reloadCellHeightForModel:(MessageModel *)model atIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadCellHeightForModel:(MessageInfoModel1 *)model atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)passCellHeight:(CGFloat )cellHeight commentModel:(CommentModel *)commentModel   commentCell:(CommentCell *)commentCell messageCell:(MessageCell *)messageCell;
+- (void)passCellHeight:(CGFloat )cellHeight commentModel:(CommentInfoModel1 *)commentModel   commentCell:(CommentCell1 *)commentCell messageCell:(MessageCell1 *)messageCell;
 
 @end
 
-
-
-@interface MessageCell : UITableViewCell
+@interface MessageCell1 : UITableViewCell
 
 @property (nonatomic, strong) JGGView *jggView;
 
@@ -52,7 +52,8 @@
 
 @property (nonatomic, weak) id<MessageCellDelegate> delegate;
 
-- (void)configCellWithModel:(MessageModel *)model indexPath:(NSIndexPath *)indexPath;
+- (void)configCellWithModel:(MessageInfoModel1 *)model indexPath:(NSIndexPath *)indexPath;
 
 
 @end
+
