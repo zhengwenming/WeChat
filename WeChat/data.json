@@ -524,7 +524,7 @@
                 {
                 "cid":"12",
                 "message_id":777,
-                "message":"MRC和ARC混编设置方式,在XCode中targets的build phases选项下Compile Sources下选择 不需要arc编译的文件,双击输入 -fno-objc-arc 即可;MRC工程中也可以使用ARC的类，方法如下：在XCode中targets的build phases选项下Compile Sources下选择要使用arc编译的文件,双击输入 -fobjc-arc 即可",
+                "message":"我靠MRC和ARC混编设置方式,在XCode中targets的build phases选项下Compile Sources下选择 不需要arc编译的文件,双击输入 -fno-objc-arc 即可;MRC工程中也可以使用ARC的类，方法如下：在XCode中targets的build phases选项下Compile Sources下选择要使用arc编译的文件,双击输入 -fobjc-arc 即可",
                 "createDate":1463123399000,
                 "timeTag":"1个月前",
                 "createDateStr":"2016-09-13 19:06",

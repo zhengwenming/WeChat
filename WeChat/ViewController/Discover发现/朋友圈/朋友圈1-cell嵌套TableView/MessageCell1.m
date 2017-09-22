@@ -12,7 +12,7 @@
 
 @interface MessageCell1 ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) CopyAbleLabel *descLabel;
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *moreBtn;
@@ -50,7 +50,7 @@
             make.right.mas_equalTo(-kGAP);
         }];
         // desc
-        self.descLabel = [UILabel new];
+        self.descLabel = [CopyAbleLabel new];
         UITapGestureRecognizer *tapText = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapText:)];
         [self.descLabel addGestureRecognizer:tapText];
         [self.contentView addSubview:self.descLabel];
@@ -165,7 +165,7 @@
     [attrString addAttribute:NSParagraphStyleAttributeName value:muStyle range:NSMakeRange(0, attrString.length)];
     self.descLabel.attributedText = attrString;
     
-    self.descLabel.highlightedTextColor = [UIColor redColor];//设置文本高亮显示颜色，与highlighted一起使用。
+    self.descLabel.highlightedTextColor = [UIColor blackColor];//设置文本高亮显示颜色，与highlighted一起使用。
     self.descLabel.highlighted = YES; //高亮状态是否打开
     self.descLabel.enabled = YES;//设置文字内容是否可变
     self.descLabel.userInteractionEnabled = YES;//设置标签是否忽略或移除用户交互。默认为NO
@@ -202,29 +202,38 @@
     }
     self.moreBtn.selected = model.isExpand;
     
+    CGFloat jgg_width = kScreenWidth-2*kGAP-kAvatar_Size-50;
+    CGFloat image_width = (jgg_width-2*kGAP)/3;
+
+    CGFloat jgg_height = 0.0;
     
-    CGFloat jjg_height = 0.0;
-    CGFloat jjg_width = 0.0;
-    if (model.messageBigPics.count>0&&model.messageBigPics.count<=3) {
-        jjg_height = [JGGView imageHeight];
-        jjg_width  = (model.messageBigPics.count)*([JGGView imageWidth]+kJGG_GAP)-kJGG_GAP;
-    }else if (model.messageBigPics.count>3&&model.messageBigPics.count<=6){
-        jjg_height = 2*([JGGView imageHeight]+kJGG_GAP)-kJGG_GAP;
-        jjg_width  = 3*([JGGView imageWidth]+kJGG_GAP)-kJGG_GAP;
-    }else  if (model.messageBigPics.count>6&&model.messageBigPics.count<=9){
-        jjg_height = 3*([JGGView imageHeight]+kJGG_GAP)-kJGG_GAP;
-        jjg_width  = 3*([JGGView imageWidth]+kJGG_GAP)-kJGG_GAP;
+    
+    if (model.messageSmallPics.count==0) {
+        jgg_height = 0;
+    }else if (model.messageSmallPics.count<=3) {
+        jgg_height = image_width;
+    }else if (model.messageSmallPics.count>3&&model.messageSmallPics.count<=6){
+        jgg_height = 2*image_width+kGAP;
+    }else  if (model.messageSmallPics.count>6&&model.messageSmallPics.count<=9){
+        jgg_height = 3*image_width+2*kGAP;
     }
+
     ///解决图片复用问题
     [self.jggView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.jggView.dataSource = model.messageSmallPics;
+    __weak __typeof(self) weakSelf= self;
+
+    self.jggView.tapBlock = ^(NSInteger index, NSArray *dataSource) {
+        weakSelf.tapImageBlock(index, dataSource);
+    };
+    
+   
     ///布局九宫格
-    [self.jggView JGGView:self.jggView DataSource:model.messageBigPics completeBlock:^(NSInteger index, NSArray *dataSource,NSIndexPath *indexpath) {
-        self.tapImageBlock(index,dataSource,self.indexPath);
-    }];
+
     [self.jggView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.moreBtn);
-        make.top.mas_equalTo(self.moreBtn.mas_bottom).offset(kJGG_GAP);
-        make.size.mas_equalTo(CGSizeMake(jjg_width, jjg_height));
+        make.top.mas_equalTo(self.moreBtn.mas_bottom).offset(kGAP/2);
+        make.size.mas_equalTo(CGSizeMake(jgg_width, jgg_height));
     }];
     
     CGFloat tableViewHeight = 0;

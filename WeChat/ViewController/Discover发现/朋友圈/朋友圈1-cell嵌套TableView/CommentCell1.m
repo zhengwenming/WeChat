@@ -11,7 +11,7 @@
 #import "MessageInfoModel1.h"
 #import "MessageCell1.h"
 @interface CommentCell1 ()
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) CopyAbleLabel *contentLabel;
 @end
 
 @implementation CommentCell1
@@ -20,7 +20,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         // contentLabel
-        self.contentLabel = [[UILabel alloc] init];
+        self.contentLabel = [[CopyAbleLabel alloc] init];
         [self.contentView addSubview:self.contentLabel];
         self.contentLabel.backgroundColor  = [UIColor clearColor];
         self.contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP;

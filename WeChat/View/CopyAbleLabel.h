@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CopyAbleLabel : UILabel
-@property(nonatomic,strong)UIColor *beforeCopyBackgroundColor;
-@property(nonatomic,strong)UIColor *afterCopyBackgroundColor;
+
 @end

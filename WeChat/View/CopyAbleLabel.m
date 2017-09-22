@@ -8,6 +8,11 @@
 
 #import "CopyAbleLabel.h"
 
+@interface CopyAbleLabel ()
+@property(nonatomic,strong)UIColor *originalColor;
+@end
+
+
 @implementation CopyAbleLabel
 
 - (void)awakeFromNib {
@@ -27,10 +32,16 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressToCopy:)];
     [self addGestureRecognizer:longPress];
 }
+-(void)setBackgroundColor:(UIColor *)backgroundColor{
+    [super setBackgroundColor:backgroundColor];
+    if (self.originalColor==nil) {
+        self.originalColor = backgroundColor;
+    }
+}
 -(void)longPressToCopy:(UILongPressGestureRecognizer *)sender{
     if (sender.state==UIGestureRecognizerStateBegan) {
         [sender.view becomeFirstResponder];
-        self.backgroundColor = self.afterCopyBackgroundColor;
+        self.backgroundColor = [UIColor lightGrayColor];
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         [menuController setTargetRect:sender.view.frame inView:self.superview];
         [menuController setMenuVisible:YES animated:YES];
@@ -44,7 +55,7 @@
     }
 }
 -(void)pasteboardHideNotice:(NSNotification *)obj{
-    self.backgroundColor = self.beforeCopyBackgroundColor;
+    self.backgroundColor = self.originalColor;
     if (self) {
         [[NSNotificationCenter defaultCenter]removeObserver:self name:UIMenuControllerWillHideMenuNotification object:nil];
     }

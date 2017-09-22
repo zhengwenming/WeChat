@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CommentInfoModel2.h"
 #import "FriendInfoModel.h"
+#import "Layout.h"
+
 @interface MessageInfoModel2 : NSObject
 
 @property (nonatomic, copy) NSString *cid;
@@ -49,11 +51,13 @@
 ///评论相关的所有信息
 @property(nonatomic,copy)NSMutableArray *commentModelArray;
 ///sectionHeaderView的高度
-@property (nonatomic, assign) BOOL headerHeight;
+@property (nonatomic, assign) CGFloat headerHeight;
+///发布文字的布局
+@property (nonatomic, strong) Layout *textLayout;
+///九宫格的布局
+@property (nonatomic, strong) Layout *jggLayout;
 
-
-
-@property(nonatomic,copy)NSMutableAttributedString *mutablAttrStr;
+@property(nonatomic,strong)NSMutableAttributedString *mutablAttrStr;
 
 
 

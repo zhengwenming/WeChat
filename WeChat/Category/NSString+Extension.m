@@ -17,7 +17,7 @@
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:self];
     [attributeString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     [attributeString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, self.length)];
-    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
     CGRect rect = [attributeString boundingRectWithSize:size options:options context:nil];
     
     //    NSLog(@"size:%@", NSStringFromCGSize(rect.size));
@@ -45,7 +45,7 @@
     paragraphStyle.lineSpacing = lineSpacing;
     [attributeString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     [attributeString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, self.length)];
-    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
     CGRect rect = [attributeString boundingRectWithSize:size options:options context:nil];
     
     //    NSLog(@"size:%@", NSStringFromCGSize(rect.size));

@@ -27,8 +27,7 @@
 
         // contentLabel
         self.contentLabel = [[CopyAbleLabel alloc] init];
-        self.contentLabel.beforeCopyBackgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-        self.contentLabel.afterCopyBackgroundColor = [UIColor lightGrayColor];
+        self.contentLabel.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
         self.contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP;
         self.contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.contentLabel.numberOfLines = 0;

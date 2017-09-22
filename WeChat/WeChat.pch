@@ -29,13 +29,9 @@
 #import "UIImageView+WebCache.h"
 #import "NSString+Extension.h"
 
-#import "UIView+YYAdd.h"
-#import "CALayer+YYAdd.h"
-#import "UIControl+YYAdd.h"
 
-#import "YYText.h"
-#import "YYTextView.h"
-#import "YYLabel.h"
+
+#import "YYKit.h"
 
 
 

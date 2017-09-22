@@ -148,7 +148,7 @@
     };
     
     //点击九宫格
-    cell.tapImageBlock = ^(NSInteger index,NSArray *dataSource,NSIndexPath *indexpath){
+    cell.tapImageBlock = ^(NSInteger index,NSArray *dataSource){
         if (weakSelf.isShowKeyBoard) {
             [weakSelf.view endEditing:YES];
             return ;

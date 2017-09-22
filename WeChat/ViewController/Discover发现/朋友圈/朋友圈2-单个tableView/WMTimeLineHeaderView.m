@@ -17,16 +17,13 @@
 @property(nonatomic,retain)UIImageView *avatarIV;
 @property(nonatomic,retain)UILabel *userNameLabel;
 @property(nonatomic,retain)UILabel *timeStampLabel;
-@property(nonatomic,retain)YYLabel *messageTextLabel;
+@property(nonatomic,retain)CopyAbleLabel *messageTextLabel;
 @property(nonatomic,retain)UIButton *commentBtn;
 @property(nonatomic,retain)UIButton *moreBtn;
 @property(nonatomic,assign)BOOL isExpandNow;
 @property(nonatomic,assign)NSInteger headerSection;
+@property(nonatomic,strong)JGGView *jggView;
 
-
-@property(nonatomic,retain)JGGView *jggView;
-
-@property(nonatomic,retain)MessageInfoModel2 *model;
 
 /**
  *  TapBlcok
@@ -41,11 +38,6 @@
  *  更多按钮的block
  */
 @property (nonatomic, copy)void(^MoreBtnClickBlock)(UIButton *moreBtn,BOOL isExpand);
-/**
- *  九宫格
- */
-@property(nonatomic,retain)UIView *JGGView;
-
 
 @end
 
@@ -61,17 +53,19 @@
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         
-        self.sepLine = [[UILabel alloc]init];
+        self.contentView.backgroundColor = [UIColor whiteColor];
+
+        self.sepLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1.0 / YYScreenScale())];
         self.sepLine.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:self.sepLine];
         
         
-        self.avatarIV = [[UIImageView alloc]init];
+        self.avatarIV = [[UIImageView alloc]initWithFrame:CGRectMake(kGAP, kGAP, kAvatar_Size, kAvatar_Size)];
         [self addSubview:self.avatarIV];
-        self.contentView.backgroundColor = [UIColor whiteColor];
-        self.userNameLabel = [[UILabel alloc]init];
+        self.userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarIV.frame)+kGAP, kGAP,kScreenWidth-kAvatar_Size-2*kGAP-kGAP, self.avatarIV.frame.size.height/2)];
         self.userNameLabel.font = [UIFont systemFontOfSize:14.0];
-        self.userNameLabel.textColor = [UIColor orangeColor];
+        self.userNameLabel.textColor = [UIColor colorWithRed:(54/255.0) green:(71/255.0) blue:(121/255.0) alpha:0.9];
+
         [self addSubview:self.userNameLabel];
         
         self.timeStampLabel = [[UILabel alloc]init];
@@ -79,12 +73,10 @@
         self.timeStampLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:self.timeStampLabel];
         
-        self.messageTextLabel = [[YYLabel alloc]init];
-        self.messageTextLabel.clipsToBounds = YES;
-        
-        self.messageTextLabel.backgroundColor = [UIColor magentaColor];
-        self.messageTextLabel.displaysAsynchronously = YES;
+        self.messageTextLabel = [[CopyAbleLabel alloc]init];
+        self.messageTextLabel.backgroundColor = [UIColor whiteColor];
         self.messageTextLabel.numberOfLines = 0;
+        self.messageTextLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.messageTextLabel.font = [UIFont systemFontOfSize:14.0];
         [self addSubview:self.messageTextLabel];
         
@@ -116,6 +108,8 @@
         [self.moreBtn addTarget:self action:@selector(moreAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.moreBtn];
         self.isExpandNow = NO;
+        self.jggView = [[JGGView alloc] init];
+        [self addSubview:self.jggView];
     }
     return self;
 }
@@ -130,6 +124,13 @@
     }
 }
 -(void)setModel:(MessageInfoModel2 *)model{
-
+    [self.avatarIV sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    self.userNameLabel.text = model.userName;
+    self.messageTextLabel.attributedText = model.mutablAttrStr;
+    self.messageTextLabel.frame = model.textLayout.frameLayout;
+    ///解决图片复用问题
+    [self.jggView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.jggView.dataSource = model.messageSmallPics;
+    self.jggView.frame = model.jggLayout.frameLayout;
 }
 @end

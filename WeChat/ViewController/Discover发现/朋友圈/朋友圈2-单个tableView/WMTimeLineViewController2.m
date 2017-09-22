@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getTestData2];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:NSClassFromString(@"WMTimeLineHeaderView") forHeaderFooterViewReuseIdentifier:@"WMTimeLineHeaderView"];
     [self registerCellWithClass:@"CommentCell2" tableView:self.tableView];
 }
@@ -35,11 +36,8 @@
     return commentMessages.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.0001;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
     CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
     if ([commentModel isKindOfClass:[NSArray class]]) {
@@ -50,15 +48,24 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     MessageInfoModel2 *eachModel = self.dataSource[section];
-
-    return 100;
+    return eachModel.headerHeight;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     WMTimeLineHeaderView *headerView = (WMTimeLineHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WMTimeLineHeaderView"];
+    MessageInfoModel2 *eachModel = self.dataSource[section];
+    headerView.model = eachModel;
     return headerView;
 }
-
-
+///footer高度
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10.f;
+}
+///footerView
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10.f)];
+    footerView.backgroundColor = [UIColor whiteColor];
+    return footerView;
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommentCell2 *cell = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
     MessageInfoModel1 *eachModel = self.dataSource[indexPath.section];

@@ -12,5 +12,6 @@
 
 
 @interface WMTimeLineHeaderView : UITableViewHeaderFooterView
+@property(nonatomic,retain)MessageInfoModel2 *model;
 
 @end
