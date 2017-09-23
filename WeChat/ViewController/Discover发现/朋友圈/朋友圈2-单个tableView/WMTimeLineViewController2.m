@@ -9,6 +9,7 @@
 #import "WMTimeLineViewController2.h"
 #import "WMTimeLineHeaderView.h"
 #import "CommentCell2.h"
+#import "LikeUsersCell.h"
 
 
 @interface WMTimeLineViewController2 ()
@@ -23,6 +24,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:NSClassFromString(@"WMTimeLineHeaderView") forHeaderFooterViewReuseIdentifier:@"WMTimeLineHeaderView"];
     [self registerCellWithClass:@"CommentCell2" tableView:self.tableView];
+    [self registerCellWithClass:@"LikeUsersCell" tableView:self.tableView];
+
 }
 
 
@@ -67,11 +70,21 @@
     return footerView;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CommentCell2 *cell = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
+    CommentCell2 *cell2 = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
+    LikeUsersCell *cell = (LikeUsersCell *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell"];
+
     MessageInfoModel1 *eachModel = self.dataSource[indexPath.section];
     NSArray  *commentMessages =  eachModel.commentModelArray;
-    cell.model = commentMessages[indexPath.row];
-    return cell;
+    cell2.model = commentMessages[indexPath.row];
+    if ([commentMessages[indexPath.row] isKindOfClass:[NSArray class]]) {
+        
+        cell.backgroundColor = [UIColor cyanColor];
+        return cell;
+
+    }else{
+        return cell2;
+
+    }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

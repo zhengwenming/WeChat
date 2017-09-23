@@ -125,6 +125,10 @@
 		701C264B1F755E2F009B6AD1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701C264A1F755E2F009B6AD1 /* MobileCoreServices.framework */; };
 		701C264D1F755E35009B6AD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701C264C1F755E35009B6AD1 /* SystemConfiguration.framework */; };
 		701C264F1F755E3E009B6AD1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 701C264E1F755E3E009B6AD1 /* libz.tbd */; };
+		701C26531F761922009B6AD1 /* LikeUsersCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701C26511F761922009B6AD1 /* LikeUsersCell1.m */; };
+		701C26541F761922009B6AD1 /* LikeUsersCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701C26521F761922009B6AD1 /* LikeUsersCell1.xib */; };
+		701C26581F761939009B6AD1 /* LikeUsersCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701C26561F761939009B6AD1 /* LikeUsersCell2.m */; };
+		701C26591F761939009B6AD1 /* LikeUsersCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701C26571F761939009B6AD1 /* LikeUsersCell2.xib */; };
 		705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
@@ -753,6 +757,12 @@
 		701C264A1F755E2F009B6AD1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		701C264C1F755E35009B6AD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		701C264E1F755E3E009B6AD1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		701C26501F761922009B6AD1 /* LikeUsersCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell1.h; sourceTree = "<group>"; };
+		701C26511F761922009B6AD1 /* LikeUsersCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell1.m; sourceTree = "<group>"; };
+		701C26521F761922009B6AD1 /* LikeUsersCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell1.xib; sourceTree = "<group>"; };
+		701C26551F761939009B6AD1 /* LikeUsersCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell2.h; sourceTree = "<group>"; };
+		701C26561F761939009B6AD1 /* LikeUsersCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell2.m; sourceTree = "<group>"; };
+		701C26571F761939009B6AD1 /* LikeUsersCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell2.xib; sourceTree = "<group>"; };
 		705EEE291F6C49AE00566255 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
 		705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TapAction.m"; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
@@ -1314,6 +1324,9 @@
 				701A5BAD1F73FD8C00332B78 /* MessageCell1.m */,
 				701A5BAF1F74085100332B78 /* CommentCell1.h */,
 				701A5BB01F74085100332B78 /* CommentCell1.m */,
+				701C26501F761922009B6AD1 /* LikeUsersCell1.h */,
+				701C26511F761922009B6AD1 /* LikeUsersCell1.m */,
+				701C26521F761922009B6AD1 /* LikeUsersCell1.xib */,
 				701A5B9A1F73F1A700332B78 /* MessageInfoModel1.h */,
 				701A5B9B1F73F1A700332B78 /* MessageInfoModel1.m */,
 				701A5BA31F73F20200332B78 /* CommentInfoModel1.h */,
@@ -1331,6 +1344,9 @@
 				701A5BB91F74169B00332B78 /* WMTimeLineHeaderView.m */,
 				701A5BB21F740A2B00332B78 /* CommentCell2.h */,
 				701A5BB31F740A2B00332B78 /* CommentCell2.m */,
+				701C26551F761939009B6AD1 /* LikeUsersCell2.h */,
+				701C26561F761939009B6AD1 /* LikeUsersCell2.m */,
+				701C26571F761939009B6AD1 /* LikeUsersCell2.xib */,
 				701A5B9D1F73F1C600332B78 /* MessageInfoModel2.h */,
 				701A5B9E1F73F1C600332B78 /* MessageInfoModel2.m */,
 				701A5BA61F73F21300332B78 /* CommentInfoModel2.h */,
@@ -3661,6 +3677,7 @@
 				70C81D901D04208B00D86903 /* f_static_104@2x.png in Resources */,
 				70C81CE91D04208B00D86903 /* f_static_020@3x.png in Resources */,
 				70C81D351D04208B00D86903 /* f_static_058@3x.png in Resources */,
+				701C26591F761939009B6AD1 /* LikeUsersCell2.xib in Resources */,
 				70C81D7C1D04208B00D86903 /* f_static_094@2x.png in Resources */,
 				70C81D761D04208B00D86903 /* f_static_091@2x.png in Resources */,
 				70C81D4B1D04208B00D86903 /* f_static_069@3x.png in Resources */,
@@ -3712,6 +3729,7 @@
 				70C81CAF1D04208B00D86903 /* section0_emotion0@2x.png in Resources */,
 				70B5BE7E1D0472B7003A7CF2 /* 23.jpg in Resources */,
 				70C81D121D04208B00D86903 /* f_static_041@2x.png in Resources */,
+				701C26541F761922009B6AD1 /* LikeUsersCell1.xib in Resources */,
 				70C81CE51D04208B00D86903 /* f_static_018@3x.png in Resources */,
 				70C81D251D04208B00D86903 /* f_static_050@3x.png in Resources */,
 				70C81CC61D04208B00D86903 /* f_static_003@3x.png in Resources */,
@@ -3784,6 +3802,7 @@
 				701C25F81F755A1B009B6AD1 /* UIBarButtonItem+YYAdd.m in Sources */,
 				701C25F51F755A1B009B6AD1 /* CALayer+YYAdd.m in Sources */,
 				70BB72F41D02A93D0003B379 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				701C26531F761922009B6AD1 /* LikeUsersCell1.m in Sources */,
 				701C26281F755A1C009B6AD1 /* YYTextRunDelegate.m in Sources */,
 				70BB730A1D02A93D0003B379 /* UIScrollView+MJRefresh.m in Sources */,
 				70C8177B1D040FB900D86903 /* FaceThemeModel.m in Sources */,
@@ -3906,6 +3925,7 @@
 				70BB73181D02A93D0003B379 /* UIImageView+WebCache.m in Sources */,
 				701C262B1F755A1C009B6AD1 /* YYLabel.m in Sources */,
 				70BB73081D02A93D0003B379 /* MJRefreshConst.m in Sources */,
+				701C26581F761939009B6AD1 /* LikeUsersCell2.m in Sources */,
 				701A5B9F1F73F1C600332B78 /* MessageInfoModel2.m in Sources */,
 				70FFC1E11D44F2D000FCE22F /* PinyinHelper.m in Sources */,
 				70C8177C1D040FB900D86903 /* MoreItem.m in Sources */,

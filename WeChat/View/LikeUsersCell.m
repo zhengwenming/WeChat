@@ -27,7 +27,7 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor redColor];
     self.likeUsersLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -61,11 +61,6 @@
         [rangesArray addObject:[NSValue valueWithRange:friendModel.range]];
         [self.nameArray addObject:friendModel.userName];
     }
-
-    
-    
-    
-    
     
     [mutablAttrStr addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.f]} range:NSMakeRange(0, mutablAttrStr.length)];
     
