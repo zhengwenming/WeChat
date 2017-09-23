@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JGGView.h"
 #import "CommentCell1.h"
-#import "LikeUsersCell.h"
+#import "LikeUsersCell1.h"
 #import "MessageInfoModel1.h"
 #import "CommentInfoModel1.h"
 

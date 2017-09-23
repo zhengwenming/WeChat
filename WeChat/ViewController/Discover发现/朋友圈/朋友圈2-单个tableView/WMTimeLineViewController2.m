@@ -9,7 +9,7 @@
 #import "WMTimeLineViewController2.h"
 #import "WMTimeLineHeaderView.h"
 #import "CommentCell2.h"
-#import "LikeUsersCell.h"
+#import "LikeUsersCell1.h"
 
 
 @interface WMTimeLineViewController2 ()
@@ -24,7 +24,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:NSClassFromString(@"WMTimeLineHeaderView") forHeaderFooterViewReuseIdentifier:@"WMTimeLineHeaderView"];
     [self registerCellWithClass:@"CommentCell2" tableView:self.tableView];
-    [self registerCellWithClass:@"LikeUsersCell" tableView:self.tableView];
+    [self registerCellWithClass:@"LikeUsersCell1" tableView:self.tableView];
 
 }
 
@@ -71,7 +71,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommentCell2 *cell2 = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
-    LikeUsersCell *cell = (LikeUsersCell *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell"];
+    LikeUsersCell1 *cell = (LikeUsersCell1 *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell1"];
 
     MessageInfoModel1 *eachModel = self.dataSource[indexPath.section];
     NSArray  *commentMessages =  eachModel.commentModelArray;

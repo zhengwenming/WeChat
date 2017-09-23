@@ -113,8 +113,7 @@
         self.tableView = [[UITableView alloc] init];
         self.tableView.scrollEnabled = NO;
         [self.tableView registerClass:NSClassFromString(@"CommentCell1") forCellReuseIdentifier:@"CommentCell1"];
-        
-        [self.tableView registerNib:[UINib nibWithNibName:@"LikeUsersCell" bundle:nil] forCellReuseIdentifier:@"LikeUsersCell"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"LikeUsersCell1" bundle:nil] forCellReuseIdentifier:@"LikeUsersCell1"];
         
         UIImage *image = [UIImage imageNamed:@"LikeCmtBg"];
         image = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
@@ -268,7 +267,7 @@
     
     if (indexPath.row==0) {
         if (self.messageModel.likeUsers.count) {
-            LikeUsersCell *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell" forIndexPath:indexPath];
+            LikeUsersCell1 *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell1" forIndexPath:indexPath];
             [likeUsersCell configLikeUsersWithMessageModel:self.messageModel];
             __weak __typeof(self) weakSelf= self;
             

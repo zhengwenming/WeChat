@@ -13,8 +13,6 @@
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
-		7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7011566B1F65285C004D1B67 /* LikeUsersCell.m */; };
-		7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7011566C1F65285C004D1B67 /* LikeUsersCell.xib */; };
 		701A5B931F73EDF500332B78 /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B901F73EDF500332B78 /* TimeLineBaseViewController.m */; };
 		701A5B961F73EF7400332B78 /* WMTimeLineViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B951F73EF7400332B78 /* WMTimeLineViewController1.m */; };
 		701A5B991F73EF8800332B78 /* WMTimeLineViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5B981F73EF8800332B78 /* WMTimeLineViewController2.m */; };
@@ -544,9 +542,6 @@
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		377EF7AA1D471F4700177CC8 /* addressBook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addressBook.gif; sourceTree = "<group>"; };
-		7011566A1F65285C004D1B67 /* LikeUsersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeUsersCell.h; sourceTree = "<group>"; };
-		7011566B1F65285C004D1B67 /* LikeUsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell.m; sourceTree = "<group>"; };
-		7011566C1F65285C004D1B67 /* LikeUsersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikeUsersCell.xib; sourceTree = "<group>"; };
 		701A5B8F1F73EDF500332B78 /* TimeLineBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineBaseViewController.h; sourceTree = "<group>"; };
 		701A5B901F73EDF500332B78 /* TimeLineBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineBaseViewController.m; sourceTree = "<group>"; };
 		701A5B941F73EF7400332B78 /* WMTimeLineViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTimeLineViewController1.h; sourceTree = "<group>"; };
@@ -1828,9 +1823,6 @@
 		70BB72821D02A92A0003B379 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7011566A1F65285C004D1B67 /* LikeUsersCell.h */,
-				7011566B1F65285C004D1B67 /* LikeUsersCell.m */,
-				7011566C1F65285C004D1B67 /* LikeUsersCell.xib */,
 				701C25311F755783009B6AD1 /* JGGView.h */,
 				701C25321F755783009B6AD1 /* JGGView.m */,
 				70BB73A11D02F38F0003B379 /* UIView+JGG.h */,
@@ -3740,7 +3732,6 @@
 				70B5BE871D0472B7003A7CF2 /* icon1.jpg in Resources */,
 				70B5BE761D0472B7003A7CF2 /* 16.jpg in Resources */,
 				70C81CB61D04208B00D86903 /* section0_emotion1@2x.png in Resources */,
-				7011566E1F65285C004D1B67 /* LikeUsersCell.xib in Resources */,
 				70C81CB51D04208B00D86903 /* section0_emotion15@2x.png in Resources */,
 				70C81D651D04208B00D86903 /* f_static_082@3x.png in Resources */,
 				70B5BE9C1D0472B7003A7CF2 /* pic6.jpg in Resources */,
@@ -3794,7 +3785,6 @@
 				70C817881D040FB900D86903 /* ChatToolBar.m in Sources */,
 				701C26111F755A1B009B6AD1 /* YYImageCache.m in Sources */,
 				701A5B9C1F73F1A700332B78 /* MessageInfoModel1.m in Sources */,
-				7011566D1F65285C004D1B67 /* LikeUsersCell.m in Sources */,
 				701A5B991F73EF8800332B78 /* WMTimeLineViewController2.m in Sources */,
 				701A5BC01F7426C300332B78 /* Layout.m in Sources */,
 				701C25FF1F755A1B009B6AD1 /* UIImage+YYAdd.m in Sources */,
