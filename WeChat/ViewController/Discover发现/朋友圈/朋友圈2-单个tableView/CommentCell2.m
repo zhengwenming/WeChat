@@ -40,6 +40,8 @@
     }
     return self;
 }
+#pragma mark
+#pragma mark cell左边缩进64，右边缩进10
 -(void)setFrame:(CGRect)frame{
     frame.origin.x = 64;
     frame.size.width = kScreenWidth - 64-10;

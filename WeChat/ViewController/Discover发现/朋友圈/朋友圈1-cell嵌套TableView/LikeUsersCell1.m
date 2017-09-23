@@ -30,7 +30,6 @@
     self.likeUsersLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
 }
 - (void)configLikeUsersWithMessageModel:(MessageInfoModel1 *)messageModel{
     _likeUsersArray = messageModel.likeUsers.mutableCopy;

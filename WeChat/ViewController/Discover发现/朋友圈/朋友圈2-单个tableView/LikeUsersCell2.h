@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class FriendInfoModel;
+#import "MessageInfoModel2.h"
+
+typedef void(^TapNameBlock)(FriendInfoModel *friendModel);
+
+
+
 
 @interface LikeUsersCell2 : UITableViewCell
-
+///显示点赞人列表label
+@property (weak, nonatomic) IBOutlet UILabel *likeUsersLabel;
+///点击某个人名字的block回调
+@property(nonatomic ,copy)TapNameBlock tapNameBlock;
 @end
