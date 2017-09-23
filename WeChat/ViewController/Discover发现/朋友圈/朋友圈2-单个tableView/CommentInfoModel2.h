@@ -30,6 +30,9 @@
 
 ///评论大图
 @property(nonatomic,copy)NSMutableArray *messageBigPicArray;
+@property(nonatomic,copy)NSMutableAttributedString *likeUsersAttributedText;
+
+@property(nonatomic,copy)NSMutableArray<CommentInfoModel2 *> *likeUsersArray;
 
 // 评论数据源
 @property (nonatomic,copy) NSMutableArray *commentModelArray;

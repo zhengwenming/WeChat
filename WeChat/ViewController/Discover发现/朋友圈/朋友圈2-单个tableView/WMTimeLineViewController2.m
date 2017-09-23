@@ -24,7 +24,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:NSClassFromString(@"WMTimeLineHeaderView") forHeaderFooterViewReuseIdentifier:@"WMTimeLineHeaderView"];
     [self registerCellWithClass:@"CommentCell2" tableView:self.tableView];
-    [self registerCellWithClass:@"LikeUsersCell2" tableView:self.tableView];
+    [self registerCellWithNib:@"LikeUsersCell2" tableView:self.tableView];
 
 }
 
@@ -43,9 +43,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
     CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
-    if ([commentModel isKindOfClass:[NSArray class]]) {
-        return 44;
-    }
     return commentModel.rowHeight;
 }
 
@@ -70,19 +67,15 @@
     return footerView;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CommentCell2 *cell2 = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
-    LikeUsersCell2 *cell = (LikeUsersCell2 *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell2"];
-
-    MessageInfoModel1 *eachModel = self.dataSource[indexPath.section];
-    NSArray  *commentMessages =  eachModel.commentModelArray;
-    cell2.model = commentMessages[indexPath.row];
-    if ([commentMessages[indexPath.row] isKindOfClass:[NSArray class]]) {
-        
-        cell.backgroundColor = [UIColor cyanColor];
-        return cell;
-
+    MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
+    CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
+    if (commentModel.likeUsersArray.count) {
+        LikeUsersCell2 *likeUsersCell = (LikeUsersCell2 *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell2"];
+        likeUsersCell.model = commentModel;
+        return likeUsersCell;
     }else{
-        
+        CommentCell2 *cell2 = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
+        cell2.model = commentModel;
         return cell2;
     }
 }

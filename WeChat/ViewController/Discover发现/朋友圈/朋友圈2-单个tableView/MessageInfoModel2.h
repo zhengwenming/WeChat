@@ -36,9 +36,6 @@
 ///发布说说者名字
 @property(nonatomic,copy)NSString *userName;
 
-///点赞的人列表
-@property(nonatomic,copy)NSMutableArray <FriendInfoModel *>*likeUsers;
-
 ///发布说说者头像
 @property(nonatomic,copy)NSString *photo;
 

@@ -12,8 +12,10 @@
 
 typedef void(^TapNameBlock)(FriendInfoModel *friendModel);
 @interface LikeUsersCell1 : UITableViewCell
-- (void)configLikeUsersWithMessageModel:(MessageInfoModel1 *)messageModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *likeUsersLabel;
 @property(nonatomic ,copy)TapNameBlock tapNameBlock;
+
+@property(nonatomic ,strong)MessageInfoModel1 *model;
+
 @end

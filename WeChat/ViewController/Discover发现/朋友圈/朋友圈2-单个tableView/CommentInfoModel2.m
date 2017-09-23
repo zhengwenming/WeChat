@@ -42,12 +42,14 @@
         [text addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, str.length)];
         
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        if ([text.string isMoreThanOneLineWithSize:CGSizeMake(kScreenWidth - 64-10, CGFLOAT_MAX) font:font lineSpaceing:5.0]) {//margin
-            style.lineSpacing = 5;
+        if ([text.string isMoreThanOneLineWithSize:CGSizeMake(kScreenWidth - 2*kGAP-kAvatar_Size-10, CGFLOAT_MAX) font:font lineSpaceing:3.0]) {//margin
+            style.lineSpacing = 3;
+        }else{
+            style.lineSpacing = CGFLOAT_MIN;
         }
 
         [text addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, text.string.length)];
-        self.rowHeight = [text.string boundingRectWithSize:CGSizeMake(kScreenWidth - 64-10, CGFLOAT_MAX) font:font lineSpacing:5.0].height+0.5+5.0;//5.0为最后一行行间距
+        self.rowHeight = [text.string boundingRectWithSize:CGSizeMake(kScreenWidth - 2*kGAP-kAvatar_Size-10, CGFLOAT_MAX) font:font lineSpacing:3.0].height+0.5+3.0;//5.0为最后一行行间距
         self.attributedText = text;
     }
     return self;

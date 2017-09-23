@@ -144,7 +144,7 @@
         weakSelf.chatKeyBoard.placeHolder = nil;
         model.isExpand = !model.isExpand;
         model.shouldUpdateCache = YES;
-        [tableView reloadData];
+        [weakSelf.tableView reloadData];
     };
     
     //点击九宫格

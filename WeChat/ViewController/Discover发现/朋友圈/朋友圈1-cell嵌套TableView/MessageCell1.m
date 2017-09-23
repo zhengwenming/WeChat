@@ -268,9 +268,8 @@
     if (indexPath.row==0) {
         if (self.messageModel.likeUsers.count) {
             LikeUsersCell1 *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell1" forIndexPath:indexPath];
-            [likeUsersCell configLikeUsersWithMessageModel:self.messageModel];
+            likeUsersCell.model = self.messageModel;
             __weak __typeof(self) weakSelf= self;
-            
             likeUsersCell.tapNameBlock = ^(FriendInfoModel *friendModel) {
                 if (weakSelf.tapNameBlock) {
                     weakSelf.tapNameBlock(friendModel);

@@ -12,18 +12,25 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    self.backgroundColor = [UIColor clearColor];
+    UIImage *image = [UIImage imageNamed:@"LikeCmtBg"];
+    image = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
+    self.backgroundView = [[UIImageView alloc]initWithImage:image];
+//    self.backgroundColor = [UIColor colorWithRed:236.0/256.0 green:236.0/256.0 blue:236.0/256.0 alpha:1.0];
+
     self.likeUsersLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.likeUsersLabel.text = @"测试";
 }
-
+-(void)setModel:(CommentInfoModel2 *)model{
+    _model = model;
+    self.likeUsersLabel.attributedText = model.likeUsersAttributedText;
+}
 #pragma mark
-#pragma mark cell左边缩进64，右边缩进10
+#pragma mark cell左边缩进leftSpace，右边缩进10
 -(void)setFrame:(CGRect)frame{
-    frame.origin.x = 64;
-    frame.size.width = kScreenWidth - 64-10;
+    CGFloat leftSpace = 2*kGAP+kAvatar_Size;
+    frame.origin.x = leftSpace;
+    frame.size.width = kScreenWidth - leftSpace -10;
     [super setFrame:frame];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

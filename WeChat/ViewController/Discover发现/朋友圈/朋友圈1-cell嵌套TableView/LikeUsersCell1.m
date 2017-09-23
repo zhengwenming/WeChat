@@ -31,7 +31,8 @@
     self.likeUsersLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-- (void)configLikeUsersWithMessageModel:(MessageInfoModel1 *)messageModel{
+-(void)setModel:(MessageInfoModel1 *)messageModel{
+    _model = messageModel;
     _likeUsersArray = messageModel.likeUsers.mutableCopy;
     NSMutableArray *rangesArray = [NSMutableArray array];
     NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
@@ -76,7 +77,8 @@
     self.likeUsersLabel.attributedText = mutablAttrStr;
     
     // 给指定文字添加点击事件,并设置代理,代理中监听点击
-    [self.likeUsersLabel tapActionWithStrings:self.nameArray delegate:self];
+    //此处有bug，待修复
+//    [self.likeUsersLabel tapActionWithStrings:self.nameArray delegate:self];
 }
 - (void)tapReturnString:(NSString *)string
                   range:(NSRange)range
@@ -86,9 +88,7 @@
         self.tapNameBlock(aModel);
     }
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-
 @end

@@ -56,6 +56,5 @@
                  range:NSMakeRange(model.commentUserName.length + 2, model.commentByUserName.length)];
     self.contentLabel.attributedText = text;
 }
-
 @end
 

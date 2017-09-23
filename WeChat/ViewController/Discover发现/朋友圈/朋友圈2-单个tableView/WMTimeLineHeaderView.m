@@ -17,7 +17,7 @@
 @property(nonatomic,retain)UIImageView *avatarIV;
 @property(nonatomic,retain)UILabel *userNameLabel;
 @property(nonatomic,retain)UILabel *timeStampLabel;
-@property(nonatomic,retain)CopyAbleLabel *messageTextLabel;
+@property(nonatomic,strong)CopyAbleLabel *messageTextLabel;
 @property(nonatomic,retain)UIButton *commentBtn;
 @property(nonatomic,retain)UIButton *moreBtn;
 @property(nonatomic,assign)BOOL isExpandNow;

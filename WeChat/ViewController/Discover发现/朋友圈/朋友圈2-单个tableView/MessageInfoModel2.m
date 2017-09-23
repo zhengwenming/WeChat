@@ -8,6 +8,8 @@
 
 #import "MessageInfoModel2.h"
 
+
+
 @implementation MessageInfoModel2
 
 -(NSMutableArray *)commentModelArray{
@@ -29,12 +31,6 @@
         _messageBigPics = [NSMutableArray array];
     }
     return _messageBigPics;
-}
--(NSMutableArray *)likeUsers{
-    if (_likeUsers==nil) {
-        _likeUsers = [NSMutableArray array];
-    }
-    return _likeUsers;
 }
 -(Layout *)textLayout{
     if (_textLayout==nil) {
@@ -58,18 +54,66 @@
         self.message_type       = dic[@"message_type"];
         self.userId             = dic[@"userId"];
         self.userName           = dic[@"userName"];
-        for (NSDictionary *friendInfoDic in dic[@"likeUsers"]) {
-            [self.likeUsers addObject:[[FriendInfoModel alloc]initWithDic:friendInfoDic]];
-        }
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
         self.messageBigPics     = dic[@"messageBigPics"];
-        if (self.likeUsers.count) {
-            [self.commentModelArray addObject:self.likeUsers];
+        
+        NSMutableArray <FriendInfoModel *>*likeUsers = [NSMutableArray array];
+        
+        for (NSDictionary *friendInfoDic in dic[@"likeUsers"]) {
+            [likeUsers addObject:[[FriendInfoModel alloc]initWithDic:friendInfoDic]];
         }
+        if (likeUsers.count) {
+            CommentInfoModel2 *model2 = [CommentInfoModel2 new];
+            model2.likeUsersArray = likeUsers.mutableCopy;
+            //处理点赞人的attributeStr字符串
+            NSMutableArray *rangesArray = [NSMutableArray array];
+            NSMutableArray *nameArray = [NSMutableArray array];
+
+            NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
+            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+            //定义图片内容及位置和大小
+            attch.image = [UIImage imageNamed:@"Like"];
+            attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
+            //创建带有图片的富文本
+            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+            
+            
+            for (int i = 0; i <likeUsers.count; i++) {
+                FriendInfoModel *friendModel = likeUsers[i];
+                //name0,name1,name2,name1
+                [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:friendModel.userName]];
+                if ([nameArray containsObject:friendModel.userName]) {//如果前面有人和我重复名字了
+                    friendModel.range = NSMakeRange(mutablAttrStr.length-friendModel.userName.length, friendModel.userName.length);
+                }else{
+                    friendModel.range = [mutablAttrStr.string rangeOfString:friendModel.userName];
+                }
+                if (i != likeUsers.count - 1) {
+                    [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
+                    
+                }
+                [rangesArray addObject:[NSValue valueWithRange:friendModel.range]];
+                [nameArray addObject:friendModel.userName];
+            }
+            UIFont *font = [UIFont systemFontOfSize:13.f];
+            [mutablAttrStr addAttributes:@{NSFontAttributeName : font} range:NSMakeRange(0, mutablAttrStr.length)];
+            
+            
+            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+            style.lineSpacing = 3.0;
+            [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
+            // 给指定文字添加颜色
+            for (NSValue *aRangeValue in rangesArray) {
+                [mutablAttrStr addAttributes:@{NSForegroundColorAttributeName : [UIColor orangeColor]} range:aRangeValue.rangeValue];
+            }
+            model2.likeUsersAttributedText = mutablAttrStr;
+            //算likeUser点赞人cell的rowHeight
+            model2.rowHeight = [mutablAttrStr.string boundingRectWithSize:CGSizeMake(kScreenWidth-kGAP-kAvatar_Size-2*kGAP, CGFLOAT_MAX) font:font lineSpacing:3.0].height+0.5+8+5;
+            [self.commentModelArray addObject:model2];
+        }
+        //
         for (NSDictionary *eachDic in dic[@"commentMessages"] ) {
-            CommentInfoModel2 *commentModel = [[CommentInfoModel2 alloc] initWithDic:eachDic];
-            [self.commentModelArray addObject:commentModel];
+            [self.commentModelArray addObject:[[CommentInfoModel2 alloc] initWithDic:eachDic]];
         }
         
         NSMutableParagraphStyle *muStyle = [[NSMutableParagraphStyle alloc]init];

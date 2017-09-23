@@ -128,9 +128,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-        [self.navigationController pushViewController:self.timeLineOne animated:YES];
+//        [self.navigationController pushViewController:self.timeLineOne animated:YES];
+            [self.navigationController pushViewController:[[WMTimeLineViewController1 alloc]init] animated:YES];
+
         }else{
-        [self.navigationController pushViewController:self.timeLineTwo animated:YES];
+//        [self.navigationController pushViewController:self.timeLineTwo animated:YES];
+            
+            [self.navigationController pushViewController:[[WMTimeLineViewController2 alloc]init] animated:YES];
+
+            
         }
     }
 }

@@ -362,17 +362,13 @@
     __weak typeof(self) weakSelf = self;
     
     [strings enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
         NSRange range = [totalStr rangeOfString:obj];
-        
         if (range.length != 0) {
             totalStr = [totalStr stringByReplacingCharactersInRange:range withString:[weakSelf getStringWithRange:range]];
-            
             AttributeModel *model = [AttributeModel new];
             model.range = range;
             model.str = obj;
             [weakSelf.attributeStrings addObject:model];
-            
         }
         
     }];

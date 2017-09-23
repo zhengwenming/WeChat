@@ -22,13 +22,16 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-        self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
 
+        UIColor *bgColor = [UIColor colorWithRed:236.0/256.0 green:236.0/256.0 blue:236.0/256.0 alpha:0.4];
+        self.backgroundColor = bgColor;
+        self.contentView.backgroundColor = bgColor;
+
+        
         // contentLabel
         self.contentLabel = [[CopyAbleLabel alloc] init];
-        self.contentLabel.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-        self.contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP;
+        self.contentLabel.backgroundColor = bgColor;
+        self.contentLabel.preferredMaxLayoutWidth = kScreenWidth- kGAP-kAvatar_Size - 2*kGAP;
         self.contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.contentLabel.numberOfLines = 0;
         self.contentLabel.font = [UIFont systemFontOfSize:13.0];
@@ -43,8 +46,9 @@
 #pragma mark
 #pragma mark cell左边缩进64，右边缩进10
 -(void)setFrame:(CGRect)frame{
-    frame.origin.x = 64;
-    frame.size.width = kScreenWidth - 64-10;
+    CGFloat leftSpace = 2*kGAP+kAvatar_Size;
+    frame.origin.x = leftSpace;
+    frame.size.width = kScreenWidth - leftSpace -10;
     [super setFrame:frame];
 }
 -(void)setModel:(CommentInfoModel2 *)model{

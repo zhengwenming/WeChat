@@ -239,7 +239,6 @@
 		70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731D1D02AA920003B379 /* UITableView+HYBCacheHeight.m */; };
 		70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		70BB73291D02AC550003B379 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 70BB73281D02AC550003B379 /* data.json */; };
-		70BB73A31D02F38F0003B379 /* UIView+JGG.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB73A21D02F38F0003B379 /* UIView+JGG.m */; };
 		70C817781D040FB900D86903 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C816BD1D040FB900D86903 /* NSString+Emoji.m */; };
 		70C817791D040FB900D86903 /* ChatKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C816BF1D040FB900D86903 /* ChatKeyBoard.m */; };
 		70C8177A1D040FB900D86903 /* ChatToolBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C816C31D040FB900D86903 /* ChatToolBarItem.m */; };
@@ -932,8 +931,6 @@
 		70BB731E1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
 		70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		70BB73281D02AC550003B379 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		70BB73A11D02F38F0003B379 /* UIView+JGG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JGG.h"; sourceTree = "<group>"; };
-		70BB73A21D02F38F0003B379 /* UIView+JGG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JGG.m"; sourceTree = "<group>"; };
 		70C816BC1D040FB900D86903 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
 		70C816BD1D040FB900D86903 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		70C816BE1D040FB900D86903 /* ChatKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatKeyBoard.h; sourceTree = "<group>"; };
@@ -1245,8 +1242,8 @@
 		70FFC1E81D4508BE00FCE22F /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		70FFC1E91D4508BE00FCE22F /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		BF11A1C71DD5B22E00024BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BF84DE3C1DB9E1B500669716 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
-		BF84DE3D1DB9E1B500669716 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		BF84DE3C1DB9E1B500669716 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverViewController.h; path = ../DiscoverViewController.h; sourceTree = "<group>"; };
+		BF84DE3D1DB9E1B500669716 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverViewController.m; path = ../DiscoverViewController.m; sourceTree = "<group>"; };
 		BF84DE3F1DB9E1B500669716 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		BF84DE401DB9E1B500669716 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		BF84DE441DB9E20500669716 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -1825,8 +1822,6 @@
 			children = (
 				701C25311F755783009B6AD1 /* JGGView.h */,
 				701C25321F755783009B6AD1 /* JGGView.m */,
-				70BB73A11D02F38F0003B379 /* UIView+JGG.h */,
-				70BB73A21D02F38F0003B379 /* UIView+JGG.m */,
 				70FFC1C61D44F1C800FCE22F /* AddressBookCell.h */,
 				70FFC1C71D44F1C800FCE22F /* AddressBookCell.m */,
 				70FFC1C81D44F1C800FCE22F /* AddressBookCell.xib */,
@@ -3336,8 +3331,6 @@
 			isa = PBXGroup;
 			children = (
 				BF84DE471DB9E77500669716 /* 朋友圈 */,
-				BF84DE3C1DB9E1B500669716 /* DiscoverViewController.h */,
-				BF84DE3D1DB9E1B500669716 /* DiscoverViewController.m */,
 			);
 			path = "Discover发现";
 			sourceTree = "<group>";
@@ -3363,6 +3356,8 @@
 		BF84DE471DB9E77500669716 /* 朋友圈 */ = {
 			isa = PBXGroup;
 			children = (
+				BF84DE3C1DB9E1B500669716 /* DiscoverViewController.h */,
+				BF84DE3D1DB9E1B500669716 /* DiscoverViewController.m */,
 				701A5B8E1F73EDF500332B78 /* 朋友圈基类 */,
 				701A5B881F73EDF500332B78 /* 朋友圈1-cell嵌套TableView */,
 				701A5B8B1F73EDF500332B78 /* 朋友圈2-单个tableView */,
@@ -3813,7 +3808,6 @@
 				701C262F1F755A1C009B6AD1 /* YYFileHash.m in Sources */,
 				70C817811D040FB900D86903 /* FaceButton.m in Sources */,
 				70BB72ED1D02A93D0003B379 /* MASCompositeConstraint.m in Sources */,
-				70BB73A31D02F38F0003B379 /* UIView+JGG.m in Sources */,
 				705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */,
 				70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */,
 				70BB730B1D02A93D0003B379 /* UIView+MJExtension.m in Sources */,
