@@ -11,13 +11,8 @@
 #import "CommentCell2.h"
 #import "LikeUsersCell2.h"
 
-
-@interface WMTimeLineViewController2 ()
-
-@end
-
 @implementation WMTimeLineViewController2
-
+#pragma mark
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getTestData2];
@@ -25,27 +20,20 @@
     [self.tableView registerClass:NSClassFromString(@"WMTimeLineHeaderView") forHeaderFooterViewReuseIdentifier:@"WMTimeLineHeaderView"];
     [self registerCellWithClass:@"CommentCell2" tableView:self.tableView];
     [self registerCellWithNib:@"LikeUsersCell2" tableView:self.tableView];
-
 }
-
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSource.count;
 }
 //显示评论的数据
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     MessageInfoModel1 *eachModel = self.dataSource[section];
-    NSArray  *commentMessages =  eachModel.commentModelArray;
-    return commentMessages.count;
+    return eachModel.commentModelArray.count;
 }
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
     CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
     return commentModel.rowHeight;
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     MessageInfoModel2 *eachModel = self.dataSource[section];
     return eachModel.headerHeight;
@@ -78,41 +66,6 @@
         cell2.model = commentModel;
         return cell2;
     }
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-#pragma mark
-#pragma mark keyboardWillShow
-- (void)keyboardWillShow:(NSNotification *)notification
-{
-    NSDictionary *userInfo = [notification userInfo];
-    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    __block  CGFloat keyboardHeight = [aValue CGRectValue].size.height;
-    CGRect keyboardRect = [aValue CGRectValue];
-    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
-    CGFloat keyboardTop = keyboardRect.origin.y;
-    CGRect newTextViewFrame = self.view.bounds;
-    newTextViewFrame.size.height = keyboardTop - self.view.bounds.origin.y;
-    
-    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    
-    //  [self.tableView setContentOffset:CGPointMake(0, self.history_Y_offset-keyboardHeight-kChatToolBarHeight+4) animated:YES];
-    
-    
-    
-}
-#pragma mark
-#pragma mark keyboardWillHide
-- (void)keyboardWillHide:(NSNotification *)notification {
-    NSValue *animationDurationValue = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    [UIView animateWithDuration:animationDuration animations:^{
-        
-    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

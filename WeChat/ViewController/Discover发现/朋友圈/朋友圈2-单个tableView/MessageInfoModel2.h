@@ -56,9 +56,6 @@
 
 @property(nonatomic,strong)NSMutableAttributedString *mutablAttrStr;
 
-
-
 -(instancetype)initWithDic:(NSDictionary *)dic;
-
 
 @end

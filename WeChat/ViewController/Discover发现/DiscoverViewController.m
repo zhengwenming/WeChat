@@ -94,9 +94,9 @@
     if (indexPath.section==0) {//我的好友
         cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
         if (indexPath.row==0) {
-            cell.titleLabel.text = @"朋友圈(cell嵌套UITableView)";
+            cell.titleLabel.text = @"朋友圈1(cell嵌套UITableView)";
         }else{
-            cell.titleLabel.text = @"朋友圈(一个tableView结构)";
+            cell.titleLabel.text = @"朋友圈2(一个tableView结构)";
         }
 
     }else if (indexPath.section==1){//设置
@@ -130,13 +130,9 @@
         if (indexPath.row==0) {
 //        [self.navigationController pushViewController:self.timeLineOne animated:YES];
             [self.navigationController pushViewController:[[WMTimeLineViewController1 alloc]init] animated:YES];
-
         }else{
 //        [self.navigationController pushViewController:self.timeLineTwo animated:YES];
-            
-            [self.navigationController pushViewController:[[WMTimeLineViewController2 alloc]init] animated:YES];
-
-            
+        [self.navigationController pushViewController:[[WMTimeLineViewController2 alloc]init] animated:YES];
         }
     }
 }
