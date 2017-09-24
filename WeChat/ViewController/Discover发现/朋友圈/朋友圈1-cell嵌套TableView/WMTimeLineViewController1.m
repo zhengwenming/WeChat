@@ -245,8 +245,8 @@
     NSTimeInterval animationDuration;
     [animationDurationValue getValue:&animationDuration];
     CGFloat delta = 0.0;
-    if (self.seletedCellHeight){//点击某行，进行回复某人
-        delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-self.seletedCellHeight-kChatToolBarHeight-5);
+    if (self.seletedCellHeight){//点击某行row，进行回复某人
+        delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-self.seletedCellHeight-kChatToolBarHeight-2);
     }else{//点击评论按钮
         delta = self.history_Y_offset - ([UIApplication sharedApplication].keyWindow.bounds.size.height - keyboardHeight-kChatToolBarHeight-24-10);//24为评论按钮高度，10为评论按钮上部的5加评论按钮下部的5
     }

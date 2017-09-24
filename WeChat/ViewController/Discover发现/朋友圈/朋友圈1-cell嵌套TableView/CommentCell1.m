@@ -11,7 +11,7 @@
 #import "MessageInfoModel1.h"
 #import "MessageCell1.h"
 @interface CommentCell1 ()
-@property (nonatomic, strong) CopyAbleLabel *contentLabel;
+@property (nonatomic, strong) UILabel *contentLabel;
 @end
 
 @implementation CommentCell1
@@ -20,7 +20,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         // contentLabel
-        self.contentLabel = [[CopyAbleLabel alloc] init];
+        self.contentLabel = [[UILabel alloc] init];
         [self.contentView addSubview:self.contentLabel];
         self.contentLabel.backgroundColor  = [UIColor clearColor];
         self.contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP;
@@ -48,6 +48,16 @@
               model.commentUserName, model.commentText];
     }
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:str];
+    NSMutableParagraphStyle *muStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    if ([text.string isMoreThanOneLineWithSize:CGSizeMake(kScreenWidth-kGAP-kAvatar_Size-2*kGAP, CGFLOAT_MAX) font:[UIFont systemFontOfSize:13.0] lineSpaceing:5.0]) {//margin
+        muStyle.lineSpacing = 5.0;//设置行间距离
+    }else{
+        muStyle.lineSpacing = CGFLOAT_MIN;//设置行间距离
+    }
+    
+    [text addAttribute:NSParagraphStyleAttributeName value:muStyle range:NSMakeRange(0, text.length)];
+    
     [text addAttribute:NSForegroundColorAttributeName
                  value:[UIColor orangeColor]
                  range:NSMakeRange(0, model.commentUserName.length)];
