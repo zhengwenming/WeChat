@@ -39,7 +39,20 @@
     return eachModel.headerHeight;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    __weak __typeof(self) weakSelf= self;
+
     WMTimeLineHeaderView *headerView = (WMTimeLineHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WMTimeLineHeaderView"];
+    headerView.tapImageBlock = ^(NSInteger index, NSArray *dataSource) {
+        WMPhotoBrowser *browser = [WMPhotoBrowser new];
+        browser.dataSource = dataSource.mutableCopy;
+        browser.currentPhotoIndex = index;
+        browser.downLoadNeeded = YES;
+        [weakSelf.navigationController pushViewController:browser animated:YES];
+//        [weakSelf presentViewController:browser animated:YES completion:^{
+//
+//        }];
+    };
+    
     MessageInfoModel2 *eachModel = self.dataSource[section];
     headerView.model = eachModel;
     return headerView;

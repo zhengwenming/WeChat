@@ -50,7 +50,7 @@
     self.tableView.tableHeaderView = backgroundImageView;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
-        make.top.mas_equalTo(self.view).with.offset(-kNavbarHeight);
+        make.top.mas_equalTo(self.view).with.offset(kNavbarHeight);
     }];
 }
 

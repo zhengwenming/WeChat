@@ -26,10 +26,6 @@
 
 
 /**
- *  TapBlcok
- */
-@property (nonatomic, copy)TapBlcok  tapBlock;
-/**
  *  评论按钮的block
  */
 @property (nonatomic, copy)void(^CommentBtnClickBlock)(UIButton *commentBtn,NSInteger headerSection);
@@ -124,6 +120,14 @@
     }
 }
 -(void)setModel:(MessageInfoModel2 *)model{
+    __weak __typeof(self) weakSelf= self;
+    
+    self.jggView.tapBlock = ^(NSInteger index, NSArray *dataSource) {
+        if (weakSelf.tapImageBlock) {
+            weakSelf.tapImageBlock(index, dataSource);
+        }
+    };
+    
     [self.avatarIV sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.userNameLabel.text = model.userName;
     self.messageTextLabel.attributedText = model.mutablAttrStr;

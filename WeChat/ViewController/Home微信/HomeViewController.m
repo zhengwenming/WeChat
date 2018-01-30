@@ -49,7 +49,7 @@
     [self.dataSource addObject:@"12"];
 
     [self registerCellWithClass:@"UITableViewCell" tableView:self.tableView];
-    self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNavbarHeight);
+    self.tableView.frame = CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kNavbarHeight);
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = searchBar_;
 }

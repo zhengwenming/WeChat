@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "MessageInfoModel1.h"
 #import "MessageInfoModel2.h"
-
+#import "WMPhotoBrowser.h"
 
 @interface TimeLineBaseViewController : BaseViewController
 #pragma mark

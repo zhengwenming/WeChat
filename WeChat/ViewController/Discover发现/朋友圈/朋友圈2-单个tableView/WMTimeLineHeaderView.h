@@ -13,5 +13,8 @@
 
 @interface WMTimeLineHeaderView : UITableViewHeaderFooterView
 @property(nonatomic,retain)MessageInfoModel2 *model;
-
+///**
+// *  点击图片的block
+// */
+@property (nonatomic, copy)TapBlcok tapImageBlock;
 @end

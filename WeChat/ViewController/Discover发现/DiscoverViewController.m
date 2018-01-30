@@ -53,7 +53,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.discoverTable];
     [self.discoverTable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+        make.edges.mas_equalTo(UIEdgeInsetsMake(kNavbarHeight, 0, 0, 0));
     }];
 }
 
