@@ -26,7 +26,7 @@
 }
 //显示评论的数据
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    MessageInfoModel1 *eachModel = self.dataSource[section];
+    MessageInfoModel2 *eachModel = self.dataSource[section];
     return eachModel.commentModelArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
