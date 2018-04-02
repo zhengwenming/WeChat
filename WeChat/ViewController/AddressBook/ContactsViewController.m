@@ -38,7 +38,7 @@
     self.nameDic = [[NSMutableDictionary alloc]init];
     self.results = [[NSMutableArray alloc]init];
     
-    friendTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kNavbarHeight) style:UITableViewStylePlain];
+    friendTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kNavbarHeight-kTabBarHeight) style:UITableViewStylePlain];
     
     [friendTableView registerNib:[UINib nibWithNibName:NSStringFromClass([AddressBookCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressBookCell class])];
     friendTableView.delegate = self;
