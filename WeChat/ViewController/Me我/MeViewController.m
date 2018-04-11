@@ -32,7 +32,15 @@
     }
     return _dataArray;
 }
--(void)initUI{
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+#pragma mark
+#pragma mark viewDidLoad
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
     personCenterTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     personCenterTableView.dataSource = self;
     personCenterTableView.delegate =  self;
@@ -41,16 +49,11 @@
     [self.view addSubview:personCenterTableView];
     personCenterTableView.tableFooterView = [UIView new];
     
-
+    
     [personCenterTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(kNavbarHeight, 0, 0, 0));
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, kBottomSafeHeight, 0));
     }];
-}
-#pragma mark
-#pragma mark viewDidLoad
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initUI];
+    
     
 }
 #pragma mark

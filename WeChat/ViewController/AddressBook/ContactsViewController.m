@@ -9,98 +9,81 @@
 #import "ContactsViewController.h"
 #import "AddressBookCell.h"
 #import "FriendInfoModel.h"
-
+#import "WMSearchController.h"
 #import "SearchResultViewController.h"
-@interface ContactsViewController ()<UISearchBarDelegate,SearchResultSelectedDelegate>{
-    UISearchController *searchController;
-    SearchResultViewController *resultController;
-    UITableView *friendTableView;
+@interface ContactsViewController ()<UISearchBarDelegate,UISearchResultsUpdating,UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *dataSource;
     NSMutableArray *updateArray;
 }
-
+/// 搜索
+@property (nonatomic, strong) WMSearchController *searchController;
 @property(nonatomic,strong) NSArray *lettersArray;
 @property(nonatomic,strong) NSMutableDictionary *nameDic;
-@property(nonatomic,strong) NSMutableArray *results;
+@property(nonatomic,strong) UITableView *friendTableView;
+@property(nonatomic,strong)UILabel *footerLabel;
 
 @end
 
 @implementation ContactsViewController
 
-- (void)keyboardWillShow:(NSNotification *)notification {
-    //    [_tableView setFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight)];
+-(UITableView *)friendTableView{
+    if (_friendTableView==nil) {
+        _friendTableView = [UITableView new];
+        _friendTableView.delegate = self;
+        _friendTableView.dataSource = self;
+        _friendTableView.rowHeight = 50.f;
+        _friendTableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [_friendTableView registerNib:[UINib nibWithNibName:NSStringFromClass([AddressBookCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressBookCell class])];
+        //设置右边索引index的字体颜色和背景颜色
+        _friendTableView.sectionIndexColor = [UIColor darkGrayColor];
+        _friendTableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    }
+    return _friendTableView;
 }
-
-- (void)keyboardWillHide:(NSNotification *)notification {
-    //    [_tableView setFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight-kNavbarHeight)];
+-(UILabel *)footerLabel{
+    if (_footerLabel==nil) {
+        _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _footerLabel.textAlignment = NSTextAlignmentCenter;
+        _footerLabel.textColor = [UIColor grayColor];
+        _footerLabel.font = [UIFont systemFontOfSize:17.f];
+    }
+    return _footerLabel;
 }
--(void)initUI{
-    self.nameDic = [[NSMutableDictionary alloc]init];
-    self.results = [[NSMutableArray alloc]init];
-    
-    friendTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kNavbarHeight-kTabBarHeight) style:UITableViewStylePlain];
-    
-    [friendTableView registerNib:[UINib nibWithNibName:NSStringFromClass([AddressBookCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AddressBookCell class])];
-    friendTableView.delegate = self;
-    friendTableView.dataSource = self;
-    //设置右边索引index的字体颜色和背景颜色
-    friendTableView.sectionIndexColor = [UIColor darkGrayColor];
-    friendTableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    [self.view addSubview:friendTableView];
-    friendTableView.tableFooterView = [UIView new];
-    resultController = [[SearchResultViewController alloc]init];
-    resultController.delegate = self;
-    
-    
-    //searchController
-    searchController = [[UISearchController alloc] initWithSearchResultsController:resultController];
-    searchController.searchResultsUpdater = resultController;
-    searchController.searchBar.placeholder = @"搜索";
-    searchController.searchBar.tintColor = kThemeColor;
-    searchController.searchBar.delegate = self;
-//    searchController.searchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
-    friendTableView.tableHeaderView = searchController.searchBar;
-    
-    //解决iOS 8.4中searchBar看不到的bug
-    UISearchBar *bar = searchController.searchBar;
-    bar.barStyle = UIBarStyleDefault;
-    bar.translucent = YES;
-    CGRect rect = bar.frame;
-    rect.size.height = 44;
-    bar.frame = rect;
-    
-    
-    
-//    self.definesPresentationContext = NO;
-    //设置searchBar的边框颜色，四周的颜色
-    searchController.searchBar.barTintColor = [UIColor groupTableViewBackgroundColor];
-    UIImageView *view = [[[searchController.searchBar.subviews objectAtIndex:0] subviews] firstObject];
-    view.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    view.layer.borderWidth = 1;
-    
-        //把UISearchBar的右边图标显示出来
-        searchController.searchBar.showsBookmarkButton = YES;
-    //把UISearchBar的右边图标替换为VoiceSearchStartBtn这个图标
-        [searchController.searchBar setImage:[UIImage imageNamed:@"VoiceSearchStartBtn"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
-    // 将searchBar的cancel按钮改成中文的
-    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"取消"];
-    self.definesPresentationContext = YES;
-
-    
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+- (WMSearchController *)searchController{
+    if (_searchController == nil) {
+        SearchResultViewController *searchReslutVC = [[SearchResultViewController alloc] init];
+        @weakify(self);
+        [searchReslutVC setItemSelectedAction:^(SearchResultViewController *searchVC, FriendInfoModel *userModel) {
+            @strongify(self);
+            [self.searchController setActive:NO];
+        }];
+        _searchController = [WMSearchController searchController:searchReslutVC];
+        _searchController.searchBar.delegate = self;
+        [_searchController setEnableVoiceInput:YES];
+    }
+    return _searchController;
 }
-
+-(void)addFriends:(UIBarButtonItem *)sender{
+    NSLog(@"addFriends");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataSource = [[NSMutableArray alloc]init];
     updateArray = [[NSMutableArray alloc]init];
     self.lettersArray = [[NSArray alloc]init];
-    [self initUI];
+    self.nameDic = [[NSMutableDictionary alloc]init];
+    
     [self loadAddressBookData];
-    [searchController.view bringSubviewToFront:searchController.searchBar];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"contacts_add_friend"] style:UIBarButtonItemStylePlain target:self action:@selector(addFriends:)];
+    
+    [self.view addSubview:self.friendTableView];
+    [self.friendTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    self.friendTableView.tableHeaderView = self.searchController.searchBar;
+    self.friendTableView.tableFooterView = self.footerLabel;
+    self.definesPresentationContext = YES;
 }
 -(void)loadAddressBookData{
     NSData *friendsData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"json"]]];
@@ -108,97 +91,54 @@
     for (NSDictionary *eachDic in JSONDic[@"friends"][@"row"]) {
         [dataSource addObject:[[FriendInfoModel alloc]initWithDic:eachDic]];
     }
+    self.footerLabel.text = [NSString stringWithFormat:@"%li位联系人",dataSource.count];
     [self handleLettersArray];
-    [friendTableView reloadData];
 }
 #pragma mark
 #pragma mark tableView delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (tableView==friendTableView) {
         return self.lettersArray.count;
-    }else{
-        return 1;
-    }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView==friendTableView) {
         NSArray *nameArray = [self.nameDic objectForKey:self.lettersArray[section]];
         return nameArray.count;
-    }else{
-        return dataSource.count;
-    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *identifer = @"AddressBookCell";
-    
-    
-    AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:identifer];
-    
-    if (tableView==friendTableView) {
-        if (dataSource.count) {
-            FriendInfoModel *frends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-            cell.nameLabel.text = frends.userName;
-            [cell.photoIV sd_setImageWithURL:[NSURL URLWithString:frends.photo] placeholderImage:[UIImage imageNamed:@"default_portrait"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                
-            }];
-            cell.photoIV.backgroundColor = [UIColor lightGrayColor];
-            cell.photoIV.clipsToBounds = YES;
-        }
-    }else{
-        NSString *userName = self.results[indexPath.row];
-        FriendInfoModel *friends = [[FriendInfoModel alloc]init];
-        for (NSInteger i = 0 ;i<dataSource.count; i++) {
-            NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-            
-            if ([userName isEqualToString:friends.userName]) {
-                [tempArray addObject:friends];
-            }
-            FriendInfoModel *frends = [tempArray objectAtIndex:0];
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@",frends.userName];
-            [cell.photoIV sd_setImageWithURL:[NSURL URLWithString:frends.photo] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            }];
-            cell.photoIV.backgroundColor = [UIColor lightGrayColor];
-        }
-    }
+    AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
+    FriendInfoModel *frends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    cell.frendModel = frends;
     return cell;
-    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FriendInfoModel *friends;
-    if (tableView==friendTableView) {
-        friends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    }else{
-        friends = dataSource[indexPath.row];
-    }
+//    FriendInfoModel *friends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 }
 -(void)selectPersonWithUserId:(NSString *)userId userName:(NSString *)userName photo:(NSString *)photo phoneNO:(NSString *)phoneNO{
-    searchController.searchBar.text = @"";
+
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (tableView==friendTableView) {
-        return 20.0;
-    }
-    return 0;
-}
+
+
+//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    return [UIView new];
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return CGFLOAT_MIN;
+//}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    return [UIView new];
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    if (tableView==friendTableView) {
+//        return 20.0;
+//    }
+//    return CGFLOAT_MIN;
+//}
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    for (UIView *aView in friendTableView.subviews) {
-        if ([aView isKindOfClass:NSClassFromString(@"UITableViewIndex")]) {
-//            NSLog(@"aveiw = %@,  class = %@",aView,NSStringFromClass(aView.class));
-
-        } if ([aView isKindOfClass:NSClassFromString(@"UISearchBar")]) {
-            [self.view bringSubviewToFront:aView];
-
-        }
-    }
     return [self.lettersArray objectAtIndex:section];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    if (tableView==friendTableView) {
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
         NSInteger count = 0;
         for(NSString *letter in self.lettersArray)
         {
@@ -209,20 +149,10 @@
             count++;
         }
         return 0;
-    }
-    else{
-        return 0;
-    }
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    if (tableView==friendTableView) {
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
         return self.lettersArray;
-        
-    }else{
-        return nil;
-    }
 }
 #pragma mark
 #pragma mark UISearchBarDelegate
@@ -237,17 +167,14 @@
     if (searchText) {
         [updateArray removeAllObjects];
         if ([PinyinHelper isIncludeChineseInString:searchText]) {// 如果是中文
-            for(int i=0;i<dataSource.count;i++)
-            {
+            for(int i=0;i<dataSource.count;i++){
                 FriendInfoModel *friends = dataSource[i];
                 if ([friends.userName rangeOfString:searchText].location!=NSNotFound) {
                     [updateArray addObject:friends];
                 }
-                
             }
         }else{//如果是拼音
-            for(int i=0;i<dataSource.count;i++)
-            {
+            for(int i=0;i<dataSource.count;i++){
                 HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
                 formatter.caseType = CaseTypeUppercase;
                 formatter.vCharType = VCharTypeWithV;
@@ -257,68 +184,64 @@
                 
                 NSString *outputPinyin=[[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""] lowercaseString];
                 
-                
                 if ([[outputPinyin lowercaseString]rangeOfString:[searchText lowercaseString]].location!=NSNotFound) {
                     [updateArray addObject:friends];
                 }
-                
-                
             }
         }
-        
-        
     }
-    [resultController updateAddressBookData:updateArray];
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    searchController.searchBar.showsCancelButton = YES;
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    if (iPhoneX) {
+        for (UIView *view in searchBar.subviews[0].subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarTextField")]) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:0.15 animations:^{
+                        view.frame = CGRectMake(view.frame.origin.x, 12, view.frame.size.width, view.frame.size.height);
+                        UIButton *canceLBtn = [searchBar valueForKey:@"cancelButton"];
+                        canceLBtn.frame = CGRectMake(canceLBtn.frame.origin.x, 12, canceLBtn.frame.size.width, canceLBtn.frame.size.height);
+                        
+                    }];
+                });
+            }
+        }
+    }
     
-
-//    UIButton *canceLBtn = [searchController.searchBar valueForKey:@"cancelButton"];
-//    [canceLBtn setTitle:@"取消" forState:UIControlStateNormal];
-//    [canceLBtn setTitleColor:[UIColor colorWithRed:14.0/255.0 green:180.0/255.0 blue:0.0/255.0 alpha:1.00] forState:UIControlStateNormal];
-//    searchBar.showsCancelButton = YES;
     return YES;
 }
 
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    if (iPhoneX) {
+        for (UIView *view in searchBar.subviews[0].subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarTextField")]) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:0.1 animations:^{
+                        view.frame = CGRectMake(view.frame.origin.x, 12, view.frame.size.width, view.frame.size.height);
+                        UIButton *canceLBtn = [searchBar valueForKey:@"cancelButton"];
+                        canceLBtn.frame = CGRectMake(canceLBtn.frame.origin.x, 12, canceLBtn.frame.size.width, canceLBtn.frame.size.height);
+                    }];
+                });
+            }
+        }
+    }
     
-
     return YES;
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-        [searchBar resignFirstResponder];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
-{
-    
-    [searchBar resignFirstResponder];
 }
 //处理letterArray，包括按英文字母顺序排序
-- (void)handleLettersArray
-{
+- (void)handleLettersArray{
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc]init];
-    
-    for(FriendInfoModel *friends  in dataSource)
-    {
+    for(FriendInfoModel *friends  in dataSource){
         HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
         formatter.caseType = CaseTypeLowercase;
         formatter.vCharType = VCharTypeWithV;
         formatter.toneType = ToneTypeWithoutTone;
-        
         NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
 //        NSLog(@"%@",[[outputPinyin substringToIndex:1] uppercaseString]);
         [tempDic setObject:friends forKey:[[outputPinyin substringToIndex:1] uppercaseString]];
     }
     
     self.lettersArray = tempDic.allKeys;
-    
     for (NSString *letter in self.lettersArray) {
         NSMutableArray *tempArry = [[NSMutableArray alloc] init];
         
@@ -333,9 +256,7 @@
             NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
             if ([letter isEqualToString:[[outputPinyin substringToIndex:1] uppercaseString]]) {
                 [tempArry addObject:friends];
-                
             }
-            
         }
         [self.nameDic setObject:tempArry forKey:letter];
     }
@@ -360,6 +281,4 @@
     [super didReceiveMemoryWarning];
     
 }
-
-
 @end

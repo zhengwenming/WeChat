@@ -12,18 +12,22 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+#import "FriendInfoModel.h"
 
-@protocol SearchResultSelectedDelegate <NSObject>
 
--(void)selectPersonWithUserId:(NSString *)userId userName:(NSString *)userName photo:(NSString *)photo phoneNO:(NSString *)phoneNO;
 
+@protocol WMSearchResultControllerProtocol <UISearchResultsUpdating, UISearchBarDelegate>
+
+- (void)setItemClickAction:(void (^)(__kindof UIViewController *searchResultVC, id data))itemClickAction;
 
 @end
 
-@interface SearchResultViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating>
 
--(void)updateAddressBookData:(NSArray *)AddressBookDataArray;//得到数据
-@property(nonatomic,weak)id<SearchResultSelectedDelegate>delegate;
+
+@interface SearchResultViewController : BaseViewController<WMSearchResultControllerProtocol>
+
+@property (nonatomic, copy) void (^itemSelectedAction)(SearchResultViewController *searchResultVC, FriendInfoModel *userModel);
 
 
 @end

@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    self.navigationBar.translucent = YES;
     UINavigationBar *bar = [UINavigationBar appearance];
     CGFloat rgb = 0.1;
     bar.barTintColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.9];

@@ -49,11 +49,15 @@
     }
     return _discoverTable;
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.discoverTable];
     [self.discoverTable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(kNavbarHeight, 0, 0, 0));
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, kBottomSafeHeight, 0));
     }];
 }
 
@@ -138,9 +142,6 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
-
-
 
 @end

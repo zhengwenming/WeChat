@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendInfoModel.h"
 
 @interface AddressBookCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *photoIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+@property(nonatomic,strong)FriendInfoModel *frendModel;
 @end

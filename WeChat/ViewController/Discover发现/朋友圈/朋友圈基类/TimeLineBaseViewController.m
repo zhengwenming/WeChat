@@ -48,9 +48,9 @@
     UIImageView * backgroundImageView= [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 260)];
     backgroundImageView.image = [UIImage imageNamed:@"background.jpeg"];
     self.tableView.tableHeaderView = backgroundImageView;
+    self.tableView.contentInset = UIEdgeInsetsMake(-kNavbarHeight, 0, kBottomSafeHeight, 0);
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
-        make.top.mas_equalTo(self.view).with.offset(kNavbarHeight);
     }];
 }
 

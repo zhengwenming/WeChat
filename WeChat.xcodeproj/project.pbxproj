@@ -129,6 +129,7 @@
 		70202E8520202067001E73DD /* WMPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 70202E8020202066001E73DD /* WMPhotoBrowser.m */; };
 		70202E8620202067001E73DD /* WMPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70202E8220202066001E73DD /* WMPhotoBrowserCell.m */; };
 		705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */; };
+		706B99DA207331A9003426E2 /* WMSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B99D9207331A9003426E2 /* WMSearchController.m */; };
 		70B5BE2F1D0470E4003A7CF2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */; };
 		70B5BE301D0470E4003A7CF2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE271D0470E4003A7CF2 /* BaseViewController.m */; };
 		70B5BE361D047108003A7CF2 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5BE351D047108003A7CF2 /* RootTabBarController.m */; };
@@ -488,6 +489,8 @@
 		70202E8220202066001E73DD /* WMPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPhotoBrowserCell.m; sourceTree = "<group>"; };
 		705EEE291F6C49AE00566255 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
 		705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TapAction.m"; sourceTree = "<group>"; };
+		706B99D8207331A9003426E2 /* WMSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMSearchController.h; sourceTree = "<group>"; };
+		706B99D9207331A9003426E2 /* WMSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMSearchController.m; sourceTree = "<group>"; };
 		70B5BE241D0470E4003A7CF2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70B5BE251D0470E4003A7CF2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		70B5BE261D0470E4003A7CF2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1511,6 +1514,8 @@
 			children = (
 				70FFC1E61D4508BE00FCE22F /* ContactsViewController.h */,
 				70FFC1E71D4508BE00FCE22F /* ContactsViewController.m */,
+				706B99D8207331A9003426E2 /* WMSearchController.h */,
+				706B99D9207331A9003426E2 /* WMSearchController.m */,
 				70FFC1E81D4508BE00FCE22F /* SearchResultViewController.h */,
 				70FFC1E91D4508BE00FCE22F /* SearchResultViewController.m */,
 			);
@@ -1727,6 +1732,7 @@
 				70BB72F21D02A93D0003B379 /* MASViewConstraint.m in Sources */,
 				70B5BE361D047108003A7CF2 /* RootTabBarController.m in Sources */,
 				701A5BAE1F73FD8C00332B78 /* MessageCell1.m in Sources */,
+				706B99DA207331A9003426E2 /* WMSearchController.m in Sources */,
 				70BB73171D02A93D0003B379 /* UIImageView+HighlightedWebCache.m in Sources */,
 				701C260B1F755A1B009B6AD1 /* MKAnnotationView+YYWebImage.m in Sources */,
 				701C262C1F755A1C009B6AD1 /* YYTextView.m in Sources */,

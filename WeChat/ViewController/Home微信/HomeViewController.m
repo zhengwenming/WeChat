@@ -8,11 +8,12 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()<UISearchBarDelegate,UITableViewDelegate>
+@interface HomeViewController ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UISearchBar *searchBar_;
 }
 @property(nonatomic,retain)NSMutableArray *searchReslutArray;
+@property(nonatomic,strong)UITableView *homeTableView;
 
 @end
 
@@ -23,15 +24,19 @@
     }
     return _searchReslutArray;
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-   searchBar_  = [[UISearchBar alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, 44)];
+    searchBar_  = [[UISearchBar new]initWithFrame:CGRectMake(0, 0, kScreenWidth, 56)];
     searchBar_.placeholder = @"搜索";
     searchBar_.tintColor = kThemeColor;
     searchBar_.delegate = self;
     searchBar_.barStyle = UIBarStyleDefault;
-    searchBar_.translucent = YES;
+    searchBar_.translucent = NO;
     [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"取消"];
 
     
@@ -47,11 +52,19 @@
     [self.dataSource addObject:@"10"];
     [self.dataSource addObject:@"11"];
     [self.dataSource addObject:@"12"];
-
-    [self registerCellWithClass:@"UITableViewCell" tableView:self.tableView];
-    self.tableView.frame = CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kNavbarHeight);
-    [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = searchBar_;
+    [self.dataSource addObject:@"13"];
+    [self.dataSource addObject:@"14"];
+    [self.dataSource addObject:@"15"];
+    [self.dataSource addObject:@"16"];
+    
+    self.homeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight) style:UITableViewStyleGrouped];
+    self.homeTableView.dataSource = self;
+    self.homeTableView.delegate = self;
+    self.homeTableView.backgroundColor = [UIColor whiteColor];
+    self.homeTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [self.homeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    [self.view addSubview:self.homeTableView];
+    self.homeTableView.tableHeaderView = searchBar_;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
@@ -67,7 +80,7 @@
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
    
-    [self.tableView reloadData];
+    [self.homeTableView reloadData];
 }
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
     [searchBar setShowsCancelButton:NO animated:YES];
@@ -87,7 +100,7 @@
         }
     }
     
-    [self.tableView reloadData];
+    [self.homeTableView reloadData];
 
 }
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -116,7 +129,18 @@
     }
     return cell;
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
     NSString *stringStr = @"";

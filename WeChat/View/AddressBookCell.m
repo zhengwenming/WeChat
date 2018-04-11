@@ -11,9 +11,21 @@
 @implementation AddressBookCell
 
 - (void)awakeFromNib {
-    // Initialization code
-}
+    [super awakeFromNib];
+    self.photoIV.clipsToBounds = YES;
+    self.photoIV.backgroundColor = [UIColor lightGrayColor];
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
 
+}
+-(void)setFrendModel:(FriendInfoModel *)frendModel{
+    _frendModel = frendModel;
+    
+
+    self.nameLabel.text = frendModel.userName;
+    [self.photoIV sd_setImageWithURL:[NSURL URLWithString:frendModel.photo] placeholderImage:[UIImage imageNamed:@"default_portrait"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    }];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

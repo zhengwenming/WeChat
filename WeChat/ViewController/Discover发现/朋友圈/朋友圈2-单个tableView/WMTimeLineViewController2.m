@@ -10,8 +10,20 @@
 #import "WMTimeLineHeaderView.h"
 #import "CommentCell2.h"
 #import "LikeUsersCell2.h"
+@interface WMTimeLineViewController2 ()
 
+@end
 @implementation WMTimeLineViewController2
+
+-(void)textViewDidSendText:(NSString *)text{
+    NSLog(@"%@",text);
+}
+/**
+ 键盘的frame改变
+ */
+- (void)keyboardChangeFrameMinY:(CGFloat)minY{
+    
+}
 #pragma mark
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,6 +81,8 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
+    __weak __typeof(self) weakSelf= self;
+
     CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
     if (commentModel.likeUsersArray.count) {
         LikeUsersCell2 *likeUsersCell = (LikeUsersCell2 *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell2"];
@@ -77,8 +91,16 @@
     }else{
         CommentCell2 *cell2 = (CommentCell2 *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell2"];
         cell2.model = commentModel;
+        cell2.tapCommentBlock = ^(CommentCell2 *cell, CommentInfoModel2 *model) {
+            [weakSelf dealComment];
+        };
         return cell2;
     }
+}
+-(void)dealComment{
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

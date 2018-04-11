@@ -38,10 +38,18 @@
         [self.contentView addSubview:self.contentLabel];
 
         [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapComment:)];
+        [self.contentLabel  addGestureRecognizer:tap];
     }
     return self;
+}
+-(void)tapComment:(UITapGestureRecognizer *)tap{
+    if (self.tapCommentBlock) {
+        self.tapCommentBlock(self, self.model);
+    }
 }
 #pragma mark
 #pragma mark cell左边缩进64，右边缩进10
@@ -52,6 +60,7 @@
     [super setFrame:frame];
 }
 -(void)setModel:(CommentInfoModel2 *)model{
+    _model = model;
     if ([model isKindOfClass:[CommentInfoModel2 class]]) {
         self.contentLabel.attributedText = model.attributedText;
     }else{
