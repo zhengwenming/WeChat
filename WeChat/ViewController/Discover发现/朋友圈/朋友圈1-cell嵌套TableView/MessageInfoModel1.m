@@ -50,6 +50,31 @@
         for (NSDictionary *friendInfoDic in dic[@"likeUsers"]) {
             [self.likeUsers addObject:[[FriendInfoModel alloc]initWithDic:friendInfoDic]];
         }
+        
+        if (self.likeUsers.count) {
+            NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13.0]};
+            NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
+            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+            //定义图片内容及位置和大小
+            attch.image = [UIImage imageNamed:@"Like"];
+            attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
+            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
+            for (int i = 0; i < self.likeUsers.count; i++) {
+                FriendInfoModel *friendModel = self.likeUsers[i];
+                [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:friendModel.userName]];
+                if (i != self.likeUsers.count - 1) {
+                    [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
+                    
+                }
+            }
+            [mutablAttrStr addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.f]} range:NSMakeRange(0, mutablAttrStr.length)];
+            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+            style.lineSpacing = 0;
+            [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
+            self.commentNameTotalHeihgt = [mutablAttrStr.string boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height+5;
+        }else{
+            self.commentNameTotalHeihgt  = 0;
+        }
         self.photo              = dic[@"photo"];
         self.messageSmallPics   = dic[@"messageSmallPics"];
         self.messageBigPics     = dic[@"messageBigPics"];

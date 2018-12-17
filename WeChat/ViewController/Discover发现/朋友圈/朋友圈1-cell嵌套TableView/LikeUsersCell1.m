@@ -33,6 +33,11 @@
 }
 -(void)setModel:(MessageInfoModel1 *)messageModel{
     _model = messageModel;
+    if (messageModel.likeUsers.count==0) {
+        self.likeUsersLabel.attributedText = nil;
+        self.likeUsersLabel.text = @"";
+        return;
+    }
     _likeUsersArray = messageModel.likeUsers.mutableCopy;
     NSMutableArray *rangesArray = [NSMutableArray array];
     NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];

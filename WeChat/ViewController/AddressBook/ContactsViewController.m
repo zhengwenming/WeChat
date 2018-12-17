@@ -45,6 +45,7 @@
         _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
         _footerLabel.textAlignment = NSTextAlignmentCenter;
         _footerLabel.textColor = [UIColor grayColor];
+        _footerLabel.backgroundColor = [UIColor whiteColor];
         _footerLabel.font = [UIFont systemFontOfSize:17.f];
     }
     return _footerLabel;
@@ -91,7 +92,7 @@
     for (NSDictionary *eachDic in JSONDic[@"friends"][@"row"]) {
         [dataSource addObject:[[FriendInfoModel alloc]initWithDic:eachDic]];
     }
-    self.footerLabel.text = [NSString stringWithFormat:@"%li位联系人",dataSource.count];
+    self.footerLabel.text = [NSString stringWithFormat:@"%lu位联系人",(unsigned long)dataSource.count];
     [self handleLettersArray];
 }
 #pragma mark
@@ -116,34 +117,37 @@
 -(void)selectPersonWithUserId:(NSString *)userId userName:(NSString *)userName photo:(NSString *)photo phoneNO:(NSString *)phoneNO{
 
 }
-
-
-//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-//    return [UIView new];
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-//    return CGFLOAT_MIN;
-//}
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    return [UIView new];
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if (tableView==friendTableView) {
-//        return 20.0;
-//    }
-//    return CGFLOAT_MIN;
-//}
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
+    headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    NSString *letterString =  self.lettersArray[section];
+    UILabel *letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, headerView.frame.origin.y, headerView.frame.size.width-10, headerView.frame.size.height)];
+    letterLabel.textColor = [UIColor grayColor];
+    letterLabel.font = [UIFont systemFontOfSize:14.f];
+    letterLabel.text =letterString;
+    [headerView addSubview:letterLabel];
+    return headerView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (tableView==self.friendTableView) {
+        return 20.0;
+    }
+    return CGFLOAT_MIN;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [self.lettersArray objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
         NSInteger count = 0;
-        for(NSString *letter in self.lettersArray)
-        {
-            if([letter isEqualToString:title])
-            {
+        for(NSString *letter in self.lettersArray){
+            if([letter isEqualToString:title]){
                 return count;
             }
             count++;
@@ -156,14 +160,12 @@
 }
 #pragma mark
 #pragma mark UISearchBarDelegate
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     
     
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText) {
         [updateArray removeAllObjects];
         if ([PinyinHelper isIncludeChineseInString:searchText]) {// 如果是中文

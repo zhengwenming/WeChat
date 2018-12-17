@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[UITabBar appearance] setTranslucent:NO];
     NSArray *childItemsArray = @[
                                  @{kClassKey  : @"HomeViewController",
                                    kTitleKey  : @"微信",

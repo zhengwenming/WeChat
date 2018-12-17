@@ -76,13 +76,11 @@
 ///footerView
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10.f)];
-    footerView.backgroundColor = [UIColor whiteColor];
     return footerView;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageInfoModel2 *eachModel = self.dataSource[indexPath.section];
     __weak __typeof(self) weakSelf= self;
-
     CommentInfoModel2  *commentModel =  eachModel.commentModelArray[indexPath.row];
     if (commentModel.likeUsersArray.count) {
         LikeUsersCell2 *likeUsersCell = (LikeUsersCell2 *)[tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell2"];

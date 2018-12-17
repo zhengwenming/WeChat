@@ -49,6 +49,7 @@
 
 ///评论相关的所有信息
 @property(nonatomic,copy)NSMutableArray *commentModelArray;
+@property(nonatomic,assign)CGFloat commentNameTotalHeihgt;
 
 
 @property (nonatomic, assign) BOOL shouldUpdateCache;

@@ -238,10 +238,9 @@
     CGFloat tableViewHeight = 0;
     for (id obj in model.commentModelArray) {
         if ([obj isKindOfClass:[NSArray class]]) {
-            
+            tableViewHeight += self.messageModel.commentNameTotalHeihgt;
         }else{
             CommentInfoModel1 *commentModel = (CommentInfoModel1 *)obj;
-            
             CGFloat cellHeight = [CommentCell1 hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
                 CommentCell1 *cell = (CommentCell1 *)sourceCell;
                 [cell configCellWithModel:commentModel];
@@ -252,9 +251,7 @@
             }];
             tableViewHeight += cellHeight;
         }
-        
     }
-    
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(tableViewHeight);
     }];
@@ -264,9 +261,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.row==0) {
-        if (self.messageModel.likeUsers.count) {
             LikeUsersCell1 *likeUsersCell = [tableView dequeueReusableCellWithIdentifier:@"LikeUsersCell1" forIndexPath:indexPath];
             likeUsersCell.model = self.messageModel;
             __weak __typeof(self) weakSelf= self;
@@ -276,15 +271,12 @@
                 }
             };
             return likeUsersCell;
-        }
     }
     
     CommentCell1 *commentCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell1" forIndexPath:indexPath];
     CommentInfoModel1 *model = self.messageModel.commentModelArray[indexPath.row];
     [commentCell configCellWithModel:model];
     return commentCell;
-    
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -292,36 +284,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-        if (indexPath.row==0&&self.messageModel.likeUsers.count) {
-            NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:13.0]};
-            NSMutableAttributedString *mutablAttrStr = [[NSMutableAttributedString alloc]init];
-            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
-            //定义图片内容及位置和大小
-            attch.image = [UIImage imageNamed:@"Like"];
-            attch.bounds = CGRectMake(0, -5, attch.image.size.width, attch.image.size.height);
-            
-            [mutablAttrStr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attch] atIndex:0];
-            
-            for (int i = 0; i < self.messageModel.likeUsers.count; i++) {
-                FriendInfoModel *friendModel = self.messageModel.likeUsers[i];
-                
-                [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:friendModel.userName]];
-                if (i != self.messageModel.likeUsers.count - 1) {
-                    [mutablAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
-                    
-                }
-            }
-            [mutablAttrStr addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.f]} range:NSMakeRange(0, mutablAttrStr.length)];
-            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-            style.lineSpacing = 0;
-            [mutablAttrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, mutablAttrStr.length)];
-            
-            CGFloat h = [mutablAttrStr.string boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height+4;
-            
+        if (indexPath.row==0) {
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(self.tableView.contentSize.height+1+4);//4为tableView最后一个cell底部下面的空隙
+                make.height.mas_equalTo(self.tableView.contentSize.height+2);//2为tableView最后一个CommentCell1底部下面的空隙
             }];
-            return h+1+10;//10为tableView最上面的箭头和文字的距离
+            if (self.messageModel.commentNameTotalHeihgt) {
+                return self.messageModel.commentNameTotalHeihgt+10;//10为label底部的magin
+            }else{
+                return 0;//没有评论的情况
+            }
     }
     CommentInfoModel1 *model = self.messageModel.commentModelArray[indexPath.row];
     CGFloat cell_height = [CommentCell1 hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
