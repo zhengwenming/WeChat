@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,19 +13,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-3W-bub">
-                        <rect key="frame" x="10" y="7" width="30" height="30"/>
+                        <rect key="frame" x="10" y="8" width="28" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="9R6-hS-Uwy"/>
-                            <constraint firstAttribute="width" constant="30" id="L6J-oa-yUt"/>
                             <constraint firstAttribute="width" secondItem="Ktj-3W-bub" secondAttribute="height" multiplier="1:1" id="if8-hO-Sgb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Mrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUk-GU-UJm">
-                        <rect key="frame" x="49" y="13" width="261" height="18"/>
+                        <rect key="frame" x="47" y="13" width="263" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,9 +31,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="sUk-GU-UJm" secondAttribute="trailing" constant="10" id="CR8-5y-JOC"/>
-                    <constraint firstItem="Ktj-3W-bub" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="D7R-lf-j93"/>
+                    <constraint firstAttribute="bottom" secondItem="Ktj-3W-bub" secondAttribute="bottom" constant="8" id="TNp-AT-WM6"/>
+                    <constraint firstItem="Ktj-3W-bub" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Y4w-EC-cue"/>
+                    <constraint firstItem="Ktj-3W-bub" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bx6-6P-uLy"/>
                     <constraint firstItem="sUk-GU-UJm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eG1-Ds-5AT"/>
-                    <constraint firstItem="Ktj-3W-bub" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="f8y-aN-HLl"/>
                     <constraint firstItem="sUk-GU-UJm" firstAttribute="leading" secondItem="Ktj-3W-bub" secondAttribute="trailing" constant="9" id="fvR-1K-cIq"/>
                 </constraints>
             </tableViewCellContentView>

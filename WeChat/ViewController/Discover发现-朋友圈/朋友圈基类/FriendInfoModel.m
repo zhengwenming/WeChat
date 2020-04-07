@@ -16,7 +16,6 @@
         self.userName    = dic[@"userName"];
         self.photo       = dic[@"photo"];
         self.phoneNO     = dic[@"phoneNO"];
-        
     }
     return self;
 }

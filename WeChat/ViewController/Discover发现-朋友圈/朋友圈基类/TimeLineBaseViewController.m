@@ -6,9 +6,6 @@
 //  Copyright © 2017年 zhengwenming. All rights reserved.
 //
 
-
-//-----------------------此类为朋友圈基类-------------------------
-
 #import "TimeLineBaseViewController.h"
 
 @implementation TimeLineBaseViewController

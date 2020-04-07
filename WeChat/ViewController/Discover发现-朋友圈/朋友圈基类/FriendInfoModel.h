@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface FriendInfoModel : NSObject
+@property(nonatomic,copy)NSString *imgName;
+
 @property(nonatomic,copy)NSString *photo;
 
 @property(nonatomic,copy)NSString *userName;

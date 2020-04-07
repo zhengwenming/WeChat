@@ -18,6 +18,7 @@
 /// 搜索
 @property (nonatomic, strong) WMSearchController *searchController;
 @property(nonatomic,strong) NSArray *lettersArray;
+@property(nonatomic,strong) NSMutableArray *topFixedArray;
 @property(nonatomic,strong) NSMutableDictionary *nameDic;
 @property(nonatomic,strong) UITableView *friendTableView;
 @property(nonatomic,strong)UILabel *footerLabel;
@@ -42,7 +43,7 @@
 }
 -(UILabel *)footerLabel{
     if (_footerLabel==nil) {
-        _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
         _footerLabel.textAlignment = NSTextAlignmentCenter;
         _footerLabel.textColor = [UIColor grayColor];
         _footerLabel.backgroundColor = [UIColor whiteColor];
@@ -86,28 +87,65 @@
     self.friendTableView.tableFooterView = self.footerLabel;
 }
 -(void)loadAddressBookData{
+    
+    self.topFixedArray = [NSMutableArray arrayWithCapacity:4];
+    
+        FriendInfoModel *friends_new = [FriendInfoModel new];
+        friends_new.userName = @"新的朋友";
+        friends_new.imgName = @"friends_new";
+        [self.topFixedArray addObject:friends_new];
+        
+        FriendInfoModel *friends_group = [FriendInfoModel new];
+        friends_group.userName = @"群聊";
+        friends_group.imgName = @"friends_group";
+        [self.topFixedArray addObject:friends_group];
+        
+        
+        FriendInfoModel *friends_tag = [FriendInfoModel new];
+        friends_tag.userName = @"标签";
+        friends_tag.imgName = @"friends_tag";
+        [self.topFixedArray addObject:friends_tag];
+        
+        FriendInfoModel *friends_public = [FriendInfoModel new];
+        friends_public.userName = @"公众号";
+        friends_public.imgName = @"friends_public";
+        [self.topFixedArray addObject:friends_public];
+    
+    
+    
     NSData *friendsData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"json"]]];
     NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:friendsData options:NSJSONReadingAllowFragments error:nil];
     for (NSDictionary *eachDic in JSONDic[@"friends"][@"row"]) {
         [dataSource addObject:[[FriendInfoModel alloc]initWithDic:eachDic]];
     }
-    self.footerLabel.text = [NSString stringWithFormat:@"%lu位联系人",(unsigned long)dataSource.count];
+    
+    self.footerLabel.text = [NSString stringWithFormat:@"%lu位朋友及联系人",(unsigned long)dataSource.count];
     [self handleLettersArray];
 }
 #pragma mark
 #pragma mark tableView delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-        return self.lettersArray.count;
+    return self.lettersArray.count+1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        NSArray *nameArray = [self.nameDic objectForKey:self.lettersArray[section]];
+    if (section) {
+        NSArray *nameArray = [self.nameDic objectForKey:self.lettersArray[section-1]];
         return nameArray.count;
+    }else{
+        return self.topFixedArray.count;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
-    FriendInfoModel *frends = [[self.nameDic objectForKey:[self.lettersArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    cell.frendModel = frends;
-    return cell;
+    if (indexPath.section) {
+        AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
+        FriendInfoModel *frends = [[self.nameDic objectForKey:self.lettersArray[indexPath.section-1]] objectAtIndex:indexPath.row];
+        cell.frendModel = frends;
+        return cell;
+    }
+        AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
+        FriendInfoModel *frends = self.topFixedArray[indexPath.row];
+        cell.frendModel = frends;
+        return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -123,28 +161,31 @@
     return CGFLOAT_MIN;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
-    headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    NSString *letterString =  self.lettersArray[section];
-    UILabel *letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, headerView.frame.origin.y, headerView.frame.size.width-10, headerView.frame.size.height)];
-    letterLabel.textColor = [UIColor grayColor];
-    letterLabel.font = [UIFont systemFontOfSize:14.f];
-    letterLabel.text =letterString;
-    [headerView addSubview:letterLabel];
-    return headerView;
+    if (section) {
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 25)];
+        headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        NSString *letterString =  self.lettersArray[section-1];
+        UILabel *letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, headerView.frame.origin.y, headerView.frame.size.width-10, headerView.frame.size.height)];
+        letterLabel.textColor = [UIColor grayColor];
+        letterLabel.font = [UIFont systemFontOfSize:14.f];
+        letterLabel.text =letterString;
+        [headerView addSubview:letterLabel];
+        return headerView;
+    }
+    return [UIView new];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (tableView==self.friendTableView) {
-        return 20.0;
+    if (tableView==self.friendTableView&&section!=0) {
+        return 25.0;
     }
     return CGFLOAT_MIN;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [self.lettersArray objectAtIndex:section];
+    return self.lettersArray[section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
-        NSInteger count = 0;
+    NSInteger count = 0;
         for(NSString *letter in self.lettersArray){
             if([letter isEqualToString:title]){
                 return count;
