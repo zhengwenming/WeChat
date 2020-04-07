@@ -218,8 +218,6 @@
 		70BB73171D02A93D0003B379 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB72E81D02A93D0003B379 /* UIImageView+HighlightedWebCache.m */; };
 		70BB73181D02A93D0003B379 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB72EA1D02A93D0003B379 /* UIImageView+WebCache.m */; };
 		70BB73191D02A93D0003B379 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB72EC1D02A93D0003B379 /* UIView+WebCacheOperation.m */; };
-		70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731D1D02AA920003B379 /* UITableView+HYBCacheHeight.m */; };
-		70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		70BB73291D02AC550003B379 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 70BB73281D02AC550003B379 /* data.json */; };
 		70D6FE9C243C1F2C005C3727 /* UIView+WMFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FE98243C1F2C005C3727 /* UIView+WMFrame.m */; };
 		70D6FE9D243C1F2C005C3727 /* UIViewController+WMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FE9B243C1F2C005C3727 /* UIViewController+WMExtension.m */; };
@@ -617,10 +615,6 @@
 		70BB72EB1D02A93D0003B379 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		70BB72EC1D02A93D0003B379 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		70BB731A1D02A95E0003B379 /* WeChat.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChat.pch; sourceTree = "<group>"; };
-		70BB731C1D02AA920003B379 /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
-		70BB731D1D02AA920003B379 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
-		70BB731E1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
-		70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		70BB73281D02AC550003B379 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		70D6FE98243C1F2C005C3727 /* UIView+WMFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WMFrame.m"; sourceTree = "<group>"; };
 		70D6FE99243C1F2C005C3727 /* UIViewController+WMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMExtension.h"; sourceTree = "<group>"; };
@@ -1186,7 +1180,6 @@
 				70202E7B20202066001E73DD /* WMPhotoBrowser */,
 				701C25341F755A1B009B6AD1 /* YYKit */,
 				70FFC1CE1D44F2D000FCE22F /* PinYin4Objc */,
-				70BB731B1D02AA920003B379 /* HYBMasonryAutoCellHeight */,
 				377CE01F1D2280160075DCA3 /* WMPlayer */,
 				70BB72841D02A93D0003B379 /* Masonry */,
 				70BB729C1D02A93D0003B379 /* MBprogressHUD */,
@@ -1389,17 +1382,6 @@
 				70BB72EC1D02A93D0003B379 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		70BB731B1D02AA920003B379 /* HYBMasonryAutoCellHeight */ = {
-			isa = PBXGroup;
-			children = (
-				70BB731C1D02AA920003B379 /* UITableView+HYBCacheHeight.h */,
-				70BB731D1D02AA920003B379 /* UITableView+HYBCacheHeight.m */,
-				70BB731E1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
-				70BB731F1D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
-			);
-			path = HYBMasonryAutoCellHeight;
 			sourceTree = "<group>";
 		};
 		70D6FE97243C1F2C005C3727 /* Category */ = {
@@ -1707,7 +1689,6 @@
 				701A5BB71F740FB200332B78 /* CopyAbleLabel.m in Sources */,
 				701C261D1F755A1B009B6AD1 /* YYTextLayout.m in Sources */,
 				70BB73151D02A93D0003B379 /* UIImage+GIF.m in Sources */,
-				70BB73211D02AA920003B379 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				701C25F61F755A1B009B6AD1 /* YYCGUtilities.m in Sources */,
 				70FFC1DE1D44F2D000FCE22F /* HanyuPinyinOutputFormat.m in Sources */,
 				701C26301F755A1C009B6AD1 /* YYGestureRecognizer.m in Sources */,
@@ -1774,7 +1755,6 @@
 				70BB72F01D02A93D0003B379 /* MASLayoutConstraint.m in Sources */,
 				70BB726B1D02A8A70003B379 /* main.m in Sources */,
 				187DF9C2243C9D4700D3A52B /* LikeUsersCell.m in Sources */,
-				70BB73201D02AA920003B379 /* UITableView+HYBCacheHeight.m in Sources */,
 				70BB73191D02A93D0003B379 /* UIView+WebCacheOperation.m in Sources */,
 				70D6FF11243C83F8005C3727 /* PersonCenterHeaderCell.m in Sources */,
 				70BB72F51D02A93D0003B379 /* View+MASAdditions.m in Sources */,

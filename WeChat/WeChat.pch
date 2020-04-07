@@ -58,7 +58,6 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #import "Masonry.h"
 
 //category
-#import "UITableViewCell+HYBMasonryAutoCellHeight.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+Extension.h"
 
