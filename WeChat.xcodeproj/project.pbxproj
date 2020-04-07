@@ -18,6 +18,7 @@
 		187DF9C9243C9D4700D3A52B /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9BC243C9D4700D3A52B /* TimeLineBaseViewController.m */; };
 		187DF9CA243C9D4700D3A52B /* FriendInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9C0243C9D4700D3A52B /* FriendInfoModel.m */; };
 		187DF9CD243CD97F00D3A52B /* UIBarButtonItem+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9CB243CD97F00D3A52B /* UIBarButtonItem+addition.m */; };
+		187DF9D0243CE0B500D3A52B /* ConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9CF243CE0B500D3A52B /* ConversationModel.m */; };
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
@@ -270,6 +271,8 @@
 		187DF9C0243C9D4700D3A52B /* FriendInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfoModel.m; sourceTree = "<group>"; };
 		187DF9CB243CD97F00D3A52B /* UIBarButtonItem+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+addition.m"; sourceTree = "<group>"; };
 		187DF9CC243CD97F00D3A52B /* UIBarButtonItem+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+addition.h"; sourceTree = "<group>"; };
+		187DF9CE243CE0B500D3A52B /* ConversationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationModel.h; sourceTree = "<group>"; };
+		187DF9CF243CE0B500D3A52B /* ConversationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationModel.m; sourceTree = "<group>"; };
 		377CE0201D2280160075DCA3 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
@@ -1453,6 +1456,8 @@
 			children = (
 				70D6FEEB243C835E005C3727 /* HomeViewController.h */,
 				70D6FEEA243C835E005C3727 /* HomeViewController.m */,
+				187DF9CE243CE0B500D3A52B /* ConversationModel.h */,
+				187DF9CF243CE0B500D3A52B /* ConversationModel.m */,
 			);
 			path = "Home微信";
 			sourceTree = "<group>";
@@ -1711,6 +1716,7 @@
 				701C26001F755A1B009B6AD1 /* UIScreen+YYAdd.m in Sources */,
 				70BB73061D02A93D0003B379 /* MJRefreshStateHeader.m in Sources */,
 				70BB72FE1D02A93D0003B379 /* MJRefreshAutoGifFooter.m in Sources */,
+				187DF9D0243CE0B500D3A52B /* ConversationModel.m in Sources */,
 				701C26191F755A1B009B6AD1 /* YYTextDebugOption.m in Sources */,
 				701C26101F755A1B009B6AD1 /* YYImage.m in Sources */,
 				70D6FF00243C835F005C3727 /* SearchResultViewController.m in Sources */,
