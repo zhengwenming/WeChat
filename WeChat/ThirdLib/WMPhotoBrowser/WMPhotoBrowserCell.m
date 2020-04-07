@@ -24,6 +24,7 @@
         self.scrollView = [[UIScrollView alloc] init];
         self.scrollView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         self.scrollView.bouncesZoom = YES;
+        self.scrollView.backgroundColor = [UIColor blackColor];
         self.scrollView.maximumZoomScale = 2.5;//放大比例
         self.scrollView.minimumZoomScale = 1.0;//缩小比例
         self.scrollView.multipleTouchEnabled = YES;
@@ -73,7 +74,7 @@
     self.imageContainerView.origin = CGPointZero;
     self.imageContainerView.width = self.width;
     UIImage *image = self.imageView.image;
-    if (image.size.height / image.size.width > self.height / self.width) {
+    if (image.size.height/image.size.width >self.height/self.width) {
         self.imageContainerView.height = floor(image.size.height / (image.size.width / self.width));
     } else {
         CGFloat height = image.size.height / image.size.width * self.width;
@@ -85,7 +86,7 @@
     if (self.imageContainerView.height > self.height && self.imageContainerView.height - self.height <= 1) {
         self.imageContainerView.height = self.height;
     }
-    self.scrollView.contentSize = CGSizeMake(self.width, MAX(_imageContainerView.height, self.height));
+    self.scrollView.contentSize = CGSizeMake(self.width, MAX(self.imageContainerView.height, self.height));
     [self.scrollView scrollRectToVisible:self.bounds animated:NO];
     self.scrollView.alwaysBounceVertical = self.imageContainerView.height <= self.height ? NO : YES;
     self.imageView.frame = self.imageContainerView.bounds;
@@ -158,6 +159,9 @@
     CGFloat offsetX = (scrollView.width > scrollView.contentSize.width) ? (scrollView.width - scrollView.contentSize.width) * 0.5 : 0.0;
     CGFloat offsetY = (scrollView.height > scrollView.contentSize.height) ? (scrollView.height - scrollView.contentSize.height) * 0.5 : 0.0;
     self.imageContainerView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX, scrollView.contentSize.height * 0.5 + offsetY);
+}
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return YES;
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     if (self.scrollView.contentOffset.x <= 0) {

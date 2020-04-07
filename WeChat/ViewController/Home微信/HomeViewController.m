@@ -14,10 +14,17 @@
 }
 @property(nonatomic,retain)NSMutableArray *searchReslutArray;
 @property(nonatomic,strong)UITableView *homeTableView;
+@property(nonatomic,strong)NSMutableArray *dataSource;
 
 @end
 
 @implementation HomeViewController
+-(NSMutableArray *)dataSource{
+    if (_dataSource==nil) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
 -(NSMutableArray *)searchReslutArray{
     if (_searchReslutArray==nil) {
         _searchReslutArray = [NSMutableArray array];
@@ -30,7 +37,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     searchBar_  = [[UISearchBar new]initWithFrame:CGRectMake(0, 0, kScreenWidth, 56)];
     searchBar_.placeholder = @"搜索";
     searchBar_.tintColor = kThemeColor;
@@ -39,28 +45,13 @@
     searchBar_.translucent = NO;
     [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"取消"];
 
+    for (NSInteger index = 0; index<30; index++) {
+            [self.dataSource addObject:[NSString stringWithFormat:@"%li",index]];
+    }
     
-    [self.dataSource addObject:@"1"];
-    [self.dataSource addObject:@"2"];
-    [self.dataSource addObject:@"3"];
-    [self.dataSource addObject:@"4"];
-    [self.dataSource addObject:@"5"];
-    [self.dataSource addObject:@"6"];
-    [self.dataSource addObject:@"7"];
-    [self.dataSource addObject:@"8"];
-    [self.dataSource addObject:@"9"];
-    [self.dataSource addObject:@"10"];
-    [self.dataSource addObject:@"11"];
-    [self.dataSource addObject:@"12"];
-    [self.dataSource addObject:@"13"];
-    [self.dataSource addObject:@"14"];
-    [self.dataSource addObject:@"15"];
-    [self.dataSource addObject:@"16"];
-    
-    self.homeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight) style:UITableViewStyleGrouped];
+    self.homeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, self.view.frame.size.width, kScreenHeight-kNavbarHeight-kTabBarHeight) style:UITableViewStyleGrouped];
     self.homeTableView.dataSource = self;
     self.homeTableView.delegate = self;
-    self.homeTableView.backgroundColor = [UIColor whiteColor];
     self.homeTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.homeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     [self.view addSubview:self.homeTableView];
@@ -79,7 +70,6 @@
     return YES;
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-   
     [self.homeTableView reloadData];
 }
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
@@ -92,8 +82,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     [self.searchReslutArray removeAllObjects];
-    for(NSString *aString in self.dataSource)
-    {
+    for(NSString *aString in self.dataSource){
         NSRange range = [aString rangeOfString:searchBar.text];
         if (range.location!=NSNotFound) {
             [self.searchReslutArray addObject:aString];
@@ -107,24 +96,19 @@
     return YES;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if([searchBar_.text isEqualToString:@""])//searchBar里面为空，没有东西
     {
         return self.dataSource.count;
-    }else
-    {
+    }else{
         return self.searchReslutArray.count;
     }
    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    
-    if([searchBar_.text isEqualToString:@""])
-    {
+    if([searchBar_.text isEqualToString:@""]){
         cell.textLabel.text = self.dataSource[indexPath.row];
-    }else
-    {
+    }else{
         cell.textLabel.text = self.searchReslutArray[indexPath.row];
     }
     return cell;
@@ -144,15 +128,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
     NSString *stringStr = @"";
-    if([searchBar_.text isEqualToString:@""])
-    {
+    if([searchBar_.text isEqualToString:@""]){
         stringStr = self.dataSource[indexPath.row];
-    }else
-    {
+    }else{
         stringStr  = self.searchReslutArray[indexPath.row];
     }
     NSLog(@"%@",stringStr);
-
 }
 
 - (void)didReceiveMemoryWarning {

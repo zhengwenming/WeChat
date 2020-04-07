@@ -10,14 +10,6 @@
 
 @interface BaseViewController : UIViewController
 
-@property(nonatomic,strong)UITableView *tableView;
-
-@property(nonatomic,strong)NSMutableArray *dataSource;
-
--(void)registerCellWithNib:(NSString *)nibName tableView:(UITableView *)tableView;
-
--(void)registerCellWithClass:(NSString *)className tableView:(UITableView *)tableView;
-
 -(int)getRandomNumber:(int)from to:(int)to;
 
 @end

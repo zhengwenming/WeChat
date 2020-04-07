@@ -13,11 +13,10 @@
 #import "PersonCenterCell.h"
 
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate>{
-    UITableView *personCenterTableView;
     CGRect oldFrame;
     UIImageView *fullScreenIV;
 }
-
+@property(nonatomic,strong)UITableView  *personCenterTableView;
 @property(nonatomic,retain)NSMutableArray  *dataArray;
 @end
 
@@ -36,25 +35,22 @@
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
+-(UITableView *)personCenterTableView{
+    if (_personCenterTableView==nil) {
+        _personCenterTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kTabBarHeight-kNavbarHeight) style:UITableViewStyleGrouped];
+        _personCenterTableView.delegate = self;
+        _personCenterTableView.dataSource = self;
+        [_personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterHeaderCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterHeaderCell"];
+        [_personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterCell"];
+        _personCenterTableView.tableFooterView = [UIView new];
+    }
+    return _personCenterTableView;
+}
 #pragma mark
 #pragma mark viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    personCenterTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    personCenterTableView.dataSource = self;
-    personCenterTableView.delegate =  self;
-    [personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterHeaderCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterHeaderCell"];
-    [personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterCell"];
-    [self.view addSubview:personCenterTableView];
-    personCenterTableView.tableFooterView = [UIView new];
-    
-    
-    [personCenterTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, kBottomSafeHeight, 0));
-    }];
-    
-    
+    [self.view addSubview:self.personCenterTableView];
 }
 #pragma mark
 #pragma mark numberOfSections
@@ -122,7 +118,6 @@
         headerCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return headerCell;
     }else{
-
         PersonCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterCell"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.section==2) {//我的好友
@@ -162,46 +157,12 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    switch (indexPath.section) {
-//        case 0:{
-//            PersonInfoViewController *personInfoVC = [[PersonInfoViewController alloc]init];
-//            [self.navigationController pushViewController:personInfoVC animated:YES];
-//        }
-//            break;
-//        case 1:
-//            if (indexPath.row==0) {
-//                MyAccountViewController *myAccountVC = [[MyAccountViewController alloc]init];
-//                [self.navigationController pushViewController:myAccountVC animated:YES];
-//            }else if (indexPath.row==1){
-//                AddressBookViewController *addressBookVC = [[AddressBookViewController alloc]init];
-//                [self.navigationController pushViewController:addressBookVC animated:YES];
-//            }else if (indexPath.row==2){
-//                
-//            }else if (indexPath.row==3){
-//                
-//            }
-//            break;
-//        case 2:{
-//            if (indexPath.row==0) {
-//                
-//                FeedBackViewController *feedBackVC = [[FeedBackViewController alloc]init];
-//                [self.navigationController pushViewController:feedBackVC animated:YES];
-//            }else if(indexPath.row==1){
-//                SettingViewController *settingVC = [[SettingViewController alloc]init];
-//                [self.navigationController pushViewController:settingVC animated:YES];
-//            }
-//        }
-//            break;
-//        default:
-//            break;
-//    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 -(void)dealloc{
     fullScreenIV = nil;
-    personCenterTableView = nil;
 }
 
 @end

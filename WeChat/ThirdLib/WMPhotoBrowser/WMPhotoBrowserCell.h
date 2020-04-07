@@ -12,7 +12,6 @@
 @interface WMPhotoBrowserCell : UICollectionViewCell
 @property (nonatomic, copy)NSIndexPath *currentIndexPath;
 @property (nonatomic, strong) UIImageView *imageView;
-
 @property (nonatomic, retain)id model;
 @property (nonatomic, copy) void (^singleTapGestureBlock)(void);
 @property (nonatomic, copy) void (^longPressGestureBlock)(WMPhotoBrowserCell *cell);

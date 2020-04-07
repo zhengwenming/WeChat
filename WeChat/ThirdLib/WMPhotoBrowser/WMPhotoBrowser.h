@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 typedef void(^DeleteBlock)(NSMutableArray *dataSource,NSUInteger currentIndex,UICollectionView *collectionView);
 typedef void(^DownLoadBlock)(NSMutableArray *dataSource,UIImage *image,NSError *error);
 
