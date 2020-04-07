@@ -52,7 +52,6 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 #define kBottomSafeHeight ((IS_IPHONEX)?(34):(0))
 
-#define kAlmostZero         0.0000001
 
 
 

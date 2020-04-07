@@ -72,17 +72,17 @@
     return 42;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return section?20:CGFLOAT_MIN;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return kAlmostZero;
+    return CGFLOAT_MIN;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PersonCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterCell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section==0) {//我的好友
         cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
-        cell.titleLabel.text = @"朋友圈(一个tableView结构)";
+        cell.titleLabel.text = @"朋友圈";
     }else if (indexPath.section==1){//设置
         if (indexPath.row==0) {
             cell.titleIV.image = [UIImage imageNamed:@"ff_IconQRCode"];

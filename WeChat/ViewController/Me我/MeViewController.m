@@ -65,19 +65,13 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section) {
-        return 42;
-    }
-    return 82;
+    return indexPath.section?42:82;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section) {
-        return 20;
-    }
-    return 10;
+ return section?20:10;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return kAlmostZero;
+    return CGFLOAT_MIN;
 }
 -(void)tapForOriginal:(UITapGestureRecognizer *)tap{
     [UIView animateWithDuration:0.3 animations:^{
@@ -86,7 +80,6 @@
     } completion:^(BOOL finished) {
         fullScreenIV.alpha = 1;
         [fullScreenIV removeFromSuperview];
-        
     }];
 }
 -(void)tapForFullScreen:(UITapGestureRecognizer *)tap{
