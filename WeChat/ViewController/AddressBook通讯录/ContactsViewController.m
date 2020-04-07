@@ -22,6 +22,7 @@
 @property(nonatomic,strong) NSMutableDictionary *nameDic;
 @property(nonatomic,strong) UITableView *friendTableView;
 @property(nonatomic,strong)UILabel *footerLabel;
+@property(nonatomic,strong)UIView *footer;
 
 @end
 
@@ -43,13 +44,21 @@
 }
 -(UILabel *)footerLabel{
     if (_footerLabel==nil) {
-        _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+        _footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 1.0/(UIScreen.mainScreen.scale), self.view.frame.size.width, 50-1.0/(UIScreen.mainScreen.scale))];
         _footerLabel.textAlignment = NSTextAlignmentCenter;
         _footerLabel.textColor = [UIColor grayColor];
         _footerLabel.backgroundColor = [UIColor whiteColor];
         _footerLabel.font = [UIFont systemFontOfSize:17.f];
     }
     return _footerLabel;
+}
+-(UIView *)footer{
+    if (_footer==nil) {
+        _footer =[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        _footer.backgroundColor = self.friendTableView.separatorColor;
+        [_footer addSubview:self.footerLabel];
+    }
+    return _footer;
 }
 - (WMSearchController *)searchController{
     if (_searchController == nil) {
@@ -84,7 +93,7 @@
         make.edges.mas_equalTo(0);
     }];
     self.friendTableView.tableHeaderView = self.searchController.searchBar;
-    self.friendTableView.tableFooterView = self.footerLabel;
+    self.friendTableView.tableFooterView = self.footer;
 }
 -(void)loadAddressBookData{
     

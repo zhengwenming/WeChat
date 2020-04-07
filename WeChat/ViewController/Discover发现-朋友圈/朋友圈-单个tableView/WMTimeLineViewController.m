@@ -89,7 +89,11 @@
 }
 ///footer高度
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10.f;
+    MessageInfoModel *messageModel = self.dataSource[section];
+    if (messageModel.commentModelArray.count) {
+        return 10.f;
+    }
+    return CGFLOAT_MIN;
 }
 ///footerView
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

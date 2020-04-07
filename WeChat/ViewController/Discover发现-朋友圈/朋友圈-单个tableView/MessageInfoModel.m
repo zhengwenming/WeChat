@@ -135,7 +135,7 @@
         //算text的layout
         CGFloat textHeight = [attrString.string boundingRectWithSize:CGSizeMake(kScreenWidth-kGAP-kAvatar_Size-2*kGAP, CGFLOAT_MAX) font:font lineSpacing:3.0].height+0.5;
         
-        self.textLayout.frameLayout = CGRectMake(kGAP+kAvatar_Size+kGAP, kGAP+kAvatar_Size/2+2, kScreenWidth-2*kGAP-kAvatar_Size-kGAP, textHeight);
+        self.textLayout.frameLayout = CGRectMake(kGAP+kAvatar_Size+kGAP, kGAP+kAvatar_Size/2+5, kScreenWidth-2*kGAP-kAvatar_Size-kGAP, textHeight);
         
         //算九宫格的layout
 
@@ -154,7 +154,7 @@
         
         self.jggLayout.frameLayout =  CGRectMake(self.textLayout.frameLayout.origin.x, CGRectGetMaxY(self.textLayout.frameLayout)+kGAP, jgg_Width, jgg_height);
         
-        self.headerHeight = CGRectGetMaxY(self.jggLayout.frameLayout)+kGAP;
+        self.headerHeight = CGRectGetMaxY(self.jggLayout.frameLayout)+((self.messageSmallPics.count==0)?0.f:kGAP);
     }
     return self;
 }

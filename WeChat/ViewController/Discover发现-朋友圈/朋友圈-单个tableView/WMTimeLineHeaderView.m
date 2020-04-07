@@ -48,20 +48,19 @@
  */
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
-        
         self.contentView.backgroundColor = [UIColor whiteColor];
-
-        self.sepLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1.0 / YYScreenScale())];
-        self.sepLine.backgroundColor = [UIColor lightGrayColor];
+        self.sepLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1.0/(UIScreen.mainScreen.scale))];
+        self.sepLine.backgroundColor = [[UITableView new] separatorColor];
         [self addSubview:self.sepLine];
         
         
         self.avatarIV = [[UIImageView alloc]initWithFrame:CGRectMake(kGAP, kGAP, kAvatar_Size, kAvatar_Size)];
         [self addSubview:self.avatarIV];
+        self.avatarIV.layer.cornerRadius =3;
+        self.avatarIV.clipsToBounds = YES;
         self.userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarIV.frame)+kGAP, kGAP,kScreenWidth-kAvatar_Size-2*kGAP-kGAP, self.avatarIV.frame.size.height/2)];
-        self.userNameLabel.font = [UIFont systemFontOfSize:14.0];
+        self.userNameLabel.font = [UIFont systemFontOfSize:16.0];
         self.userNameLabel.textColor = [UIColor colorWithRed:(54/255.0) green:(71/255.0) blue:(121/255.0) alpha:0.9];
-
         [self addSubview:self.userNameLabel];
         
         self.timeStampLabel = [[UILabel alloc]init];
@@ -70,7 +69,6 @@
         [self addSubview:self.timeStampLabel];
         
         self.messageTextLabel = [[CopyAbleLabel alloc]init];
-        self.messageTextLabel.backgroundColor = [UIColor whiteColor];
         self.messageTextLabel.numberOfLines = 0;
         self.messageTextLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.messageTextLabel.font = [UIFont systemFontOfSize:14.0];
