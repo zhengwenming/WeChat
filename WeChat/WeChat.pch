@@ -25,9 +25,13 @@
 #define IS_IPHONE5 (IS_IPHONE && kSCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE6 (IS_IPHONE && kSCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE6P (IS_IPHONE && kSCREEN_MAX_LENGTH == 736.0)
-#define iPhoneX (kScreenWidth == 375.0f) && (kScreenHeight == 812.0f) && IS_IPHONE
 
-
+#define IS_IPHONEX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 ///适配相关
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
@@ -44,9 +48,9 @@
 
 #define kNavbarHeight (kStatusBarHeight+kSystemNavHeight)
 
-#define kTabBarHeight (iPhoneX?(49.f+34.f):(49.f))
+#define kTabBarHeight (IS_IPHONEX?(49.f+34.f):(49.f))
 
-#define kBottomSafeHeight ((iPhoneX)?(34):(0))
+#define kBottomSafeHeight ((IS_IPHONEX)?(34):(0))
 
 #define kAlmostZero         0.0000001
 

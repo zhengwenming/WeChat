@@ -77,7 +77,7 @@
     self.resultTableView.tableHeaderView = self.headerView;
     self.resultTableView.tableFooterView = self.footerLabel;
     [self.resultTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, iPhoneX?(kTabBarHeight):0, 0));
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, IS_IPHONEX?(kTabBarHeight):0, 0));
     }];
     
     
