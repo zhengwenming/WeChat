@@ -59,6 +59,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 //category
 #import "UIImageView+WebCache.h"
 #import "NSString+Extension.h"
+#import "UIViewController+WMExtension.h"
+#import "UIBarButtonItem+addition.h"
+#import "UIView+WMFrame.h"
 
 
 //第三方

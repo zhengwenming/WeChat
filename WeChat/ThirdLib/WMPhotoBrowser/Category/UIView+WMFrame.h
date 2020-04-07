@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (WMFrame)
+@property (nonatomic, assign) CGFloat x;
+@property (nonatomic, assign) CGFloat y;
 @property (nonatomic) CGFloat left;        ///< Shortcut for frame.origin.x.
 @property (nonatomic) CGFloat top;         ///< Shortcut for frame.origin.y
 @property (nonatomic) CGFloat right;       ///< Shortcut for frame.origin.x + frame.size.width

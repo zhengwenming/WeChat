@@ -31,10 +31,6 @@
     }
     return _dataArray;
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-}
 -(UITableView *)personCenterTableView{
     if (_personCenterTableView==nil) {
         _personCenterTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kTabBarHeight-kNavbarHeight) style:UITableViewStyleGrouped];

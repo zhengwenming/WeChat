@@ -31,10 +31,6 @@
     }
     return _searchReslutArray;
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     searchBar_  = [[UISearchBar new]initWithFrame:CGRectMake(0, 0, kScreenWidth, 56)];

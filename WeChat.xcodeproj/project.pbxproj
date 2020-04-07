@@ -17,6 +17,7 @@
 		187DF9C8243C9D4700D3A52B /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9BB243C9D4700D3A52B /* Layout.m */; };
 		187DF9C9243C9D4700D3A52B /* TimeLineBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9BC243C9D4700D3A52B /* TimeLineBaseViewController.m */; };
 		187DF9CA243C9D4700D3A52B /* FriendInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9C0243C9D4700D3A52B /* FriendInfoModel.m */; };
+		187DF9CD243CD97F00D3A52B /* UIBarButtonItem+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9CB243CD97F00D3A52B /* UIBarButtonItem+addition.m */; };
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
@@ -117,7 +118,6 @@
 		701C264D1F755E35009B6AD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701C264C1F755E35009B6AD1 /* SystemConfiguration.framework */; };
 		701C264F1F755E3E009B6AD1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 701C264E1F755E3E009B6AD1 /* libz.tbd */; };
 		70202E8320202067001E73DD /* resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70202E7C20202066001E73DD /* resource.xcassets */; };
-		70202E8420202067001E73DD /* UIView+WMFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 70202E7E20202066001E73DD /* UIView+WMFrame.m */; };
 		70202E8520202067001E73DD /* WMPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 70202E8020202066001E73DD /* WMPhotoBrowser.m */; };
 		70202E8620202067001E73DD /* WMPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70202E8220202066001E73DD /* WMPhotoBrowserCell.m */; };
 		705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */; };
@@ -268,6 +268,8 @@
 		187DF9BE243C9D4700D3A52B /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		187DF9BF243C9D4700D3A52B /* TimeLineBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineBaseViewController.h; sourceTree = "<group>"; };
 		187DF9C0243C9D4700D3A52B /* FriendInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfoModel.m; sourceTree = "<group>"; };
+		187DF9CB243CD97F00D3A52B /* UIBarButtonItem+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+addition.m"; sourceTree = "<group>"; };
+		187DF9CC243CD97F00D3A52B /* UIBarButtonItem+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+addition.h"; sourceTree = "<group>"; };
 		377CE0201D2280160075DCA3 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
@@ -456,8 +458,6 @@
 		701C264C1F755E35009B6AD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		701C264E1F755E3E009B6AD1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		70202E7C20202066001E73DD /* resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = resource.xcassets; sourceTree = "<group>"; };
-		70202E7D20202066001E73DD /* UIView+WMFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WMFrame.h"; sourceTree = "<group>"; };
-		70202E7E20202066001E73DD /* UIView+WMFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WMFrame.m"; sourceTree = "<group>"; };
 		70202E7F20202066001E73DD /* WMPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPhotoBrowser.h; sourceTree = "<group>"; };
 		70202E8020202066001E73DD /* WMPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPhotoBrowser.m; sourceTree = "<group>"; };
 		70202E8120202066001E73DD /* WMPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPhotoBrowserCell.h; sourceTree = "<group>"; };
@@ -734,6 +734,8 @@
 		7011566F1F65462E004D1B67 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				187DF9CC243CD97F00D3A52B /* UIBarButtonItem+addition.h */,
+				187DF9CB243CD97F00D3A52B /* UIBarButtonItem+addition.m */,
 				705EEE291F6C49AE00566255 /* UILabel+TapAction.h */,
 				705EEE2A1F6C49AE00566255 /* UILabel+TapAction.m */,
 				701A5BBB1F74180500332B78 /* NSString+Extension.h */,
@@ -1034,8 +1036,6 @@
 			children = (
 				70D6FE97243C1F2C005C3727 /* Category */,
 				70202E7C20202066001E73DD /* resource.xcassets */,
-				70202E7D20202066001E73DD /* UIView+WMFrame.h */,
-				70202E7E20202066001E73DD /* UIView+WMFrame.m */,
 				70202E7F20202066001E73DD /* WMPhotoBrowser.h */,
 				70202E8020202066001E73DD /* WMPhotoBrowser.m */,
 				70D6FE9F243C1F39005C3727 /* WMCollectionViewFlowLayout.h */,
@@ -1387,9 +1387,9 @@
 		70D6FE97243C1F2C005C3727 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				70D6FE9A243C1F2C005C3727 /* UIView+WMFrame.h */,
 				70D6FE98243C1F2C005C3727 /* UIView+WMFrame.m */,
 				70D6FE99243C1F2C005C3727 /* UIViewController+WMExtension.h */,
-				70D6FE9A243C1F2C005C3727 /* UIView+WMFrame.h */,
 				70D6FE9B243C1F2C005C3727 /* UIViewController+WMExtension.m */,
 			);
 			path = Category;
@@ -1451,8 +1451,8 @@
 		70D6FEE9243C835E005C3727 /* Home微信 */ = {
 			isa = PBXGroup;
 			children = (
-				70D6FEEA243C835E005C3727 /* HomeViewController.m */,
 				70D6FEEB243C835E005C3727 /* HomeViewController.h */,
+				70D6FEEA243C835E005C3727 /* HomeViewController.m */,
 			);
 			path = "Home微信";
 			sourceTree = "<group>";
@@ -1679,6 +1679,7 @@
 				70D6FEF4243C835F005C3727 /* DiscoverViewController.m in Sources */,
 				70BB72FF1D02A93D0003B379 /* MJRefreshAutoNormalFooter.m in Sources */,
 				701C25E91F755A1B009B6AD1 /* NSData+YYAdd.m in Sources */,
+				187DF9CD243CD97F00D3A52B /* UIBarButtonItem+addition.m in Sources */,
 				701C262E1F755A1C009B6AD1 /* YYDispatchQueuePool.m in Sources */,
 				187DF9C8243C9D4700D3A52B /* Layout.m in Sources */,
 				70BB72FC1D02A93D0003B379 /* MJRefreshFooter.m in Sources */,
@@ -1789,7 +1790,6 @@
 				70D6FE9C243C1F2C005C3727 /* UIView+WMFrame.m in Sources */,
 				70BB72EE1D02A93D0003B379 /* MASConstraint.m in Sources */,
 				70BB73021D02A93D0003B379 /* MJRefreshBackNormalFooter.m in Sources */,
-				70202E8420202067001E73DD /* UIView+WMFrame.m in Sources */,
 				701C26131F755A1B009B6AD1 /* YYSpriteSheetImage.m in Sources */,
 				70D6FE9D243C1F2C005C3727 /* UIViewController+WMExtension.m in Sources */,
 				701C26361F755A1C009B6AD1 /* YYTimer.m in Sources */,

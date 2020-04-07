@@ -76,7 +76,6 @@
         WMPhotoBrowser *browser = [WMPhotoBrowser new];
         browser.dataSource = dataSource.mutableCopy;
         browser.currentPhotoIndex = index;
-        browser.downLoadNeeded = YES;
         [weakSelf.navigationController pushViewController:browser animated:YES];
 //        [weakSelf presentViewController:browser animated:YES completion:^{
 

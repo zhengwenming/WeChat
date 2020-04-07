@@ -37,15 +37,10 @@
     }
     return _discoverTable;
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.discoverTable];
 }
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 4;
 }
