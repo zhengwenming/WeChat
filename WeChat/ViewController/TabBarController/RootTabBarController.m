@@ -51,7 +51,6 @@
         [item setTitleTextAttributes:@{NSForegroundColorAttributeName : kThemeColor} forState:UIControlStateSelected];
         [self addChildViewController:nav];
     }];
-    self.selectedIndex = 1;
     self.tabBar.tintColor = kThemeColor;
 //    self.tabBar.unselectedItemTintColor = kThemeColor;
 }

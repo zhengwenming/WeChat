@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConversationModel : NSObject
-@property(nonatomic,copy)NSString *avatar;
+@property(nonatomic,copy)NSString *avatarURL;
 
 @property(nonatomic,copy)NSString *userId;
 
@@ -19,7 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,copy)NSString *text;
 
+@property(nonatomic,copy)NSString *time;
+
 @property(nonatomic,copy)NSString *extra;
+
+
 
 @end
 

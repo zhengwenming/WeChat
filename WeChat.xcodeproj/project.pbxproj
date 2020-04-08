@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182E60F0243E13C8002128BA /* ConversationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E60EF243E13C8002128BA /* ConversationListCell.m */; };
 		187DF9C1243C9D4700D3A52B /* WMTimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9AD243C9D4700D3A52B /* WMTimeLineHeaderView.m */; };
 		187DF9C2243C9D4700D3A52B /* LikeUsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9AF243C9D4700D3A52B /* LikeUsersCell.m */; };
 		187DF9C3243C9D4700D3A52B /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DF9B3243C9D4700D3A52B /* CommentCell.m */; };
@@ -250,6 +251,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182E60EE243E13C8002128BA /* ConversationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationListCell.h; sourceTree = "<group>"; };
+		182E60EF243E13C8002128BA /* ConversationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationListCell.m; sourceTree = "<group>"; };
 		187DF9AD243C9D4700D3A52B /* WMTimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTimeLineHeaderView.m; sourceTree = "<group>"; };
 		187DF9AE243C9D4700D3A52B /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		187DF9AF243C9D4700D3A52B /* LikeUsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeUsersCell.m; sourceTree = "<group>"; };
@@ -1456,6 +1459,8 @@
 			children = (
 				70D6FEEB243C835E005C3727 /* HomeViewController.h */,
 				70D6FEEA243C835E005C3727 /* HomeViewController.m */,
+				182E60EE243E13C8002128BA /* ConversationListCell.h */,
+				182E60EF243E13C8002128BA /* ConversationListCell.m */,
 				187DF9CE243CE0B500D3A52B /* ConversationModel.h */,
 				187DF9CF243CE0B500D3A52B /* ConversationModel.m */,
 			);
@@ -1465,8 +1470,8 @@
 		70D6FEEE243C835E005C3727 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				70D6FEEF243C835E005C3727 /* RootTabBarController.m */,
 				70D6FEF0243C835E005C3727 /* RootTabBarController.h */,
+				70D6FEEF243C835E005C3727 /* RootTabBarController.m */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -1676,6 +1681,7 @@
 				701C26261F755A1C009B6AD1 /* YYTextParser.m in Sources */,
 				70BB73161D02A93D0003B379 /* UIImage+MultiFormat.m in Sources */,
 				701C261C1F755A1B009B6AD1 /* YYTextKeyboardManager.m in Sources */,
+				182E60F0243E13C8002128BA /* ConversationListCell.m in Sources */,
 				701C262F1F755A1C009B6AD1 /* YYFileHash.m in Sources */,
 				70BB72ED1D02A93D0003B379 /* MASCompositeConstraint.m in Sources */,
 				705EEE2B1F6C49AE00566255 /* UILabel+TapAction.m in Sources */,
