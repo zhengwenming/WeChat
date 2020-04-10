@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.avatarIV.clipsToBounds=  YES;
+    self.avatarIV.layer.cornerRadius = 4.f;
     // Initialization code
 }
 

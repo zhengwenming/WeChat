@@ -21,7 +21,7 @@
     self.window.rootViewController = [RootTabBarController new];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
+
     // 强制关闭暗黑模式
     {
         #if defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0

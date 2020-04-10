@@ -33,12 +33,12 @@
 }
 -(UITableView *)personCenterTableView{
     if (_personCenterTableView==nil) {
-        _personCenterTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, kScreenWidth, kScreenHeight-kTabBarHeight-kNavbarHeight) style:UITableViewStyleGrouped];
+        _personCenterTableView = [[UITableView new]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         _personCenterTableView.delegate = self;
         _personCenterTableView.dataSource = self;
         [_personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterHeaderCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterHeaderCell"];
         [_personCenterTableView registerNib:[UINib nibWithNibName:@"PersonCenterCell" bundle:nil] forCellReuseIdentifier:@"PersonCenterCell"];
-        _personCenterTableView.tableFooterView = [UIView new];
+        _personCenterTableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
     return _personCenterTableView;
 }
@@ -47,6 +47,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.personCenterTableView];
+    [self.personCenterTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+           make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+       }];
 }
 #pragma mark
 #pragma mark numberOfSections
@@ -61,7 +64,7 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return indexPath.section?42:82;
+    return indexPath.section?48:82;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
  return 10;
@@ -108,9 +111,7 @@
         return headerCell;
     }else{
         PersonCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCenterCell"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.section==2) {//我的好友
-            
             switch (indexPath.row) {
                 case 0:
                     cell.titleIV.image = [UIImage imageNamed:@"ff_IconShowAlbum"];
@@ -128,7 +129,6 @@
                     cell.titleIV.image = [UIImage imageNamed:@"MyCardPackageIcon"];
                     cell.titleLabel.text = @"卡券";
                     break;
-                    
                 default:
                     break;
             }
@@ -136,13 +136,24 @@
         }else if (indexPath.section==3){//设置
                 cell.titleIV.image = [UIImage imageNamed:@"MoreExpressionShops"];
                 cell.titleLabel.text = @"表情";
-                
         }else if(indexPath.section==4){
             cell.titleIV.image = [UIImage imageNamed:@"MoreSetting"];
             cell.titleLabel.text = @"设置";
         }
         return cell;
     }
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self hiddenUITableViewCellSeparatorView:cell];
+}
+-(void)hiddenUITableViewCellSeparatorView:(UITableViewCell *)cell{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (UIView *aView in cell.subviews) {
+            if ([aView isKindOfClass:NSClassFromString(@"_UITableViewCellSeparatorView")]&&aView.frame.origin.x==0) {
+                aView.hidden = YES;
+            }
+        }
+    });
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

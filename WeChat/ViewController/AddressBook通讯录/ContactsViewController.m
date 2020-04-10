@@ -83,7 +83,6 @@
     updateArray = [[NSMutableArray alloc]init];
     self.lettersArray = [[NSArray alloc]init];
     self.nameDic = [[NSMutableDictionary alloc]init];
-    
     [self loadAddressBookData];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"contacts_add_friend"] style:UIBarButtonItemStylePlain target:self action:@selector(addFriends:)];

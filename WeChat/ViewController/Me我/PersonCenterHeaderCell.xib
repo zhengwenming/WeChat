@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="293" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-Ju-W07">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-Ju-W07">
                         <rect key="frame" x="8" y="7" width="66.5" height="66.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="aZj-Ju-W07" secondAttribute="height" multiplier="1:1" id="aDP-3n-wIq"/>
@@ -29,21 +29,29 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M4-hK-NBi">
-                        <rect key="frame" x="82.5" y="8" width="168.5" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="82.5" y="10" width="168.5" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信号:zhengwenming1988" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzX-dZ-XZR">
+                        <rect key="frame" x="82.5" y="50" width="200.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2x2-Kd-rmz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="2tQ-KO-4gs"/>
-                    <constraint firstItem="7M4-hK-NBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="B8L-rY-UVQ"/>
+                    <constraint firstItem="7M4-hK-NBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="B8L-rY-UVQ"/>
                     <constraint firstItem="7M4-hK-NBi" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="8" id="Ee1-1A-ldC"/>
+                    <constraint firstAttribute="bottom" secondItem="ZzX-dZ-XZR" secondAttribute="bottom" constant="14" id="GbL-2h-e0f"/>
                     <constraint firstAttribute="bottom" secondItem="aZj-Ju-W07" secondAttribute="bottom" constant="8.5" id="NF6-2s-JTJ"/>
                     <constraint firstAttribute="bottom" secondItem="2x2-Kd-rmz" secondAttribute="bottom" constant="30.5" id="Pot-ci-8fe"/>
                     <constraint firstItem="aZj-Ju-W07" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="R10-We-Azp"/>
+                    <constraint firstItem="ZzX-dZ-XZR" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="8" id="WHR-Mb-r1c"/>
                     <constraint firstAttribute="trailing" secondItem="7M4-hK-NBi" secondAttribute="trailing" constant="42" id="efb-kk-Rqq"/>
-                    <constraint firstAttribute="bottom" secondItem="7M4-hK-NBi" secondAttribute="bottom" constant="52.5" id="koJ-jo-4lO"/>
+                    <constraint firstAttribute="trailing" secondItem="ZzX-dZ-XZR" secondAttribute="trailing" constant="10" id="iZL-si-Ph8"/>
                     <constraint firstItem="aZj-Ju-W07" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lHO-T7-cRr"/>
                     <constraint firstAttribute="trailing" secondItem="2x2-Kd-rmz" secondAttribute="trailing" constant="10" id="zzA-m5-Uky"/>
                 </constraints>
@@ -55,7 +63,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="avatar.png" width="55" height="55"/>
+        <image name="avatar" width="720" height="720"/>
         <image name="qrcode" width="17" height="17"/>
     </resources>
 </document>

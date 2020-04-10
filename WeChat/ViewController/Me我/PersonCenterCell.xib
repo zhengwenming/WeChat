@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,23 +17,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileLockOn" translatesAutoresizingMaskIntoConstraints="NO" id="XPz-DL-DpT">
-                        <rect key="frame" x="20" y="9" width="19" height="19"/>
+                        <rect key="frame" x="20" y="11" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="XPz-DL-DpT" secondAttribute="height" multiplier="1:1" id="umk-Pg-jwF"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="摇一摇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-7R-8IR">
-                        <rect key="frame" x="54" y="11" width="240" height="15"/>
+                        <rect key="frame" x="50" y="11" width="244" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XPz-DL-DpT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="4sb-oX-oZA"/>
+                    <constraint firstItem="XPz-DL-DpT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="4sb-oX-oZA"/>
                     <constraint firstAttribute="trailing" secondItem="XqL-7R-8IR" secondAttribute="trailing" constant="127" id="5aH-1n-Mx8"/>
                     <constraint firstItem="XqL-7R-8IR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8c7-LT-sym"/>
-                    <constraint firstAttribute="bottom" secondItem="XPz-DL-DpT" secondAttribute="bottom" constant="9" id="9dI-ww-W5v"/>
+                    <constraint firstAttribute="bottom" secondItem="XPz-DL-DpT" secondAttribute="bottom" constant="11" id="9dI-ww-W5v"/>
                     <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="XPz-DL-DpT" secondAttribute="trailing" constant="27" id="OOP-Fb-mvv"/>
                     <constraint firstItem="XqL-7R-8IR" firstAttribute="leading" secondItem="XPz-DL-DpT" secondAttribute="trailing" constant="15" id="WOq-Xn-ONY"/>
                     <constraint firstItem="XqL-7R-8IR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xub-ZC-V5W"/>

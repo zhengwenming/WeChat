@@ -234,11 +234,11 @@
 		70D6FF06243C835F005C3727 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FEE5243C835E005C3727 /* BaseViewController.m */; };
 		70D6FF07243C835F005C3727 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FEE6243C835E005C3727 /* BaseNavigationController.m */; };
 		70D6FF08243C835F005C3727 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FEEA243C835E005C3727 /* HomeViewController.m */; };
-		70D6FF09243C835F005C3727 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FEEF243C835E005C3727 /* RootTabBarController.m */; };
 		70D6FF10243C83F8005C3727 /* PersonCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FF0C243C83F7005C3727 /* PersonCenterCell.m */; };
 		70D6FF11243C83F8005C3727 /* PersonCenterHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FF0D243C83F7005C3727 /* PersonCenterHeaderCell.m */; };
 		70D6FF12243C83F8005C3727 /* PersonCenterHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D6FF0E243C83F8005C3727 /* PersonCenterHeaderCell.xib */; };
 		70D6FF13243C83F8005C3727 /* PersonCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70D6FF0F243C83F8005C3727 /* PersonCenterCell.xib */; };
+		70D6FF19243EC752005C3727 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D6FF17243EC752005C3727 /* RootTabBarController.m */; };
 		70F4B0CF1D0515CF0002924F /* WeChat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70F4B0CE1D0515CF0002924F /* WeChat.gif */; };
 		70FFC1DD1D44F2D000FCE22F /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */; };
 		70FFC1DE1D44F2D000FCE22F /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FFC1D31D44F2D000FCE22F /* HanyuPinyinOutputFormat.m */; };
@@ -647,14 +647,14 @@
 		70D6FEE8243C835E005C3727 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70D6FEEA243C835E005C3727 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		70D6FEEB243C835E005C3727 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		70D6FEEF243C835E005C3727 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
-		70D6FEF0243C835E005C3727 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		70D6FF0A243C83F7005C3727 /* PersonCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterCell.h; sourceTree = "<group>"; };
 		70D6FF0B243C83F7005C3727 /* PersonCenterHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterHeaderCell.h; sourceTree = "<group>"; };
 		70D6FF0C243C83F7005C3727 /* PersonCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterCell.m; sourceTree = "<group>"; };
 		70D6FF0D243C83F7005C3727 /* PersonCenterHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterHeaderCell.m; sourceTree = "<group>"; };
 		70D6FF0E243C83F8005C3727 /* PersonCenterHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCenterHeaderCell.xib; sourceTree = "<group>"; };
 		70D6FF0F243C83F8005C3727 /* PersonCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCenterCell.xib; sourceTree = "<group>"; };
+		70D6FF17243EC752005C3727 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
+		70D6FF18243EC752005C3727 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		70F4B0CE1D0515CF0002924F /* WeChat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WeChat.gif; sourceTree = "<group>"; };
 		70FFC1D01D44F2D000FCE22F /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
 		70FFC1D11D44F2D000FCE22F /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
@@ -1209,8 +1209,8 @@
 		70BB72831D02A92A0003B379 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70D6FF16243EC752005C3727 /* TabBarController */,
 				70D6FEE4243C835E005C3727 /* BaseViewController */,
-				70D6FEEE243C835E005C3727 /* TabBarController */,
 				70D6FEE9243C835E005C3727 /* Home微信 */,
 				70D6FED9243C835E005C3727 /* AddressBook通讯录 */,
 				70D6FEBF243C835D005C3727 /* Discover发现-朋友圈 */,
@@ -1404,14 +1404,14 @@
 		70D6FEBA243C835D005C3727 /* Me我 */ = {
 			isa = PBXGroup;
 			children = (
+				70D6FEBB243C835D005C3727 /* MeViewController.h */,
+				70D6FEBC243C835D005C3727 /* MeViewController.m */,
 				70D6FF0A243C83F7005C3727 /* PersonCenterCell.h */,
 				70D6FF0C243C83F7005C3727 /* PersonCenterCell.m */,
 				70D6FF0F243C83F8005C3727 /* PersonCenterCell.xib */,
 				70D6FF0B243C83F7005C3727 /* PersonCenterHeaderCell.h */,
 				70D6FF0D243C83F7005C3727 /* PersonCenterHeaderCell.m */,
 				70D6FF0E243C83F8005C3727 /* PersonCenterHeaderCell.xib */,
-				70D6FEBB243C835D005C3727 /* MeViewController.h */,
-				70D6FEBC243C835D005C3727 /* MeViewController.m */,
 			);
 			path = "Me我";
 			sourceTree = "<group>";
@@ -1467,11 +1467,11 @@
 			path = "Home微信";
 			sourceTree = "<group>";
 		};
-		70D6FEEE243C835E005C3727 /* TabBarController */ = {
+		70D6FF16243EC752005C3727 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				70D6FEF0243C835E005C3727 /* RootTabBarController.h */,
-				70D6FEEF243C835E005C3727 /* RootTabBarController.m */,
+				70D6FF17243EC752005C3727 /* RootTabBarController.m */,
+				70D6FF18243EC752005C3727 /* RootTabBarController.h */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -1542,7 +1542,7 @@
 				TargetAttributes = {
 					70BB72651D02A8A70003B379 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7D992WX2BB;
+						DevelopmentTeam = 58RLM4UFK5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1788,9 +1788,9 @@
 				70BB73141D02A93D0003B379 /* UIButton+WebCache.m in Sources */,
 				70BB72FD1D02A93D0003B379 /* MJRefreshHeader.m in Sources */,
 				70BB73091D02A93D0003B379 /* UIScrollView+MJExtension.m in Sources */,
+				70D6FF19243EC752005C3727 /* RootTabBarController.m in Sources */,
 				701C26071F755A1B009B6AD1 /* YYKVStorage.m in Sources */,
 				70BB73001D02A93D0003B379 /* MJRefreshAutoStateFooter.m in Sources */,
-				70D6FF09243C835F005C3727 /* RootTabBarController.m in Sources */,
 				701C25EC1F755A1B009B6AD1 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				701C25FA1F755A1B009B6AD1 /* UIColor+YYAdd.m in Sources */,
 				70D6FEF1243C835E005C3727 /* MeViewController.m in Sources */,
@@ -1919,7 +1919,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7D992WX2BB;
+				DEVELOPMENT_TEAM = 58RLM4UFK5;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1935,7 +1935,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7D992WX2BB;
+				DEVELOPMENT_TEAM = 58RLM4UFK5;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
