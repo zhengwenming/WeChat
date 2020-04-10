@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-Ju-W07">
-                        <rect key="frame" x="8" y="7" width="66.5" height="66.5"/>
+                        <rect key="frame" x="15" y="10" width="62" height="62"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="aZj-Ju-W07" secondAttribute="height" multiplier="1:1" id="aDP-3n-wIq"/>
                         </constraints>
@@ -29,13 +29,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M4-hK-NBi">
-                        <rect key="frame" x="82.5" y="10" width="168.5" height="25.5"/>
+                        <rect key="frame" x="87" y="15" width="164" height="25.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信号:zhengwenming1988" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzX-dZ-XZR">
-                        <rect key="frame" x="82.5" y="50" width="200.5" height="18"/>
+                        <rect key="frame" x="87" y="50" width="196" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -43,16 +43,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="2x2-Kd-rmz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="2tQ-KO-4gs"/>
-                    <constraint firstItem="7M4-hK-NBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="B8L-rY-UVQ"/>
-                    <constraint firstItem="7M4-hK-NBi" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="8" id="Ee1-1A-ldC"/>
+                    <constraint firstItem="7M4-hK-NBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="B8L-rY-UVQ"/>
+                    <constraint firstItem="7M4-hK-NBi" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="10" id="Ee1-1A-ldC"/>
                     <constraint firstAttribute="bottom" secondItem="ZzX-dZ-XZR" secondAttribute="bottom" constant="14" id="GbL-2h-e0f"/>
-                    <constraint firstAttribute="bottom" secondItem="aZj-Ju-W07" secondAttribute="bottom" constant="8.5" id="NF6-2s-JTJ"/>
+                    <constraint firstAttribute="bottom" secondItem="aZj-Ju-W07" secondAttribute="bottom" constant="10" id="NF6-2s-JTJ"/>
                     <constraint firstAttribute="bottom" secondItem="2x2-Kd-rmz" secondAttribute="bottom" constant="30.5" id="Pot-ci-8fe"/>
-                    <constraint firstItem="aZj-Ju-W07" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="R10-We-Azp"/>
-                    <constraint firstItem="ZzX-dZ-XZR" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="8" id="WHR-Mb-r1c"/>
+                    <constraint firstItem="aZj-Ju-W07" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="R10-We-Azp"/>
+                    <constraint firstItem="ZzX-dZ-XZR" firstAttribute="leading" secondItem="aZj-Ju-W07" secondAttribute="trailing" constant="10" id="WHR-Mb-r1c"/>
                     <constraint firstAttribute="trailing" secondItem="7M4-hK-NBi" secondAttribute="trailing" constant="42" id="efb-kk-Rqq"/>
                     <constraint firstAttribute="trailing" secondItem="ZzX-dZ-XZR" secondAttribute="trailing" constant="10" id="iZL-si-Ph8"/>
-                    <constraint firstItem="aZj-Ju-W07" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lHO-T7-cRr"/>
+                    <constraint firstItem="aZj-Ju-W07" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="lHO-T7-cRr"/>
                     <constraint firstAttribute="trailing" secondItem="2x2-Kd-rmz" secondAttribute="trailing" constant="10" id="zzA-m5-Uky"/>
                 </constraints>
             </tableViewCellContentView>

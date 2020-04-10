@@ -15,6 +15,7 @@
 @property(nonatomic,strong)UILabel *lastMsgTimeLabel;
 @property(nonatomic,strong)UILabel *tipLabel;
 @property(nonatomic,strong)UILabel *unReadBadge;
+@property(nonatomic,strong)UIView  *line;
 
 
 @end
@@ -22,14 +23,16 @@
 @implementation ConversationListCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         self.avatarIV = [[UIImageView alloc] init];
         self.avatarIV.layer.cornerRadius = 3;
         self.avatarIV.clipsToBounds = YES;
         [self.contentView addSubview:self.avatarIV];
         [self.avatarIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(15);
-            make.top.mas_equalTo(10);
-            make.bottom.mas_equalTo(-10);
+            make.top.mas_equalTo(12);
+            make.bottom.mas_equalTo(-12);
         }];
         [self.avatarIV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(self.avatarIV.mas_height);
@@ -61,8 +64,8 @@
         
         //最后一条消息的具体内容
         self.lastMsgLabel = [[UILabel alloc] init];
-        self.lastMsgLabel.textColor = [UIColor grayColor];
-        self.lastMsgLabel.font = [UIFont systemFontOfSize:14.0f];
+        self.lastMsgLabel.textColor = [UIColor lightGrayColor];
+        self.lastMsgLabel.font = [UIFont systemFontOfSize:13.0f];
         [self.contentView addSubview:self.lastMsgLabel];
         [self.lastMsgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
              make.top.mas_equalTo(self.nameLabel.mas_bottom).mas_offset(4);
@@ -71,7 +74,16 @@
         }];
         [self.lastMsgLabel setContentCompressionResistancePriority:110 forAxis:UILayoutConstraintAxisHorizontal];
 
-
+        self.line = [UIView new];
+        self.line.backgroundColor = [UIColor lightGrayColor];
+        self.line.alpha = 0.65;
+        [self.contentView addSubview:self.line];
+        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.top.mas_equalTo(self.contentView.mas_bottom).mas_offset(-1);
+            make.left.mas_equalTo(self.lastMsgLabel);
+            make.height.mas_equalTo(1.0/(UIScreen.mainScreen.scale));
+            make.right.mas_equalTo(self.contentView);
+        }];
     }
     return self;
 }

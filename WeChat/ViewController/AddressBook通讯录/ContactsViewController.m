@@ -95,19 +95,16 @@
     self.friendTableView.tableFooterView = self.footer;
 }
 -(void)loadAddressBookData{
-    
     self.topFixedArray = [NSMutableArray arrayWithCapacity:4];
-    
         FriendInfoModel *friends_new = [FriendInfoModel new];
         friends_new.userName = @"新的朋友";
         friends_new.imgName = @"friends_new";
         [self.topFixedArray addObject:friends_new];
-        
+    
         FriendInfoModel *friends_group = [FriendInfoModel new];
         friends_group.userName = @"群聊";
         friends_group.imgName = @"friends_group";
         [self.topFixedArray addObject:friends_group];
-        
         
         FriendInfoModel *friends_tag = [FriendInfoModel new];
         friends_tag.userName = @"标签";
@@ -118,8 +115,6 @@
         friends_public.userName = @"公众号";
         friends_public.imgName = @"friends_public";
         [self.topFixedArray addObject:friends_public];
-    
-    
     
     NSData *friendsData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"json"]]];
     NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:friendsData options:NSJSONReadingAllowFragments error:nil];
