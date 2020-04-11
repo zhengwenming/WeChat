@@ -17,7 +17,7 @@
 }
 /// 搜索
 @property (nonatomic, strong) WMSearchController *searchController;
-@property(nonatomic,strong) NSArray *lettersArray;
+@property(nonatomic,strong) NSMutableArray *lettersArray;
 @property(nonatomic,strong) NSMutableArray *topFixedArray;
 @property(nonatomic,strong) NSMutableDictionary *nameDic;
 @property(nonatomic,strong) UITableView *friendTableView;
@@ -81,7 +81,7 @@
     [super viewDidLoad];
     dataSource = [[NSMutableArray alloc]init];
     updateArray = [[NSMutableArray alloc]init];
-    self.lettersArray = [[NSArray alloc]init];
+    self.lettersArray = [[NSMutableArray alloc]init];
     self.nameDic = [[NSMutableDictionary alloc]init];
     [self loadAddressBookData];
 
@@ -138,17 +138,34 @@
         return self.topFixedArray.count;
     }
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self dealTipsColor];
+}
+-(void)dealTipsColor{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (UIView *view in self.friendTableView.subviews) {
+            if (view.tag==100) {
+                  UILabel *titleLabel = view.subviews.firstObject;
+                CGRect frame = [self.friendTableView convertRect:view.frame toView:self.view];
+                if (frame.origin.y<=kNavbarHeight+1&&frame.origin.y>85) {
+                    titleLabel.textColor = kThemeColor;
+                }else{
+                    if (frame.origin.y<=100&&frame.origin.y>=90) {
+                        titleLabel.textColor = kThemeColor;
+                    }else{
+                        titleLabel.textColor = [UIColor grayColor];
+                    }
+                }
+            }
+        }
+    });
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section) {
-        AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
-        FriendInfoModel *frends = [[self.nameDic objectForKey:self.lettersArray[indexPath.section-1]] objectAtIndex:indexPath.row];
-        cell.frendModel = frends;
-        return cell;
-    }
-        AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
-        FriendInfoModel *frends = self.topFixedArray[indexPath.row];
-        cell.frendModel = frends;
-        return cell;
+    AddressBookCell *cell = (AddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddressBookCell"];
+    FriendInfoModel *frends = indexPath.section?([[self.nameDic objectForKey:self.lettersArray[indexPath.section-1]] objectAtIndex:indexPath.row]):(self.topFixedArray[indexPath.row]);
+    cell.frendModel = frends;
+    return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -164,42 +181,35 @@
     return CGFLOAT_MIN;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section) {
+    if (section>=1) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 25)];
         headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        headerView.tag =100;
         NSString *letterString =  self.lettersArray[section-1];
-        UILabel *letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, headerView.frame.origin.y, headerView.frame.size.width-10, headerView.frame.size.height)];
+        UILabel *letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, headerView.frame.origin.y, headerView.frame.size.width-10, headerView.frame.size.height)];
         letterLabel.textColor = [UIColor grayColor];
         letterLabel.font = [UIFont systemFontOfSize:14.f];
-        letterLabel.text =letterString;
+        if (![letterString isEqualToString:UITableViewIndexSearch]) {
+            letterLabel.text = letterString;
+        }
         [headerView addSubview:letterLabel];
+        
+        [self dealTipsColor];
         return headerView;
     }
     return [UIView new];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (tableView==self.friendTableView&&section!=0) {
-        return 25.0;
-    }
-    return CGFLOAT_MIN;
+    return section>1?25.f:CGFLOAT_MIN;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return self.lettersArray[section];
 }
-
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
-    NSInteger count = 0;
-        for(NSString *letter in self.lettersArray){
-            if([letter isEqualToString:title]){
-                return count;
-            }
-            count++;
-        }
-        return 0;
+    return index;
 }
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-        return self.lettersArray;
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return self.lettersArray;
 }
 #pragma mark
 #pragma mark UISearchBarDelegate
@@ -252,7 +262,6 @@
             }
         }
     }
-    
     return YES;
 }
 
@@ -270,12 +279,11 @@
             }
         }
     }
-    
     return YES;
 }
 //处理letterArray，包括按英文字母顺序排序
 - (void)handleLettersArray{
-    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *tempDic = [[NSMutableDictionary  alloc]init];
     for(FriendInfoModel *friends  in dataSource){
         HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
         formatter.caseType = CaseTypeLowercase;
@@ -286,17 +294,15 @@
         [tempDic setObject:friends forKey:[[outputPinyin substringToIndex:1] uppercaseString]];
     }
     
-    self.lettersArray = tempDic.allKeys;
+    self.lettersArray = tempDic.allKeys.mutableCopy;
     for (NSString *letter in self.lettersArray) {
         NSMutableArray *tempArry = [[NSMutableArray alloc] init];
-        
         for (NSInteger i = 0; i<dataSource.count; i++) {
             FriendInfoModel *friends = dataSource[i];
             HanyuPinyinOutputFormat *formatter =  [[HanyuPinyinOutputFormat alloc] init];
             formatter.caseType = CaseTypeUppercase;
             formatter.vCharType = VCharTypeWithV;
             formatter.toneType = ToneTypeWithoutTone;
-            
             //把friend的userName汉子转为汉语拼音，比如：张磊---->zhanglei
             NSString *outputPinyin=[PinyinHelper toHanyuPinyinStringWithNSString:friends.userName withHanyuPinyinOutputFormat:formatter withNSString:@""];
             if ([letter isEqualToString:[[outputPinyin substringToIndex:1] uppercaseString]]) {
@@ -305,8 +311,6 @@
         }
         [self.nameDic setObject:tempArry forKey:letter];
     }
-    
-    self.lettersArray = tempDic.allKeys;
     //排序，排序的根据是字母
     NSComparator cmptr = ^(id obj1, id obj2){
         if ([obj1 characterAtIndex:0] > [obj2 characterAtIndex:0]) {
@@ -318,8 +322,9 @@
         }
         return (NSComparisonResult)NSOrderedSame;
     };
-    
+    [self.nameDic setObject:UITableViewIndexSearch forKey:@""];
     self.lettersArray = [[NSMutableArray alloc]initWithArray:[self.lettersArray sortedArrayUsingComparator:cmptr]];
+    [self.lettersArray insertObject:UITableViewIndexSearch atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
