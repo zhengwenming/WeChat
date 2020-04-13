@@ -23,8 +23,6 @@
 @implementation ConversationListCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         self.avatarIV = [[UIImageView alloc] init];
         self.avatarIV.layer.cornerRadius = 3;
         self.avatarIV.clipsToBounds = YES;
@@ -37,7 +35,6 @@
         [self.avatarIV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(self.avatarIV.mas_height);
         }];
-        
         
         self.lastMsgTimeLabel = [[UILabel alloc] init];
         self.lastMsgTimeLabel.textColor = [UIColor colorWithRed:160.f/256.f green:160.f/256.f blue:160.f/256.f alpha:1.0];

@@ -10,6 +10,7 @@
 #import "ConversationModel.h"
 #import "ConversationListCell.h"
 #import "FriendInfoModel.h"
+#import "ConversationViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -75,6 +76,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ConversationModel *conversationModel = self.dataSource[indexPath.row];
+    ConversationViewController *conversationVC = [ConversationViewController new];
+    conversationVC.navigationItem.title = conversationModel.userName;
+    [self.navigationController pushViewController:conversationVC animated:YES];
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;

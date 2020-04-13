@@ -23,6 +23,7 @@
 		377CE0231D2280160075DCA3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377CE0201D2280160075DCA3 /* WMPlayer.bundle */; };
 		377CE0241D2280160075DCA3 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CE0221D2280160075DCA3 /* WMPlayer.m */; };
 		377EF7AB1D471F4700177CC8 /* addressBook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377EF7AA1D471F4700177CC8 /* addressBook.gif */; };
+		70154A6124441435007C4EB0 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70154A6024441435007C4EB0 /* ConversationViewController.m */; };
 		701A5BB71F740FB200332B78 /* CopyAbleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BB61F740FB200332B78 /* CopyAbleLabel.m */; };
 		701A5BBD1F74180500332B78 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 701A5BBC1F74180500332B78 /* NSString+Extension.m */; };
 		701C25331F755783009B6AD1 /* JGGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701C25321F755783009B6AD1 /* JGGView.m */; };
@@ -280,6 +281,8 @@
 		377CE0211D2280160075DCA3 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		377CE0221D2280160075DCA3 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		377EF7AA1D471F4700177CC8 /* addressBook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addressBook.gif; sourceTree = "<group>"; };
+		70154A5F24441435007C4EB0 /* ConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		70154A6024441435007C4EB0 /* ConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		701A5BB51F740FB200332B78 /* CopyAbleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyAbleLabel.h; sourceTree = "<group>"; };
 		701A5BB61F740FB200332B78 /* CopyAbleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyAbleLabel.m; sourceTree = "<group>"; };
 		701A5BBB1F74180500332B78 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -748,6 +751,15 @@
 				701A5BBC1F74180500332B78 /* NSString+Extension.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		70154A5E24441401007C4EB0 /* Conversation聊天页面 */ = {
+			isa = PBXGroup;
+			children = (
+				70154A5F24441435007C4EB0 /* ConversationViewController.h */,
+				70154A6024441435007C4EB0 /* ConversationViewController.m */,
+			);
+			path = "Conversation聊天页面";
 			sourceTree = "<group>";
 		};
 		701C25341F755A1B009B6AD1 /* YYKit */ = {
@@ -1463,6 +1475,7 @@
 				182E60EF243E13C8002128BA /* ConversationListCell.m */,
 				187DF9CE243CE0B500D3A52B /* ConversationModel.h */,
 				187DF9CF243CE0B500D3A52B /* ConversationModel.m */,
+				70154A5E24441401007C4EB0 /* Conversation聊天页面 */,
 			);
 			path = "Home微信";
 			sourceTree = "<group>";
@@ -1542,7 +1555,7 @@
 				TargetAttributes = {
 					70BB72651D02A8A70003B379 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7D992WX2BB;
+						DevelopmentTeam = 58RLM4UFK5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1645,6 +1658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70154A6124441435007C4EB0 /* ConversationViewController.m in Sources */,
 				701C25E71F755A1B009B6AD1 /* NSArray+YYAdd.m in Sources */,
 				701C26251F755A1C009B6AD1 /* YYTextAttribute.m in Sources */,
 				701C26371F755A1C009B6AD1 /* YYTransaction.m in Sources */,
@@ -1919,7 +1933,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7D992WX2BB;
+				DEVELOPMENT_TEAM = 58RLM4UFK5;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1935,7 +1949,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 文明 郑 (T466HLN9HZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7D992WX2BB;
+				DEVELOPMENT_TEAM = 58RLM4UFK5;
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
